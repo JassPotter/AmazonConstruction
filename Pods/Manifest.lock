@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (5.2.2)
+  - FCAlertView (1.4.0)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - FCAlertView
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FCAlertView
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+
+PODFILE CHECKSUM: 78941f2fe130baa1dfaa245ad9b340665823aa5b
+
+COCOAPODS: 1.9.3
