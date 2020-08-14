@@ -34,7 +34,7 @@ class AppNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.barTintColor = COLOR_BLACK
+        self.navigationBar.barTintColor = COLOR_WHITE
         self.navigationBar.isTranslucent = false
         self.navigationBar.tintColor = COLOR_WHITE
         self.navigationBar.setValue(true, forKey: "hidesShadow")
@@ -63,6 +63,13 @@ class AppNavigationController: UINavigationController {
         self.lblTitle.textAlignment = .center
         self.lblTitle.numberOfLines = 0
         viewController.navigationItem.titleView = self.lblTitle
+    }
+    
+    internal func setRightTitleMenu(_ title : String) {
+        let viewController: UIViewController = self.viewControllers.last!
+        btnRightMenu = DesignModel.createButton(CGRect(x: 0, y: 0, width: 30, height: 30), title: title, bgColor: .clear, titleFont: UIFont.init(name: FONT_POPPINS_SEMIBOLD, size: 20)!, titleColor: APP_THEME_COLOR, cornerRadius: 0)
+        btnRightMenu.addTarget(self, action: #selector(btnRightMenuAction), for: UIControl.Event.touchUpInside)
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: btnRightMenu)
     }
     
     internal func setSubTitlePotrait(_ mainTitle: String, subTitle: String) {
@@ -135,7 +142,7 @@ class AppNavigationController: UINavigationController {
         let viewController: UIViewController = self.viewControllers.last!
         let imagePic = UIImageView(image:img)
         imagePic.frame = CGRect(x: btnWidth - 15, y: viewBar.frame.minY, width: viewBar.frame.width - btnWidth, height: viewBar.frame.height)
-        imagePic.contentMode = UIView.ContentMode.left
+        imagePic.contentMode = UIView.ContentMode.scaleAspectFit
         imagePic.clipsToBounds = true
         DesignModel.setViewBorder(imagePic, borderColor: .clear, borderWidth: 0, isShadow: false, cornerRadius: 0, backColor: .clear)
         viewBar.addSubview(imagePic)
@@ -163,8 +170,8 @@ class AppNavigationController: UINavigationController {
     
     internal func setLeftBack() {
         let viewController = self.viewControllers.last!
-        let btnBack = self.createImageButton("icon_Back")
-        btnBack.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
+        let btnBack = UIButton()
+//        btnBack.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btnBack)
     }
     

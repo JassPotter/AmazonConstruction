@@ -69,8 +69,8 @@ let COLOR_GRAY                                = UIColor.gray
 //**************************CELL IDENTIFIER***********************************
 let CELL_IDENTIFIER_SIDE_MENU          = "SideMenuCell"
 let CELL_IDENTIFIER_HOME               = "HomeCell"
-let CELL_IDENTIFIER_MEAL_LIST          = "MealListCell"
-let CELL_IDENTIFIER_MEAL_SELECTED      = "MealSelectedCell"
+let CELL_IDENTIFIER_AL_SITE_MANAGER    = "ALSiteManagerCell"
+let CELL_IDENTIFIER_AL_RELIGION_MANAGER = "ALReligionManagerCell"
 let CELL_IDENTIFIER_MEAL_SELECTED_SUB  = "MealSelectedSubCell"
 let CELL_IDENTIFIER_RECEIVER_NORMAL    = "idChatReceiverNormalCell"
 let CELL_IDENTIFIER_SENDER_QUOTE       = "idChatSenderQuoteCell"

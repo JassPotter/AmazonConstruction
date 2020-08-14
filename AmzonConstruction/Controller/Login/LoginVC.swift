@@ -104,6 +104,7 @@ extension LoginVC {
         params["email_id"] = email as AnyObject
         params["password"] = password as AnyObject
         params["user_type"] = password as AnyObject
+//        params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
         params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
         if isConnectedToNetwork() {
             APP_SCENE_DELEGATE.showAppLoader()
@@ -112,9 +113,36 @@ extension LoginVC {
 
                 if !dictResponse.isEmpty {
                     if "\(dictResponse["status"]!)" == "true" {
-                        showAlertWithTitleWithMessage(message: "Login Successful")
+//                        showAlertWithTitleWithMessage(message: "Login Successful")
                         GetSetModel.setObjectToUserDefaults(objValue: (dictResponse["data"] as! [typeAliasDictionary]).first!, ForKey: UD_KEY_APPUSER_INFO)
-                        self.appNavigationController_BackAction()
+                        APP_SCENE_DELEGATE.dictUserInfo = (dictResponse["data"] as! [typeAliasDictionary]).first!
+//                        self.appNavigationController_BackAction()
+                       switch APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String {
+                        case "2":
+                            //site manager
+                            let vc = ALSiteManagerVC.init(nibName: "ALSiteManagerVC", bundle: nil)
+                            vc.intLoginType = Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)!
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            break
+                        case "3":
+                            //contractor
+                            let vc = ALContractorVC.init(nibName: "ALContractorVC", bundle: nil)
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            break
+                        case "4":
+                            //Region manager
+                            let vc = ALReligionManagerVC.init(nibName: "ALReligionManagerVC", bundle: nil)
+                            vc.isDirect = true
+                            vc.arrList = APP_SCENE_DELEGATE.dictUserInfo["site_details"] as! [typeAliasDictionary]
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            break
+                        case "5":
+                            let vc = ALPhosterAdminVC.init(nibName: "ALPhosterAdminVC", bundle: nil)
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            //Admin
+                            break
+                        default:break
+                    }
                     }
                     else {
                         showAlertWithTitleWithMessage(message: "Invalid Email Or Password.")

@@ -14,8 +14,7 @@ class HomeVC: UIViewController {
     //MARK: PROPERTIES
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var tableViewBG: UITableView!
-    @IBOutlet var viewRightNavigationBG: UIView!
-    @IBOutlet weak var lblCartCount: UILabel!
+    
     //MARK: VARIABLES
     fileprivate var arrList : [typeAliasDictionary] = [typeAliasDictionary]()
     
@@ -38,13 +37,13 @@ class HomeVC: UIViewController {
         APP_SCENE_DELEGATE.navigationController.setSideMenu()
         APP_SCENE_DELEGATE.navigationController.navigationDelegate = self
         APP_SCENE_DELEGATE.navigationController.setCustomTitleWithImage(#imageLiteral(resourceName: "icon_AppLogo"))
-        self.lblCartCount.text = "0 items"
-        let count = GetSetModel.getStringValueFromUserDefaults(UD_KEY_CART_COUNT)
-        if count != "" {
-            self.lblCartCount.text = "\(count) Items"
-        }
-        
-        APP_SCENE_DELEGATE.navigationController.setRightView(view: self.viewRightNavigationBG)
+//        self.lblCartCount.text = "0 items"
+//        let count = GetSetModel.getStringValueFromUserDefaults(UD_KEY_CART_COUNT)
+//        if count != "" {
+//            self.lblCartCount.text = "\(count) Items"
+//        }
+//        
+//        APP_SCENE_DELEGATE.navigationController.setRightView(view: self.viewRightNavigationBG)
         //        APP_SCENE_DELEGATE.navigationController.setRightButton(cartItem: 0)
     }
     
@@ -52,23 +51,7 @@ class HomeVC: UIViewController {
     
     //MARK: Custom Method
     func getCategoryList() {
-        if isConnectedToNetwork(){
-            let param : typeAliasDictionary = typeAliasDictionary()
-            APP_SCENE_DELEGATE.showAppLoader()
-            ServiceCollection.sharedInstance.getHomeCategoryList(param: param, response: {(arrL,rstatus,message) in
-                APP_SCENE_DELEGATE.removeAppLoader()
-                if rstatus == 1{
-                    //                    self.getLogin()
-                    self.arrList = [typeAliasDictionary]()
-                    self.arrList.append(contentsOf: arrL)
-                    self.tableViewBG.reloadData()
-                }else{
-                    showAlertWithTitleWithMessage(message: message)
-                }
-            })
-        }else{
-            showNoInternetAlert()
-        }
+        
     }
     func getLogin() {
         if isConnectedToNetwork(){

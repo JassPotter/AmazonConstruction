@@ -177,8 +177,6 @@
                         <constraint firstItem="IED-02-Kyi" firstAttribute="width" secondItem="H7G-kk-Cky" secondAttribute="width" id="Vmv-rn-5FZ"/>
                         <constraint firstItem="IED-02-Kyi" firstAttribute="height" secondItem="H7G-kk-Cky" secondAttribute="height" id="gz7-jX-aKO"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="4ob-pF-CJw"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="BEE-HS-bY4"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

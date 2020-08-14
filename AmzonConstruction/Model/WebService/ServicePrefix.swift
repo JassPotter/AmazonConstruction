@@ -70,6 +70,11 @@ let RES_Status                          = "Status"
 
 public enum WSRequestType : Int {
     case GetLogin
+    case PostDashboard
+    case PostRegionDashboard
+    case PostClusterSiteList
+    case GetClusterList
+    
     case GetHomeCategoryList
     case GetCityList
     case UserRegistration
@@ -126,6 +131,14 @@ struct WebServicePrefix {
             serviceURl = "deleteCartitem"
         case .GetPlaceOrder:
             serviceURl = "PlaceOrderWebservice.php"
+        case .PostDashboard:
+            serviceURl = "getPermitdetails"
+        case .PostRegionDashboard:
+            serviceURl = "getRegionalpermitdetails"
+        case .PostClusterSiteList:
+            serviceURl = "getClustersites"
+        case .GetClusterList:
+            serviceURl = "getClusterdetails"
         }
         return "\(BASE_URL)\(serviceURl!)"
     }

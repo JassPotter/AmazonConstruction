@@ -176,14 +176,14 @@ class ServiceCollection {
            }
        }
     
-    func getHomeCategoryList (param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
-        let url : String = WebServicePrefix.GetWSUrl(.GetHomeCategoryList)
-        ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
+    func getClusterSiteList (param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
+        let url : String = WebServicePrefix.GetWSUrl(.PostClusterSiteList)
+        ServiceManager.sharedInstance.postRequest(url, parameters: param) { (data, error, message, rstatus ) in
             if error != nil {
                 response([], 0, message!)
             }else{
                 if rstatus == 1 {
-                    response((data as! typeAliasDictionary)[RES_data] as! [typeAliasDictionary], 1, message!)
+                    response((data as! [typeAliasDictionary]) , 1, message!)
                 }else{
                     response([typeAliasDictionary](), 0, message!)
                 }
@@ -191,16 +191,16 @@ class ServiceCollection {
         }
     }
     
-    func getCategoryDetailList (param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
-        let url : String = WebServicePrefix.GetWSUrl(.GetCategoryDetail)
+    func getClusterList(param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
+        let url : String = WebServicePrefix.GetWSUrl(.GetClusterList)
         ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
             if error != nil {
-                response(typeAliasDictionary(), 0, message!)
+                response([typeAliasDictionary](), 0, message!)
             }else{
                 if rstatus == 1 {
-                    response((data as! typeAliasDictionary), 1, message!)
+                    response((data as! [typeAliasDictionary]), 1, message!)
                 }else{
-                    response(typeAliasDictionary(), 0, message!)
+                    response([typeAliasDictionary](), 0, message!)
                 }
             }
         }
@@ -251,8 +251,8 @@ class ServiceCollection {
         }
     }
     
-    func callPlaceOrder(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
-           let url : String = WebServicePrefix.GetWSUrl(.GetPlaceOrder)
+    func callDashboard(param : typeAliasDictionary,isRegion:Bool ,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
+        let url : String = WebServicePrefix.GetWSUrl(isRegion ? .PostRegionDashboard : .PostDashboard)
            ServiceManager.sharedInstance.postRequest(url, parameters: param) { (data, error, message, rstatus ) in
                if error != nil {
                    response(typeAliasDictionary(), 0, message!)
