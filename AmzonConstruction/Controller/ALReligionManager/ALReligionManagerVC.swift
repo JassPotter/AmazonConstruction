@@ -102,7 +102,7 @@ extension ALReligionManagerVC : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ALSiteManagerVC.init(nibName: "ALSiteManagerVC", bundle: nil)
         vc.intLoginType = Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)!
-        vc.strSiteId = (self.arrList[indexPath.row])["id"]as! String
+        vc.strSiteId = (self.arrList[indexPath.row])[((self.arrList[indexPath.row]).isKeyNull("id") ? "site_id" : "id")]as! String
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

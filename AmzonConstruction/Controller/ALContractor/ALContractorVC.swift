@@ -15,7 +15,7 @@ class ALContractorVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         self.setNavigationBar()
     }
 
@@ -32,7 +32,7 @@ class ALContractorVC: UIViewController {
         }
         else {
             //old list
-            let vc = ALSiteManagerVC.init(nibName: "LoginVC", bundle: nil)
+            let vc = ALSiteManagerVC.init(nibName: "ALSiteManagerVC", bundle: nil)
             vc.intLoginType = Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)!
             self.navigationController?.pushViewController(vc, animated: true)
         }

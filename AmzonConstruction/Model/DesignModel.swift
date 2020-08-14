@@ -59,6 +59,8 @@ let COLOR_BROWN                               = UIColor.brown
 let COLOR_PURPLE                              = UIColor.purple
 let COLOR_GRAY                                = UIColor.gray
 
+let Color_Them_ApproveGreen                   = COLOR_CUSTOM(218,248,210,1)
+let Color_Theme_PendingYellow                 = COLOR_CUSTOM(255,245,214,1)
 //let COLOR_GOLDERN_YELLOW                    = COLOR_CUSTOM(195, 135, 73, 1)
 //let COLOR_ORANGE                            = RGBCOLOR(255, g:103, b:2)
 //let COLOUR_NEW_GREEN                        = RGBCOLOR(95,g:206,b: 121)

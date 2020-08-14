@@ -131,7 +131,28 @@ class ALSiteManagerVC: UIViewController {
     }
     
     //MARK: UIBUTTON ACTION
-    
+    @IBAction func btnTopAction(_ sender: UIButton) {
+           switch sender.tag {
+           case 1:
+               self.arrListSelected = self.arrList
+               break
+           case 2:
+               self.arrListSelected = self.arrList.filter { (dict1) -> Bool in
+               (dict1["work_permit"]as! typeAliasDictionary)["status"] as! String == "1" }
+           break
+           case 3:
+               self.arrListSelected = self.arrList.filter { (dict1) -> Bool in
+               (dict1["work_permit"]as! typeAliasDictionary)["status"] as! String == "3" }
+           break
+           case 4:
+               self.arrListSelected = self.arrList.filter { (dict1) -> Bool in
+               (dict1["work_permit"]as! typeAliasDictionary)["status"] as! String == "5" }
+           break
+           default:
+               break
+           }
+           self.tableViewBG.reloadData()
+       }
 }
 extension ALSiteManagerVC : AppNavigationControllerDelegate {
     func appNavigationController_RightMenuAction() {
@@ -170,7 +191,7 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
         default: break
         }
         cell.lblStatus.text = strV
-        cell.viewBG.backgroundColor = strV == "Rejected" ? COLOUR_LIGHT_RED : .white
+        cell.viewBG.backgroundColor = strV == "Approved" ? Color_Theme_PendingYellow : (strV == "Signed Off & Complete" ? Color_Them_ApproveGreen : .white)
         cell.selectionStyle = .none
         return cell
     }

@@ -62,6 +62,9 @@
                                                 </label>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cx5-Z1-Pc0">
                                                     <rect key="frame" x="0.0" y="0.0" width="91" height="95"/>
+                                                    <connections>
+                                                        <action selector="btnTopAction:" destination="-1" eventType="touchUpInside" id="GTw-Yf-Wnt"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="PrimaryText"/>
@@ -104,6 +107,9 @@
                                                 </label>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqa-vX-LNL">
                                                     <rect key="frame" x="0.0" y="0.0" width="91" height="95"/>
+                                                    <connections>
+                                                        <action selector="btnTopAction:" destination="-1" eventType="touchUpInside" id="nN0-K6-Rju"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="PrimaryText"/>
@@ -146,6 +152,9 @@
                                                 </label>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bb-gX-RgQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="91" height="95"/>
+                                                    <connections>
+                                                        <action selector="btnTopAction:" destination="-1" eventType="touchUpInside" id="ajz-n6-u44"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="PrimaryText"/>
@@ -188,6 +197,9 @@
                                                 </label>
                                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNS-qA-FKi">
                                                     <rect key="frame" x="0.0" y="0.0" width="91" height="95"/>
+                                                    <connections>
+                                                        <action selector="btnTopAction:" destination="-1" eventType="touchUpInside" id="ddd-jc-TIX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="PrimaryText"/>
@@ -266,7 +278,7 @@
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fOD-Ir-Wdt">
                                     <rect key="frame" x="5" y="65" width="384" height="608"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="5"/>

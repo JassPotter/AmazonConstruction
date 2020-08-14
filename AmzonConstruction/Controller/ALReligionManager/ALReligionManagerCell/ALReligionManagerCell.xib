@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,22 +25,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZr-th-B5o">
-                                <rect key="frame" x="0.0" y="5" width="320" height="90"/>
+                                <rect key="frame" x="5" y="5" width="310" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Site Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sry-za-lSg">
-                                        <rect key="frame" x="5" y="5" width="120" height="80"/>
+                                        <rect key="frame" x="5" y="5" width="116.5" height="80"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No of contractor currently working on site" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXE-co-ypb">
-                                        <rect key="frame" x="125" y="5" width="190" height="80"/>
+                                        <rect key="frame" x="121.5" y="5" width="183.5" height="80"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="lightGray"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Sry-za-lSg" secondAttribute="bottom" constant="5" id="1R5-0P-akz"/>
                                     <constraint firstItem="sXE-co-ypb" firstAttribute="leading" secondItem="Sry-za-lSg" secondAttribute="trailing" id="1wh-VH-lZf"/>
@@ -54,15 +53,16 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WZr-th-B5o" firstAttribute="leading" secondItem="9C7-EN-gTr" secondAttribute="leading" id="1r9-Or-Q1M"/>
+                            <constraint firstItem="WZr-th-B5o" firstAttribute="leading" secondItem="9C7-EN-gTr" secondAttribute="leading" constant="5" id="1r9-Or-Q1M"/>
                             <constraint firstAttribute="bottom" secondItem="WZr-th-B5o" secondAttribute="bottom" constant="5" id="9ZS-nw-IPP"/>
                             <constraint firstItem="WZr-th-B5o" firstAttribute="top" secondItem="9C7-EN-gTr" secondAttribute="top" constant="5" id="CPt-0h-6nu"/>
-                            <constraint firstAttribute="trailing" secondItem="WZr-th-B5o" secondAttribute="trailing" id="b3Y-PI-MKz"/>
+                            <constraint firstAttribute="trailing" secondItem="WZr-th-B5o" secondAttribute="trailing" constant="5" id="b3Y-PI-MKz"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="9C7-EN-gTr" secondAttribute="trailing" id="H2t-s8-bZ7"/>
                     <constraint firstItem="9C7-EN-gTr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="I12-e2-REJ"/>
@@ -70,6 +70,7 @@
                     <constraint firstItem="9C7-EN-gTr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yI1-lI-oEU"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lblContractorList" destination="sXE-co-ypb" id="vql-vf-46q"/>
@@ -78,9 +79,4 @@
             <point key="canvasLocation" x="139" y="129"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="lightGray">
-            <color red="0.91399997472763062" green="0.91399997472763062" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>
