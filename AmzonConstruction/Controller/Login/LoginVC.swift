@@ -40,6 +40,7 @@ class LoginVC: UIViewController {
         APP_SCENE_DELEGATE.navigationController.navigationDelegate = self
         APP_SCENE_DELEGATE.navigationController.setBack()
         APP_SCENE_DELEGATE.navigationController.setCustomTitle("Login to your account")
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     
@@ -100,22 +101,23 @@ extension LoginVC {
     
     func callLoginAPI(email:String,password:String) {
         var params = typeAliasDictionary()
-        params[REQ_email] = email as AnyObject
-        params[REQ_password] = password as AnyObject
-        params[REQ_reg_id] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
-        if isConnectedToNetwork(){
+        params["email_id"] = email as AnyObject
+        params["password"] = password as AnyObject
+        params["user_type"] = password as AnyObject
+        params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
+        if isConnectedToNetwork() {
             APP_SCENE_DELEGATE.showAppLoader()
             ServiceCollection.sharedInstance.getLogin(param: params, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
 
                 if !dictResponse.isEmpty {
-                    if "\(dictResponse["status"]!)" == "1" {
+                    if "\(dictResponse["status"]!)" == "true" {
                         showAlertWithTitleWithMessage(message: "Login Successful")
-                        GetSetModel.setObjectToUserDefaults(objValue: (dictResponse["datas"] as! [typeAliasDictionary]).first!, ForKey: UD_KEY_APPUSER_INFO)
+                        GetSetModel.setObjectToUserDefaults(objValue: (dictResponse["data"] as! [typeAliasDictionary]).first!, ForKey: UD_KEY_APPUSER_INFO)
                         self.appNavigationController_BackAction()
                     }
                     else {
-                        showAlertWithTitleWithMessage(message: "\(dictResponse[RES_message]!)")
+                        showAlertWithTitleWithMessage(message: "Invalid Email Or Password.")
                     }
                 }
                 else {

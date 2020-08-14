@@ -42,7 +42,7 @@ public func APPBLUECOLORWITHRANDOMOPECITY() -> UIColor {
 }
 //MARK: COLOUR
 let COLOUR_DARK_RED                           = COLOR_CUSTOM(224,37,10,1)
-let COLOUR_LIGHT_RED                          = COLOR_CUSTOM(253,53,1,1)
+let COLOUR_LIGHT_RED                          = COLOR_CUSTOM(238,131,2,1)
 let COLOUR_DARKER_RED                         = COLOR_CUSTOM(160,35,40,1)
 let COLOUR_RED                                = COLOR_CUSTOM(190,10,3,1)
 let COLOUR_GREEN                              = COLOR_CUSTOM(61,210,183,1)

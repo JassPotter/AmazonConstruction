@@ -99,7 +99,7 @@ struct WebServicePrefix {
         var serviceURl: String?
         switch serviceType {
         case .GetLogin:
-            serviceURl = "loginUser"
+            serviceURl = "userLogin"
         case .GetHomeCategoryList:
             serviceURl = "getCategorylist"
         case .GetCityList:
@@ -126,7 +126,6 @@ struct WebServicePrefix {
             serviceURl = "deleteCartitem"
         case .GetPlaceOrder:
             serviceURl = "PlaceOrderWebservice.php"
-            return "\(BASE_URL_PLACE_ORDER)\(serviceURl!)"
         }
         return "\(BASE_URL)\(serviceURl!)"
     }

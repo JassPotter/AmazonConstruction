@@ -32,10 +32,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow.init(frame: windowscene.coordinateSpace.bounds)
         window?.windowScene = windowscene
         window?.makeKeyAndVisible()
-      
+        
         if GetSetModel.iskeyAlreadyExist(key: UD_KEY_APPUSER_INFO) { self.dictUserInfo = GetSetModel.getObjectFromUserDefaults(UD_KEY_APPUSER_INFO)
         }
-        self.setHomeVC()
+        self.setLoginVC()
         
     }
     
@@ -73,7 +73,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func setLoginVC(){
         let loginVC = LoginVC.init(nibName: "LoginVC", bundle: nil)
-        self.navigationController.pushViewController(loginVC, animated: true)
+        navigationController = AppNavigationController.init(rootViewController: loginVC)
+        self.window?.rootViewController = navigationController
     }
     
     func showAppLoader() {

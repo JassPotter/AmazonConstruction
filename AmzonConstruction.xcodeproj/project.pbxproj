@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD458BD724E68F9800AAB5AD /* ALContractorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */; };
+		CD458BD824E68F9800AAB5AD /* ALContractorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BD624E68F9800AAB5AD /* ALContractorVC.xib */; };
+		CD458BDB24E68FD400AAB5AD /* ALSiteManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BD924E68FD400AAB5AD /* ALSiteManagerVC.swift */; };
+		CD458BDC24E68FD400AAB5AD /* ALSiteManagerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BDA24E68FD400AAB5AD /* ALSiteManagerVC.xib */; };
+		CD458BDF24E68FE400AAB5AD /* ALReligionManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BDD24E68FE400AAB5AD /* ALReligionManagerVC.swift */; };
+		CD458BE024E68FE400AAB5AD /* ALReligionManagerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BDE24E68FE400AAB5AD /* ALReligionManagerVC.xib */; };
+		CD458BE324E68FF700AAB5AD /* ALPhosterAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BE124E68FF700AAB5AD /* ALPhosterAdminVC.swift */; };
+		CD458BE424E68FF700AAB5AD /* ALPhosterAdminVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BE224E68FF700AAB5AD /* ALPhosterAdminVC.xib */; };
 		CD80464824E576C20060B40B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD80464724E576C20060B40B /* Assets.xcassets */; };
 		CD80464B24E576C20060B40B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD80464924E576C20060B40B /* LaunchScreen.storyboard */; };
 		CD8046BB24E577660060B40B /* App_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80465324E577650060B40B /* App_Constants.swift */; };
@@ -36,7 +44,6 @@
 		CD8046D324E577660060B40B /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467324E577660060B40B /* CosmosView.swift */; };
 		CD8046D424E577660060B40B /* ServiceCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467524E577660060B40B /* ServiceCollection.swift */; };
 		CD8046D524E577660060B40B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467624E577660060B40B /* ServiceManager.swift */; };
-		CD8046D624E577660060B40B /* SP_ChargeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467724E577660060B40B /* SP_ChargeApi.swift */; };
 		CD8046D724E577660060B40B /* ServicePrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467824E577660060B40B /* ServicePrefix.swift */; };
 		CD8046D824E577660060B40B /* GetSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467924E577660060B40B /* GetSetModel.swift */; };
 		CD8046D924E577660060B40B /* App_ Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80467A24E577660060B40B /* App_ Messages.swift */; };
@@ -63,6 +70,14 @@
 		170EE477BA054503F58D1F7A /* Pods-AmzonConstruction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmzonConstruction.release.xcconfig"; path = "Target Support Files/Pods-AmzonConstruction/Pods-AmzonConstruction.release.xcconfig"; sourceTree = "<group>"; };
 		1A9F9A19ACF4D81EF15A27F0 /* Pods-AmzonConstruction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmzonConstruction.debug.xcconfig"; path = "Target Support Files/Pods-AmzonConstruction/Pods-AmzonConstruction.debug.xcconfig"; sourceTree = "<group>"; };
 		3B65FB947B1DC51ACB7490D4 /* Pods_AmzonConstruction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmzonConstruction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALContractorVC.swift; sourceTree = "<group>"; };
+		CD458BD624E68F9800AAB5AD /* ALContractorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALContractorVC.xib; sourceTree = "<group>"; };
+		CD458BD924E68FD400AAB5AD /* ALSiteManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALSiteManagerVC.swift; sourceTree = "<group>"; };
+		CD458BDA24E68FD400AAB5AD /* ALSiteManagerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALSiteManagerVC.xib; sourceTree = "<group>"; };
+		CD458BDD24E68FE400AAB5AD /* ALReligionManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALReligionManagerVC.swift; sourceTree = "<group>"; };
+		CD458BDE24E68FE400AAB5AD /* ALReligionManagerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALReligionManagerVC.xib; sourceTree = "<group>"; };
+		CD458BE124E68FF700AAB5AD /* ALPhosterAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALPhosterAdminVC.swift; sourceTree = "<group>"; };
+		CD458BE224E68FF700AAB5AD /* ALPhosterAdminVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALPhosterAdminVC.xib; sourceTree = "<group>"; };
 		CD80463B24E576BD0060B40B /* AmzonConstruction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmzonConstruction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD80464724E576C20060B40B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD80464A24E576C20060B40B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,7 +109,6 @@
 		CD80467324E577660060B40B /* CosmosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosView.swift; sourceTree = "<group>"; };
 		CD80467524E577660060B40B /* ServiceCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollection.swift; sourceTree = "<group>"; };
 		CD80467624E577660060B40B /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
-		CD80467724E577660060B40B /* SP_ChargeApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP_ChargeApi.swift; sourceTree = "<group>"; };
 		CD80467824E577660060B40B /* ServicePrefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePrefix.swift; sourceTree = "<group>"; };
 		CD80467924E577660060B40B /* GetSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSetModel.swift; sourceTree = "<group>"; };
 		CD80467A24E577660060B40B /* App_ Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "App_ Messages.swift"; sourceTree = "<group>"; };
@@ -144,6 +158,42 @@
 				170EE477BA054503F58D1F7A /* Pods-AmzonConstruction.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD458BD124E68F2600AAB5AD /* ALContractor */ = {
+			isa = PBXGroup;
+			children = (
+				CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */,
+				CD458BD624E68F9800AAB5AD /* ALContractorVC.xib */,
+			);
+			path = ALContractor;
+			sourceTree = "<group>";
+		};
+		CD458BD224E68F4600AAB5AD /* ALSiteManager */ = {
+			isa = PBXGroup;
+			children = (
+				CD458BD924E68FD400AAB5AD /* ALSiteManagerVC.swift */,
+				CD458BDA24E68FD400AAB5AD /* ALSiteManagerVC.xib */,
+			);
+			path = ALSiteManager;
+			sourceTree = "<group>";
+		};
+		CD458BD324E68F5900AAB5AD /* ALReligionManager */ = {
+			isa = PBXGroup;
+			children = (
+				CD458BDD24E68FE400AAB5AD /* ALReligionManagerVC.swift */,
+				CD458BDE24E68FE400AAB5AD /* ALReligionManagerVC.xib */,
+			);
+			path = ALReligionManager;
+			sourceTree = "<group>";
+		};
+		CD458BD424E68F6D00AAB5AD /* ALPhosterAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				CD458BE124E68FF700AAB5AD /* ALPhosterAdminVC.swift */,
+				CD458BE224E68FF700AAB5AD /* ALPhosterAdminVC.xib */,
+			);
+			path = ALPhosterAdmin;
 			sourceTree = "<group>";
 		};
 		CD80463224E576BD0060B40B = {
@@ -278,7 +328,6 @@
 			children = (
 				CD80467524E577660060B40B /* ServiceCollection.swift */,
 				CD80467624E577660060B40B /* ServiceManager.swift */,
-				CD80467724E577660060B40B /* SP_ChargeApi.swift */,
 				CD80467824E577660060B40B /* ServicePrefix.swift */,
 			);
 			path = WebService;
@@ -309,6 +358,10 @@
 			isa = PBXGroup;
 			children = (
 				CD80468824E577660060B40B /* Home */,
+				CD458BD124E68F2600AAB5AD /* ALContractor */,
+				CD458BD224E68F4600AAB5AD /* ALSiteManager */,
+				CD458BD324E68F5900AAB5AD /* ALReligionManager */,
+				CD458BD424E68F6D00AAB5AD /* ALPhosterAdmin */,
 				CD8046B624E577660060B40B /* Login */,
 			);
 			path = Controller;
@@ -419,9 +472,13 @@
 				CD8046DF24E577660060B40B /* Poppins-Light.ttf in Resources */,
 				CD8046C024E577660060B40B /* JD_SideMenu.xib in Resources */,
 				CD8046E024E577660060B40B /* Poppins-Medium.ttf in Resources */,
+				CD458BE424E68FF700AAB5AD /* ALPhosterAdminVC.xib in Resources */,
+				CD458BE024E68FE400AAB5AD /* ALReligionManagerVC.xib in Resources */,
 				CD8046E224E577660060B40B /* Poppins-Bold.ttf in Resources */,
+				CD458BDC24E68FD400AAB5AD /* ALSiteManagerVC.xib in Resources */,
 				CD8046BE24E577660060B40B /* SideMenuCell.xib in Resources */,
 				CD8046E324E577660060B40B /* Poppins-SemiBold.ttf in Resources */,
+				CD458BD824E68F9800AAB5AD /* ALContractorVC.xib in Resources */,
 				CD8046C424E577660060B40B /* JDSelection.xib in Resources */,
 				CD8046E124E577660060B40B /* Poppins-Regular.ttf in Resources */,
 			);
@@ -477,17 +534,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8046D424E577660060B40B /* ServiceCollection.swift in Sources */,
+				CD458BE324E68FF700AAB5AD /* ALPhosterAdminVC.swift in Sources */,
 				CD8046C724E577660060B40B /* CosmosAccessibility.swift in Sources */,
 				CD8046CD24E577660060B40B /* CosmosLayerHelper.swift in Sources */,
 				CD8046CB24E577660060B40B /* CosmosLayers.swift in Sources */,
 				CD8046CE24E577660060B40B /* CosmosTouch.swift in Sources */,
 				CD8046C624E577660060B40B /* StarLayer.swift in Sources */,
+				CD458BDB24E68FD400AAB5AD /* ALSiteManagerVC.swift in Sources */,
 				CD8046D224E577660060B40B /* RightToLeft.swift in Sources */,
+				CD458BDF24E68FE400AAB5AD /* ALReligionManagerVC.swift in Sources */,
 				CD8046CF24E577660060B40B /* CosmosRating.swift in Sources */,
 				CD8046BF24E577660060B40B /* SideMenuCell.swift in Sources */,
 				CD8046BD24E577660060B40B /* JD_SideMenu.swift in Sources */,
 				CD8046D324E577660060B40B /* CosmosView.swift in Sources */,
 				CD8046D824E577660060B40B /* GetSetModel.swift in Sources */,
+				CD458BD724E68F9800AAB5AD /* ALContractorVC.swift in Sources */,
 				CD8046DC24E577660060B40B /* APP_Popover.swift in Sources */,
 				CD80470424E577660060B40B /* LoginVC.swift in Sources */,
 				CD8046CA24E577660060B40B /* CosmosSize.swift in Sources */,
@@ -499,7 +560,6 @@
 				CD8046CC24E577660060B40B /* CosmosLocalizedRating.swift in Sources */,
 				CD8046D924E577660060B40B /* App_ Messages.swift in Sources */,
 				CD8046D524E577660060B40B /* ServiceManager.swift in Sources */,
-				CD8046D624E577660060B40B /* SP_ChargeApi.swift in Sources */,
 				CD8046C224E577660060B40B /* JDSelectionCell.swift in Sources */,
 				CD8046DB24E577660060B40B /* DesignModel.swift in Sources */,
 				CD8046D724E577660060B40B /* ServicePrefix.swift in Sources */,
