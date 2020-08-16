@@ -106,7 +106,7 @@ struct WebServicePrefix {
         case .GetLogin:
             serviceURl = "userLogin"
         case .GetHomeCategoryList:
-            serviceURl = "getCategorylist"
+            serviceURl = "getCategoydetails"
         case .GetCityList:
             serviceURl = "listCities"
         case .UserRegistration:

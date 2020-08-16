@@ -50,7 +50,17 @@
                             self.Message = ""
                             responseData(responseJSON, nil, self.Message, 1)
                         }
+                        if endpointurl.isContainString("getCategoydetails") {
+                            guard let responseJSON:[typeAliasDictionary] = response.value as? [typeAliasDictionary] else {
+                                print("Invalid tag information received from the service")
+                                responseData(nil, nil, SOMETHING_WRONG, 0)
+                                return
+                            }
+                            self.Message = ""
+                            responseData(responseJSON, nil, self.Message, 1)
+                        }
                         else {
+                            
                             guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
                                 print("Invalid tag information received from the service")
                                 responseData(nil, nil, SOMETHING_WRONG, 0)
