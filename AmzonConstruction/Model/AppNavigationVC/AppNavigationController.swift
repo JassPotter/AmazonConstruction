@@ -119,6 +119,13 @@ class AppNavigationController: UINavigationController {
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btnSideMenu)
     }
     
+    internal func setRightButton(title: String) {
+        let viewController = self.viewControllers.last!
+        let btnBack = self.createTitalButtonRight(title)
+        btnBack.addTarget(self, action: #selector(self.btnRightMenuAction), for: .touchUpInside)
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btnBack)
+    }
+    
     internal func setRightButton(cartItem: Int) {
         let viewController: UIViewController = self.viewControllers.last!
         btnRightMenu = self.createImageButton("icon_add_to_cart")
@@ -186,7 +193,7 @@ class AppNavigationController: UINavigationController {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 360, y: 52, width: 30, height: 30)
         button.setTitle(imageName, for: .normal)
-        button.setTitleColor(COLOR_WHITE, for: .normal)
+        button.setTitleColor(COLOUR_LIGHT_RED, for: .normal)
         button.showsTouchWhenHighlighted = false
         return button
     }

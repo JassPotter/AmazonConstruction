@@ -21,7 +21,7 @@ class ALContractorVC: UIViewController {
 
     //MARK: NAVIGATION BAR
        func setNavigationBar() {
-//           UIApplication.shared.isStatusBarHidden = false
+//         UIApplication.shared.isStatusBarHidden = false
            self.navigationController?.setNavigationBarHidden(true, animated: false)
        }
     
@@ -29,6 +29,9 @@ class ALContractorVC: UIViewController {
     @IBAction func btnPageAction(_ sender: UIButton) {
         if sender.tag == 1 {
             //create new
+            let contractorFormVC = ContractorFormVC.init(nibName: "ContractorFormVC", bundle: nil)
+            contractorFormVC.isEditable = true
+            self.navigationController?.pushViewController(contractorFormVC, animated: true)
         }
         else {
             //old list
