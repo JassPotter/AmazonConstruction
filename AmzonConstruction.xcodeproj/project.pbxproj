@@ -71,6 +71,8 @@
 		CD8046E724E577660060B40B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80468D24E577660060B40B /* HomeVC.swift */; };
 		CD80470424E577660060B40B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8046B724E577660060B40B /* LoginVC.swift */; };
 		CD80470524E577660060B40B /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8046B824E577660060B40B /* LoginVC.xib */; };
+		CDEE46B124E966F50094546D /* InductionFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE46AF24E966F50094546D /* InductionFormVC.swift */; };
+		CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDEE46B024E966F50094546D /* InductionFormVC.xib */; };
 		FE5675806C808EEE8388D2A7 /* Pods_AmzonConstruction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B65FB947B1DC51ACB7490D4 /* Pods_AmzonConstruction.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +147,8 @@
 		CD8046B724E577660060B40B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CD8046B824E577660060B40B /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		CD8046BA24E577660060B40B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDEE46AF24E966F50094546D /* InductionFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InductionFormVC.swift; sourceTree = "<group>"; };
+		CDEE46B024E966F50094546D /* InductionFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InductionFormVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				7E5CD63324E8369E004DC1FC /* ContractorForm */,
+				CDEE46AE24E966CA0094546D /* InductionForm */,
 				CD80468824E577660060B40B /* Home */,
 				CD458BD124E68F2600AAB5AD /* ALContractor */,
 				CD458BD224E68F4600AAB5AD /* ALSiteManager */,
@@ -449,6 +454,15 @@
 				CD8046BA24E577660060B40B /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDEE46AE24E966CA0094546D /* InductionForm */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE46AF24E966F50094546D /* InductionFormVC.swift */,
+				CDEE46B024E966F50094546D /* InductionFormVC.xib */,
+			);
+			path = InductionForm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +535,7 @@
 				CD8046DF24E577660060B40B /* Poppins-Light.ttf in Resources */,
 				CD458BE924E6981900AAB5AD /* ALSiteManagerCell.xib in Resources */,
 				CD8046C024E577660060B40B /* JD_SideMenu.xib in Resources */,
+				CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */,
 				CD8046E024E577660060B40B /* Poppins-Medium.ttf in Resources */,
 				CD458BE424E68FF700AAB5AD /* ALPhosterAdminVC.xib in Resources */,
 				CD458BEE24E6AA1A00AAB5AD /* ALReligionManagerCell.xib in Resources */,
@@ -586,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8046D424E577660060B40B /* ServiceCollection.swift in Sources */,
+				CDEE46B124E966F50094546D /* InductionFormVC.swift in Sources */,
 				CD458BE324E68FF700AAB5AD /* ALPhosterAdminVC.swift in Sources */,
 				CD8046C724E577660060B40B /* CosmosAccessibility.swift in Sources */,
 				CD8046CD24E577660060B40B /* CosmosLayerHelper.swift in Sources */,
