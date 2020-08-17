@@ -36,11 +36,18 @@ class ContractorFormVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+<<<<<<< HEAD
            super.viewWillAppear(animated)
            self.setNavigationBar()
        }
 
     
+=======
+        super.viewWillAppear(animated)
+        self.setNavigationBar()
+    }
+
+>>>>>>> master
     //MARK: NAVIGATION BAR
     func setNavigationBar() {
         UIApplication.shared.isStatusBarHidden = false
@@ -62,6 +69,12 @@ class ContractorFormVC: UIViewController {
             showAlertWithTitleWithMessage(message: "Please select category.")
             return
         }
+<<<<<<< HEAD
+=======
+        
+        let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+>>>>>>> master
     }
     
     @IBAction func btnAddContractorAction() {
