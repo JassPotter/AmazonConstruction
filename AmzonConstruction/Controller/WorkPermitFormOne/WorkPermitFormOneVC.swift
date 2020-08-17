@@ -18,6 +18,51 @@ class WorkPermitFormOneVC: UIViewController {
     @IBOutlet weak var viewIsAsbestosRequired: UIView!
     
     //CHECKBOX
+    @IBOutlet weak var chkBoxSiteRegulations: UIButton!
+    @IBOutlet weak var chikVechicleEquipUsed: UIButton!
+    @IBOutlet weak var chkContractorCondusctTask: UIButton!
+    @IBOutlet weak var chkAccidentIncidentSafety: UIButton!
+    @IBOutlet weak var chkWorkAreaNecessary: UIButton!
+    @IBOutlet weak var chkSiteMandatoryPpe: UIButton!
+    @IBOutlet weak var chkHazardsTask: UIButton!
+    @IBOutlet weak var chkWorkAreaResponsibility: UIButton!
+    
+    
+    @IBOutlet weak var chkWorkWithVehiclesYes: UIButton!
+    @IBOutlet weak var chkWorkWithVehicleNO: UIButton!
+    
+    @IBOutlet weak var chkHotWorkRequiredYes: UIButton!
+    @IBOutlet weak var chkHotWorkRequiredNO: UIButton!
+    
+    @IBOutlet weak var chkElectricityEquipmentRequiredYes: UIButton!
+    @IBOutlet weak var chkElectricityEquipmentRequiredNO: UIButton!
+    
+    @IBOutlet weak var chkCoshhProducedYes: UIButton!
+    @IBOutlet weak var chkCoshhProducedNO: UIButton!
+    
+    @IBOutlet weak var chkEvacuationRequiredYes: UIButton!
+    @IBOutlet weak var chkEvacuationRequiredNo: UIButton!
+    
+    @IBOutlet weak var chkOverheadObstructionsYes: UIButton!
+    @IBOutlet weak var chkOverheadObstructionsNO: UIButton!
+    
+    @IBOutlet weak var chkTrafficOperatingAreaYes: UIButton!
+    @IBOutlet weak var chkTrafficOperatingAreaNo: UIButton!
+    
+    @IBOutlet weak var chkFragileRoofCoveringsYes: UIButton!
+    @IBOutlet weak var chkFragileRoofCoveringsNo: UIButton!
+    
+    @IBOutlet weak var chkWorkAtHeightYes: UIButton!
+    @IBOutlet weak var chkWorkAtHeightNo: UIButton!
+    
+    @IBOutlet weak var chkIsolationSegregationYes: UIButton!
+    @IBOutlet weak var chkIsolationSegregationNo: UIButton!
+    
+    @IBOutlet weak var chkSlipTripHazardsYes: UIButton!
+    @IBOutlet weak var chkSlipTripHazardsNo: UIButton!
+    
+    @IBOutlet weak var chkAsbestosRequiredYes: UIButton!
+    @IBOutlet weak var chkAsbestosRequiredNo: UIButton!
     
     
     //MARK:VARIABLES
@@ -66,6 +111,64 @@ class WorkPermitFormOneVC: UIViewController {
             self.txtSite.text = arrSelected.first!["name"] as! String
             self.siteID = arrSelected.first!["id"] as! String
         }
+    }
+    
+    
+    @IBAction func btnNextAction() {
+        
+        
+        if !chkBoxSiteRegulations.isSelected {
+            showFormValidationMessage();
+        } else if !chikVechicleEquipUsed.isSelected {
+            showFormValidationMessage();
+        } else if !chkContractorCondusctTask.isSelected {
+            showFormValidationMessage();
+        } else if !chkAccidentIncidentSafety.isSelected {
+            showFormValidationMessage();
+        } else if !chkWorkAreaNecessary.isSelected {
+            showFormValidationMessage();
+        } else if !chkSiteMandatoryPpe.isSelected {
+            showFormValidationMessage();
+        } else if !chkHazardsTask.isSelected {
+            showFormValidationMessage();
+        } else if !chkWorkAreaResponsibility.isSelected {
+            showFormValidationMessage();
+        } else if (!chkWorkWithVehiclesYes.isSelected && !chkWorkWithVehicleNO.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkHotWorkRequiredYes.isSelected && !chkHotWorkRequiredNO.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkElectricityEquipmentRequiredYes.isSelected && !chkElectricityEquipmentRequiredNO.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkCoshhProducedYes.isSelected && !chkCoshhProducedNO.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkEvacuationRequiredYes.isSelected && !chkEvacuationRequiredNo.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkOverheadObstructionsYes.isSelected && !chkOverheadObstructionsNO.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkTrafficOperatingAreaYes.isSelected && !chkTrafficOperatingAreaNo.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkFragileRoofCoveringsYes.isSelected && !chkFragileRoofCoveringsNo.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkWorkAtHeightYes.isSelected && !chkWorkAtHeightNo.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkIsolationSegregationYes.isSelected && !chkIsolationSegregationNo.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkSlipTripHazardsYes.isSelected && !chkSlipTripHazardsNo.isSelected) {
+            showFormValidationMessage();
+        } else if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
+            showFormValidationMessage();
+        }  else {
+            
+        }
+
+    }
+    
+    @IBAction func btnBackMenuAction() {
+  
+    }
+    
+    func showFormValidationMessage() {
+        showAlertWithTitleWithMessage(message: "Please fill all details to proceed further")
     }
     
 }
