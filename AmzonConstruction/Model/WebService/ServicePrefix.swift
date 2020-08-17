@@ -74,6 +74,7 @@ public enum WSRequestType : Int {
     case PostRegionDashboard
     case PostClusterSiteList
     case GetClusterList
+    case GetSiteList
     
     case GetHomeCategoryList
     case GetCityList
@@ -88,6 +89,7 @@ public enum WSRequestType : Int {
     case GetAddToCart
     case GetPlaceOrder
     case deleteCartitem
+    
 }
 
 
@@ -139,6 +141,8 @@ struct WebServicePrefix {
             serviceURl = "getClustersites"
         case .GetClusterList:
             serviceURl = "getClusterdetails"
+        case .GetSiteList:
+            serviceURl = "getSitedetails"
         }
         return "\(BASE_URL)\(serviceURl!)"
     }

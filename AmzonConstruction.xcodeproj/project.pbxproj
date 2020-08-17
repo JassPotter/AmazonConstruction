@@ -11,6 +11,8 @@
 		7E5CD63924E8369E004DC1FC /* ContractorFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CD63524E8369E004DC1FC /* ContractorFormVC.swift */; };
 		7E5CD63A24E8369E004DC1FC /* AdditionalContractorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E5CD63624E8369E004DC1FC /* AdditionalContractorCell.xib */; };
 		7E5CD63B24E8369E004DC1FC /* AdditionalContractorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CD63724E8369E004DC1FC /* AdditionalContractorCell.swift */; };
+		7E81C2B924E987D60075546B /* WorkPermitFormOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E81C2B724E987D60075546B /* WorkPermitFormOneVC.swift */; };
+		7E81C2BA24E987D60075546B /* WorkPermitFormOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E81C2B824E987D60075546B /* WorkPermitFormOneVC.xib */; };
 		CD458BD724E68F9800AAB5AD /* ALContractorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */; };
 		CD458BD824E68F9800AAB5AD /* ALContractorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BD624E68F9800AAB5AD /* ALContractorVC.xib */; };
 		CD458BDB24E68FD400AAB5AD /* ALSiteManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BD924E68FD400AAB5AD /* ALSiteManagerVC.swift */; };
@@ -82,6 +84,8 @@
 		7E5CD63524E8369E004DC1FC /* ContractorFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractorFormVC.swift; sourceTree = "<group>"; };
 		7E5CD63624E8369E004DC1FC /* AdditionalContractorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalContractorCell.xib; sourceTree = "<group>"; };
 		7E5CD63724E8369E004DC1FC /* AdditionalContractorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalContractorCell.swift; sourceTree = "<group>"; };
+		7E81C2B724E987D60075546B /* WorkPermitFormOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitFormOneVC.swift; sourceTree = "<group>"; };
+		7E81C2B824E987D60075546B /* WorkPermitFormOneVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkPermitFormOneVC.xib; sourceTree = "<group>"; };
 		CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALContractorVC.swift; sourceTree = "<group>"; };
 		CD458BD624E68F9800AAB5AD /* ALContractorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALContractorVC.xib; sourceTree = "<group>"; };
 		CD458BD924E68FD400AAB5AD /* ALSiteManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALSiteManagerVC.swift; sourceTree = "<group>"; };
@@ -168,6 +172,15 @@
 				7E5CD63724E8369E004DC1FC /* AdditionalContractorCell.swift */,
 			);
 			path = ContractorForm;
+			sourceTree = "<group>";
+		};
+		7E81C2B624E987A20075546B /* WorkPermitFormOne */ = {
+			isa = PBXGroup;
+			children = (
+				7E81C2B724E987D60075546B /* WorkPermitFormOneVC.swift */,
+				7E81C2B824E987D60075546B /* WorkPermitFormOneVC.xib */,
+			);
+			path = WorkPermitFormOne;
 			sourceTree = "<group>";
 		};
 		B7306C51471927A90543CB0A /* Frameworks */ = {
@@ -404,6 +417,7 @@
 		CD80468724E577660060B40B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7E81C2B624E987A20075546B /* WorkPermitFormOne */,
 				7E5CD63324E8369E004DC1FC /* ContractorForm */,
 				CD80468824E577660060B40B /* Home */,
 				CD458BD124E68F2600AAB5AD /* ALContractor */,
@@ -513,6 +527,7 @@
 			files = (
 				CD80470524E577660060B40B /* LoginVC.xib in Resources */,
 				CD8046E624E577660060B40B /* HomeCell.xib in Resources */,
+				7E81C2BA24E987D60075546B /* WorkPermitFormOneVC.xib in Resources */,
 				CD80464B24E576C20060B40B /* LaunchScreen.storyboard in Resources */,
 				CD80464824E576C20060B40B /* Assets.xcassets in Resources */,
 				CD8046E424E577660060B40B /* HomeVC.xib in Resources */,
@@ -594,6 +609,7 @@
 				CD8046C624E577660060B40B /* StarLayer.swift in Sources */,
 				CD458BDB24E68FD400AAB5AD /* ALSiteManagerVC.swift in Sources */,
 				CD8046D224E577660060B40B /* RightToLeft.swift in Sources */,
+				7E81C2B924E987D60075546B /* WorkPermitFormOneVC.swift in Sources */,
 				CD458BDF24E68FE400AAB5AD /* ALReligionManagerVC.swift in Sources */,
 				CD8046CF24E577660060B40B /* CosmosRating.swift in Sources */,
 				CD8046BF24E577660060B40B /* SideMenuCell.swift in Sources */,
