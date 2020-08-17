@@ -73,6 +73,8 @@
 		CD80470524E577660060B40B /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8046B824E577660060B40B /* LoginVC.xib */; };
 		CDEE46B124E966F50094546D /* InductionFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE46AF24E966F50094546D /* InductionFormVC.swift */; };
 		CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDEE46B024E966F50094546D /* InductionFormVC.xib */; };
+		CDEE46C424EAFE0D0094546D /* WorkPermitFormOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDEE46C224EAFE0D0094546D /* WorkPermitFormOneVC.xib */; };
+		CDEE46C524EAFE0D0094546D /* WorkPermitFormOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE46C324EAFE0D0094546D /* WorkPermitFormOneVC.swift */; };
 		FE5675806C808EEE8388D2A7 /* Pods_AmzonConstruction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B65FB947B1DC51ACB7490D4 /* Pods_AmzonConstruction.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +151,8 @@
 		CD8046BA24E577660060B40B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDEE46AF24E966F50094546D /* InductionFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InductionFormVC.swift; sourceTree = "<group>"; };
 		CDEE46B024E966F50094546D /* InductionFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InductionFormVC.xib; sourceTree = "<group>"; };
+		CDEE46C224EAFE0D0094546D /* WorkPermitFormOneVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkPermitFormOneVC.xib; sourceTree = "<group>"; };
+		CDEE46C324EAFE0D0094546D /* WorkPermitFormOneVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkPermitFormOneVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +412,7 @@
 		CD80468724E577660060B40B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CDEE46C124EAFE0D0094546D /* WorkPermitFormOne */,
 				7E5CD63324E8369E004DC1FC /* ContractorForm */,
 				CDEE46AE24E966CA0094546D /* InductionForm */,
 				CD80468824E577660060B40B /* Home */,
@@ -463,6 +468,15 @@
 				CDEE46B024E966F50094546D /* InductionFormVC.xib */,
 			);
 			path = InductionForm;
+			sourceTree = "<group>";
+		};
+		CDEE46C124EAFE0D0094546D /* WorkPermitFormOne */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE46C224EAFE0D0094546D /* WorkPermitFormOneVC.xib */,
+				CDEE46C324EAFE0D0094546D /* WorkPermitFormOneVC.swift */,
+			);
+			path = WorkPermitFormOne;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +542,7 @@
 				CD80470524E577660060B40B /* LoginVC.xib in Resources */,
 				CD8046E624E577660060B40B /* HomeCell.xib in Resources */,
 				CD80464B24E576C20060B40B /* LaunchScreen.storyboard in Resources */,
+				CDEE46C424EAFE0D0094546D /* WorkPermitFormOneVC.xib in Resources */,
 				CD80464824E576C20060B40B /* Assets.xcassets in Resources */,
 				CD8046E424E577660060B40B /* HomeVC.xib in Resources */,
 				7E5CD63A24E8369E004DC1FC /* AdditionalContractorCell.xib in Resources */,
@@ -611,6 +626,7 @@
 				CD458BDB24E68FD400AAB5AD /* ALSiteManagerVC.swift in Sources */,
 				CD8046D224E577660060B40B /* RightToLeft.swift in Sources */,
 				CD458BDF24E68FE400AAB5AD /* ALReligionManagerVC.swift in Sources */,
+				CDEE46C524EAFE0D0094546D /* WorkPermitFormOneVC.swift in Sources */,
 				CD8046CF24E577660060B40B /* CosmosRating.swift in Sources */,
 				CD8046BF24E577660060B40B /* SideMenuCell.swift in Sources */,
 				CD8046BD24E577660060B40B /* JD_SideMenu.swift in Sources */,
