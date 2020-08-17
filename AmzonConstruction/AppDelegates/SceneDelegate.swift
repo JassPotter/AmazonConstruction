@@ -32,10 +32,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow.init(frame: windowscene.coordinateSpace.bounds)
         window?.windowScene = windowscene
         window?.makeKeyAndVisible()
-      
+        
         if GetSetModel.iskeyAlreadyExist(key: UD_KEY_APPUSER_INFO) { self.dictUserInfo = GetSetModel.getObjectFromUserDefaults(UD_KEY_APPUSER_INFO)
+            switch APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String {
+            case "2":
+                //site manager
+                let vc = ALSiteManagerVC.init(nibName: "ALSiteManagerVC", bundle: nil)
+                vc.intLoginType = Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)!
+                navigationController = AppNavigationController.init(rootViewController: vc)
+                self.window?.rootViewController = navigationController
+                break
+            case "3":
+                //contractor
+                let vc = ALContractorVC.init(nibName: "ALContractorVC", bundle: nil)
+                navigationController = AppNavigationController.init(rootViewController: vc)
+                self.window?.rootViewController = navigationController
+                break
+            case "4":
+                //Region manager
+                let vc = ALReligionManagerVC.init(nibName: "ALReligionManagerVC", bundle: nil)
+                vc.isDirect = true
+                vc.arrList = APP_SCENE_DELEGATE.dictUserInfo["site_details"] as! [typeAliasDictionary]
+                navigationController = AppNavigationController.init(rootViewController: vc)
+                self.window?.rootViewController = navigationController
+                break
+            case "5":
+                //Admin
+                let vc = ALPhosterAdminVC.init(nibName: "ALPhosterAdminVC", bundle: nil)
+                navigationController = AppNavigationController.init(rootViewController: vc)
+                self.window?.rootViewController = navigationController
+                break
+            default:break
+            }
         }
-        self.setHomeVC()
+        else {
+            self.setLoginVC() }
         
     }
     
@@ -73,7 +104,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func setLoginVC(){
         let loginVC = LoginVC.init(nibName: "LoginVC", bundle: nil)
-        self.navigationController.pushViewController(loginVC, animated: true)
+        navigationController = AppNavigationController.init(rootViewController: loginVC)
+        self.window?.rootViewController = navigationController
     }
     
     func showAppLoader() {

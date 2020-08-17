@@ -42,7 +42,7 @@ public func APPBLUECOLORWITHRANDOMOPECITY() -> UIColor {
 }
 //MARK: COLOUR
 let COLOUR_DARK_RED                           = COLOR_CUSTOM(224,37,10,1)
-let COLOUR_LIGHT_RED                          = COLOR_CUSTOM(253,53,1,1)
+let COLOUR_LIGHT_RED                          = COLOR_CUSTOM(238,131,2,1)
 let COLOUR_DARKER_RED                         = COLOR_CUSTOM(160,35,40,1)
 let COLOUR_RED                                = COLOR_CUSTOM(190,10,3,1)
 let COLOUR_GREEN                              = COLOR_CUSTOM(61,210,183,1)
@@ -59,6 +59,8 @@ let COLOR_BROWN                               = UIColor.brown
 let COLOR_PURPLE                              = UIColor.purple
 let COLOR_GRAY                                = UIColor.gray
 
+let Color_Them_ApproveGreen                   = COLOR_CUSTOM(218,248,210,1)
+let Color_Theme_PendingYellow                 = COLOR_CUSTOM(255,245,214,1)
 //let COLOR_GOLDERN_YELLOW                    = COLOR_CUSTOM(195, 135, 73, 1)
 //let COLOR_ORANGE                            = RGBCOLOR(255, g:103, b:2)
 //let COLOUR_NEW_GREEN                        = RGBCOLOR(95,g:206,b: 121)
@@ -69,8 +71,8 @@ let COLOR_GRAY                                = UIColor.gray
 //**************************CELL IDENTIFIER***********************************
 let CELL_IDENTIFIER_SIDE_MENU          = "SideMenuCell"
 let CELL_IDENTIFIER_HOME               = "HomeCell"
-let CELL_IDENTIFIER_MEAL_LIST          = "MealListCell"
-let CELL_IDENTIFIER_MEAL_SELECTED      = "MealSelectedCell"
+let CELL_IDENTIFIER_AL_SITE_MANAGER    = "ALSiteManagerCell"
+let CELL_IDENTIFIER_AL_RELIGION_MANAGER = "ALReligionManagerCell"
 let CELL_IDENTIFIER_MEAL_SELECTED_SUB  = "MealSelectedSubCell"
 let CELL_IDENTIFIER_RECEIVER_NORMAL    = "idChatReceiverNormalCell"
 let CELL_IDENTIFIER_SENDER_QUOTE       = "idChatSenderQuoteCell"

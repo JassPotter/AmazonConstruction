@@ -33,6 +33,22 @@ class ServiceCollection {
     }
     
     //MARK: CITY LIST
+    func getCategoryList(param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
+    let url : String = WebServicePrefix.GetWSUrl(.GetHomeCategoryList)
+        ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
+            if error != nil {
+                response([typeAliasDictionary](), 0, message!)
+            }else{
+                if rstatus == 1 {
+                    response(data as! [typeAliasDictionary], 1, message!)
+                }else{
+                    response([typeAliasDictionary](), 0, message!)
+                }
+            }
+        }
+    }
+    
+    //MARK: CITY LIST
     func getCityList(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
     let url : String = WebServicePrefix.GetWSUrl(.GetCityList)
         ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
@@ -176,14 +192,14 @@ class ServiceCollection {
            }
        }
     
-    func getHomeCategoryList (param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
-        let url : String = WebServicePrefix.GetWSUrl(.GetHomeCategoryList)
-        ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
+    func getClusterSiteList (param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
+        let url : String = WebServicePrefix.GetWSUrl(.PostClusterSiteList)
+        ServiceManager.sharedInstance.postRequest(url, parameters: param) { (data, error, message, rstatus ) in
             if error != nil {
                 response([], 0, message!)
             }else{
                 if rstatus == 1 {
-                    response((data as! typeAliasDictionary)[RES_data] as! [typeAliasDictionary], 1, message!)
+                    response((data as! [typeAliasDictionary]) , 1, message!)
                 }else{
                     response([typeAliasDictionary](), 0, message!)
                 }
@@ -191,16 +207,16 @@ class ServiceCollection {
         }
     }
     
-    func getCategoryDetailList (param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
-        let url : String = WebServicePrefix.GetWSUrl(.GetCategoryDetail)
+    func getClusterList(param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
+        let url : String = WebServicePrefix.GetWSUrl(.GetClusterList)
         ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
             if error != nil {
-                response(typeAliasDictionary(), 0, message!)
+                response([typeAliasDictionary](), 0, message!)
             }else{
                 if rstatus == 1 {
-                    response((data as! typeAliasDictionary), 1, message!)
+                    response((data as! [typeAliasDictionary]), 1, message!)
                 }else{
-                    response(typeAliasDictionary(), 0, message!)
+                    response([typeAliasDictionary](), 0, message!)
                 }
             }
         }
@@ -251,8 +267,8 @@ class ServiceCollection {
         }
     }
     
-    func callPlaceOrder(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
-           let url : String = WebServicePrefix.GetWSUrl(.GetPlaceOrder)
+    func callDashboard(param : typeAliasDictionary,isRegion:Bool ,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
+        let url : String = WebServicePrefix.GetWSUrl(isRegion ? .PostRegionDashboard : .PostDashboard)
            ServiceManager.sharedInstance.postRequest(url, parameters: param) { (data, error, message, rstatus ) in
                if error != nil {
                    response(typeAliasDictionary(), 0, message!)
@@ -265,74 +281,6 @@ class ServiceCollection {
                }
            }
        }
-    
-    class chargePayAPI {
-        
-        static public func processPayment(_ nonce: String, completion: @escaping (String?, String?) -> Void) {
-            let url = URL(string: App_Constant.Square.CHARGE_URL)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            let httpBody = nonce.data(using: .utf8)
-            request.addValue("Application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue(App_Constant.Square.CHARGE_TOKEN, forHTTPHeaderField: "Authorization")
-            request.httpBody = httpBody
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                if let error = error as NSError?{
-                    if error.domain == NSURLErrorDomain {
-                        DispatchQueue.main.async {
-                            completion("", "Could not contact host")
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            completion("", "Something went wrong")
-                        }
-                    }
-                } else if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                        
-                        print(json)
-
-                        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                            DispatchQueue.main.async {
-                                if let payment = json["payment"] as? typeAliasDictionary {
-                                    if let status = payment["status"] as? String , status.uppercased() == "COMPLETED" {
-                                        completion(payment["order_id"] as? String, nil)
-                                    }
-                                    else {
-                                        if let errors = json["errors"] as? [typeAliasDictionary] , !errors.isEmpty {
-                                            completion("", "\(errors[0]["detail"]!)")
-                                        }else {
-                                            completion("", "FAILED")
-                                        }
-                                    }
-                                }
-                                else {
-                                    if let errors = json["errors"] as? [typeAliasDictionary] , !errors.isEmpty {
-                                        completion("", "\(errors[0]["detail"]!)")
-                                    }else {
-                                        completion("", "FAILED")
-                                    }
-                                }
-                            }
-                        } else {
-                            DispatchQueue.main.async {
-                                if let errors = json["errors"] as? [typeAliasDictionary] , !errors.isEmpty {
-                                    completion("", "\(errors[0]["detail"]!)")
-                                }else {
-                                    completion("", "FAILED")
-                                }
-                            }
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
-                            completion("", "Failure")
-                        }
-                    }
-                }
-            }.resume()
-        }
-    }
 
     /*
     func getUploadFiles(param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Bool, _ message : String) -> Void ) {

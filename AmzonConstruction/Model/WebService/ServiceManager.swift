@@ -8,7 +8,7 @@
  
  import Foundation
  import Alamofire
-// import SwiftyJSON
+ // import SwiftyJSON
  
  class ServiceManager {
     
@@ -31,8 +31,8 @@
             .responseJSON { response in
                 
                 print("--------------******------------")
-//                print(response.request ?? "")
-//                print(response.result)
+                //                print(response.request ?? "")
+                //                print(response.result)
                 print("--------------******------------")
                 
                 ShowNetworkIndicator(false)
@@ -41,15 +41,34 @@
                 }else {
                     switch response.result {
                     case .success(_):
-                        
-                        guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
-                            print("Invalid tag information received from the service")
-                            responseData(nil, nil, SOMETHING_WRONG, 0)
-                            return
+                        if endpointurl.isContainString("getClusterdetails") {
+                            guard let responseJSON:[typeAliasDictionary] = response.value as? [typeAliasDictionary] else {
+                                print("Invalid tag information received from the service")
+                                responseData(nil, nil, SOMETHING_WRONG, 0)
+                                return
+                            }
+                            self.Message = ""
+                            responseData(responseJSON, nil, self.Message, 1)
                         }
-                        self.Message = ""
-                        responseData(responseJSON, nil, self.Message, 1)
-                        
+                        if endpointurl.isContainString("getCategoydetails") {
+                            guard let responseJSON:[typeAliasDictionary] = response.value as? [typeAliasDictionary] else {
+                                print("Invalid tag information received from the service")
+                                responseData(nil, nil, SOMETHING_WRONG, 0)
+                                return
+                            }
+                            self.Message = ""
+                            responseData(responseJSON, nil, self.Message, 1)
+                        }
+                        else {
+                            
+                            guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
+                                print("Invalid tag information received from the service")
+                                responseData(nil, nil, SOMETHING_WRONG, 0)
+                                return
+                            }
+                            self.Message = ""
+                            responseData(responseJSON, nil, self.Message, 1)
+                        }
                     case .failure(let error):
                         responseData(nil, error as NSError, SOMETHING_WRONG, 0)
                     }
@@ -120,11 +139,69 @@
         AF.request(endpointurl, method: .post, parameters: parameters)
             .responseJSON { response in
                 
-                                print("--------------******------------")
-                                print(response )
-                                print(response.request ?? "")
-                                print(response.result)
                 print("--------------******------------")
+                print(response )
+                print(response.request ?? "")
+                print(response.result)
+                print("--------------******------------")
+                //
+                ShowNetworkIndicator(false)
+                if let _ = response.error {
+                    responseData(nil,  response.error as NSError?, "Unable to connect to server, please check your internet connection or try switching your network", 0)
+                }else {
+                    switch response.result {
+                    case .success(_):
+                        if endpointurl.isContainString("getClustersites") {
+                            guard let responseJSON:[typeAliasDictionary] = response.value as? [typeAliasDictionary] else {
+                                print("Invalid tag information received from the service")
+                                responseData(nil, nil, SOMETHING_WRONG, 0)
+                                return
+                            }
+                            self.Message = ""
+                            responseData(responseJSON, nil, self.Message, 1)
+                        }
+                        else {
+                        guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
+                            responseData(nil, nil, SOMETHING_WRONG, 0)
+                            return
+                        }
+                            self.Message = ""
+                            responseData(responseJSON, nil, self.Message, 1)
+                        }
+                        //                        self.Message = (responseJSON["message"] as! String)
+                        
+//                        let status : Int = Int(responseJSON["status"] as! String)!
+                        
+//                        switch status {
+//                        case RESPONSE_STATUS.VALID.rawValue :
+//                            self.resObjects  = responseJSON
+//                            break
+//                        case RESPONSE_STATUS.INVALID.rawValue :
+//                            self.resObjects  = responseJSON
+//                            break
+//                        default:
+//                            break
+//                        }
+                        
+                    case .failure(let error):
+                        responseData(nil, error as NSError, SOMETHING_WRONG, 0)
+                    }
+                }
+        }
+    }
+    
+    func postRequest1(_ endpointurl:String, parameters:typeAliasDictionary,responseData:@escaping (_ data: Any?, _ error: NSError?, _ message: String?, _ rstatus : Int ) -> Void) {
+        
+        ShowNetworkIndicator(true)
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+        AF.request(endpointurl, method: .post , parameters: parameters)
+            .responseJSON { response in
+                
+                print("--------------**------------")
+                print(response )
+                print(response.request ?? "")
+                print("--------------**------------")
                 //
                 ShowNetworkIndicator(false)
                 if let _ = response.error {
@@ -138,75 +215,26 @@
                             return
                         }
                         
-//                        self.Message = (responseJSON["message"] as! String)
-                        self.Message = "Order place successfully"
-
-                        let status : Int = Int(responseJSON["status"] as! String)!
+                        self.Message = (responseJSON[RES_message] as! String)
+                        let status : String = "\(responseJSON["status"]!)"
                         
                         switch status {
-                        case RESPONSE_STATUS.VALID.rawValue :
-                            self.resObjects  = responseJSON
+                        case "1" :
+                            self.resObjects = responseJSON
                             break
-                        case RESPONSE_STATUS.INVALID.rawValue :
-                            self.resObjects  = responseJSON
+                        case "0" :
+                            self.resObjects = responseJSON
                             break
                         default:
                             break
                         }
-                        responseData(self.resObjects, nil, self.Message, status)
+                        responseData(self.resObjects, nil, self.Message, status == "1" ? 1 : 0)
                         
                     case .failure(let error):
                         responseData(nil, error as NSError, SOMETHING_WRONG, 0)
                     }
                 }
         }
-    }
-    
-    func postRequest1(_ endpointurl:String, parameters:typeAliasDictionary,responseData:@escaping (_ data: Any?, _ error: NSError?, _ message: String?, _ rstatus : Int ) -> Void) {
-            
-            ShowNetworkIndicator(true)
-            URLCache.shared.removeAllCachedResponses()
-            URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
-            AF.request(endpointurl, method: .post , parameters: parameters)
-                .responseJSON { response in
-                    
-                    print("--------------**------------")
-                    print(response )
-                    print(response.request ?? "")
-                    print("--------------**------------")
-    //
-                    ShowNetworkIndicator(false)
-                    if let _ = response.error {
-                        responseData(nil,  response.error as NSError?, "Unable to connect to server, please check your internet connection or try switching your network", 0)
-                    }else {
-                        switch response.result {
-                        case .success(_):
-                            
-                            guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
-                                responseData(nil, nil, SOMETHING_WRONG, 0)
-                                return
-                            }
-                            
-                            self.Message = (responseJSON[RES_message] as! String)
-                            let status : String = "\(responseJSON["status"]!)"
-                            
-                            switch status {
-                            case "1" :
-                                self.resObjects = responseJSON
-                                break
-                            case "0" :
-                                self.resObjects = responseJSON
-                                break
-                            default:
-                                break
-                            }
-                            responseData(self.resObjects, nil, self.Message, status == "1" ? 1 : 0)
-                            
-                        case .failure(let error):
-                            responseData(nil, error as NSError, SOMETHING_WRONG, 0)
-                        }
-                    }
-            }
     }
     
     func getRequestParam(_ endpointurl:String, parameters:typeAliasDictionary,responseData:@escaping (_ data: Any?, _ error: NSError?, _ message: String?, _ rstatus : Int ) -> Void) {
@@ -224,7 +252,7 @@
         catch {}
         AF.request(request).responseString { (response) in
             ShowNetworkIndicator(false)
-           print(response )
+            print(response )
         }
     }
     
@@ -278,7 +306,7 @@
         URLCache.shared.removeAllCachedResponses()
         URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         AF.request(endpointurl, method: .get , parameters: parameters){ $0.timeoutInterval = 1000 }
-        .validate()
+            .validate()
             .responseJSON { response in
                 
                 //                print("--------------******------------")
@@ -341,22 +369,22 @@
                 multipartFormData.append("".data(using: String.Encoding.utf8)!, withName: imageTagName)
             }
         }, to: "https://rehabfinal.rejoinws.com/api/api")
-//        let fileURL = Bundle.main.url(forResource: "video", withExtension: "mp4")!
-//
-//        AF.upload(fileURL, to: "https://rehabfinal.rejoinws.com/api/api")
-//            .uploadProgress { progress in
-//                print("Upload Progress: \(progress.fractionCompleted)")
-//        }
+            //        let fileURL = Bundle.main.url(forResource: "video", withExtension: "mp4")!
+            //
+            //        AF.upload(fileURL, to: "https://rehabfinal.rejoinws.com/api/api")
+            //            .uploadProgress { progress in
+            //                print("Upload Progress: \(progress.fractionCompleted)")
+            //        }
             
-        .responseJSON { response in
-            debugPrint(response)
-            if let JSON:typeAliasDictionary = response.value as? typeAliasDictionary {
-                print("JSON: \(JSON)")
-                let st: Bool = JSON[RES_success] as! Bool
-                responseData(typeAliasDictionary() ,nil, JSON[RES_message] as? String, st)
-            }else{
-                responseData(nil, nil, "Something went wrong",false)
-            }
+            .responseJSON { response in
+                debugPrint(response)
+                if let JSON:typeAliasDictionary = response.value as? typeAliasDictionary {
+                    print("JSON: \(JSON)")
+                    let st: Bool = JSON[RES_success] as! Bool
+                    responseData(typeAliasDictionary() ,nil, JSON[RES_message] as? String, st)
+                }else{
+                    responseData(nil, nil, "Something went wrong",false)
+                }
         }
     }
     

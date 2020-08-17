@@ -16,19 +16,14 @@ import AVFoundation
 
 @available(iOS 13.0, *)
 let APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
-public let APP_NAME  = "Fitness Food Factory"
+public let APP_NAME  = "AmazonConstruction"
 public let APP_VERSION : String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 public let KEYCHAIN_KEY                         = ""
 public let APP_SHARE_LINK                       = "https://itunes.apple.com/us/app/fitness-food/id1511733245?ls=1&mt=8"
 public let APP_STOREID: String                  = "1511733245"
 
 //MARK: BASE_URL
-//let BASE_URL = "http://79.170.40.161/takeawayzapp.co.uk/Fitnessfood/Webservice/RestController.php?action="
-//let BASE_URL_PLACE_ORDER = "http://79.170.40.161/takeawayzapp.co.uk/Fitnessfood/Webservice/"
-
-let BASE_URL = "https://thefitnessfoodfactory.co.uk/app/Webservice/RestController.php?action="
-let BASE_URL_PLACE_ORDER = "https://thefitnessfoodfactory.co.uk/app/Webservice/"
-//https://thefitnessfoodfactory.co.uk/app/Webservice.
+let BASE_URL = "https://advertico.co.uk/Amazon/Webservice/RestController.php?action="
 
 let SELECTION_SUPER_VIEW_TAG                    = 10001
 let SCROLLVIEW_FIX_HEIGHT                       = 550
@@ -37,29 +32,6 @@ let VIEW_RECORDING_EDIT_HEIGHT                  = 150
 
 public var DEVICE_ID:String                     = ""
 public var CURRENCY_ICON                        = "£"
-
-struct App_Constant {
-    
-    struct Square {
-        static let SQUARE_LOCATION_ID: String = "<# REPLACE_ME #>"
-        static let CHARGE_URL: String = "https://" + "\(CHARGE_SERVER_HOST)/"
-        // sendbox
-//        static let APPLICATION_ID: String  = "sandbox-sq0idb-9cTxzQkeMZxFMSilMXP-tg"
-//        static let CHARGE_SERVER_HOST: String = "connect.squareupsandbox.com/v2/payments"
-//        static let CHARGE_TOKEN: String = "Bearer EAAAECs4sOW_fvbAYDyqbU2xD2b-01rwqQ-gml2fIkN8mK9y-Kk8EFFcf3f8L_vH"
-        
-        //Live
-        static let APPLICATION_ID: String  = "sq0idp-I2eSPEx67hpR55w-e7ATwA"
-        static let CHARGE_SERVER_HOST: String = "connect.squareup.com/v2/payments"
-        static let CHARGE_TOKEN: String = "Bearer EAAAEARzfkhuWaa9npoP5hP_mGJT8Iogv_j8UUPVA8iTOZz8BBE-5437oysylVM5"
-        
-    }
-    struct ApplePay {
-        static let MERCHANT_IDENTIFIER: String = "REPLACE_ME"
-        static let COUNTRY_CODE: String = "US"
-        static let CURRENCY_CODE: String = "USD"
-    }
-}
 
 func isUserLoggedIn() -> Bool {
     let userInfo = GetSetModel.getObjectFromUserDefaults(UD_KEY_APPUSER_INFO)
@@ -508,7 +480,7 @@ func showAlertWithTitleWithMessage(message:String)  {
     let alert : FCAlertView = FCAlertView()
     alert.avoidCustomImageTint =  true
     alert.detachButtons = true
-    alert.colorScheme = COLOUR_LIGHT_RED
+    alert.colorScheme = COLOUR_LIGHT_RED 
     alert.showAlert(in: APP_SCENE_DELEGATE.window, withTitle: APP_NAME, withSubtitle: message, withCustomImage: nil   , withDoneButtonTitle: "Ok", andButtons: nil)
 }
 func showAlertWithMessageAndButtons(message:String, alert : FCAlertView,buttons : [String],withDoneTitle : String)  {
