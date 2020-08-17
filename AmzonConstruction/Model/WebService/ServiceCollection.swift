@@ -48,6 +48,23 @@ class ServiceCollection {
         }
     }
     
+    //MARK: SITE LIST
+    func getSitesList(param : typeAliasDictionary,response : @escaping( _ data : [typeAliasDictionary] , _ rstatus : Int, _ message : String) -> Void ) {
+    let url : String = WebServicePrefix.GetWSUrl(.GetSiteList)
+        ServiceManager.sharedInstance.getRequest(url, parameters: param) { (data, error, message, rstatus ) in
+            if error != nil {
+                response([typeAliasDictionary](), 0, message!)
+            }else{
+                if rstatus == 1 {
+                    response(data as! [typeAliasDictionary], 1, message!)
+                }else{
+                    response([typeAliasDictionary](), 0, message!)
+                }
+            }
+        }
+    }
+
+    
     //MARK: CITY LIST
     func getCityList(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
     let url : String = WebServicePrefix.GetWSUrl(.GetCityList)
