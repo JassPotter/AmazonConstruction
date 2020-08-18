@@ -63,6 +63,8 @@ class ContractorFormVC: UIViewController {
         }
         
         let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
+        vc.categoryID = self.selectedCategoryID
+        vc.arrSubContractor = self.arrContractors
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
