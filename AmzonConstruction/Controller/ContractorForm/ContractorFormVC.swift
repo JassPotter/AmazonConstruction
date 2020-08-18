@@ -64,7 +64,6 @@ class ContractorFormVC: UIViewController {
         
         let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
-
     }
     
     @IBAction func btnAddContractorAction() {
