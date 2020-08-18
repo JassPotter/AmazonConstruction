@@ -29,7 +29,7 @@ class InductionFormVC: UIViewController {
     @IBOutlet weak var lblStage2NotePH: UILabel!
     //stage asbestos
     @IBOutlet weak var viewStageAsbestosBG: UIView!
-    @IBOutlet weak var constraintViewStageAsbestosBGHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintViewStageAsbestosBGHeight: NSLayoutConstraint!//1545
     @IBOutlet var btnViewAsbestosTopCollection: [UIButton]!
     @IBOutlet weak var txtViewAsbestosComment: UITextView!
     @IBOutlet weak var lblAsbestosCommentPH: UILabel!
@@ -39,13 +39,13 @@ class InductionFormVC: UIViewController {
     @IBOutlet var btnViewAsbestosQ4Collection: [UIButton]!
     //Stage 4
     @IBOutlet weak var viewStage4BG: UIView!
-    @IBOutlet weak var constraintViewStage4BGHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintViewStage4BGHeight: NSLayoutConstraint!//565
     @IBOutlet weak var txtStage4Name: UITextField!
     @IBOutlet weak var txtStage4Company: UITextField!
     @IBOutlet weak var imageViewStage4Sign: UIImageView!
     //stage 5
     @IBOutlet weak var viewStage5BG: UIView!
-    @IBOutlet weak var constraintViewStage5BGHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintViewStage5BGHeight: NSLayoutConstraint!//480
     @IBOutlet weak var txtStage5Name: UITextField!
     @IBOutlet weak var txtStage5Position: UITextField!
     @IBOutlet weak var imageViewStage5Sign: UIImageView!
@@ -68,9 +68,6 @@ class InductionFormVC: UIViewController {
         switch Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)! {
         case 2:
             //site manager
-            break
-        case 3:
-            //contractor
             switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String {
             case "1":
                 self.viewStage1BG.isHidden = false
@@ -78,15 +75,138 @@ class InductionFormVC: UIViewController {
                 self.viewStageAsbestosBG.isHidden = true
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
-                
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 0
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
                 break
             case "2":
+                //reject
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 512
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
             break
             case "3":
+                //approve
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
             break
             case "4":
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = false
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStage5BGHeight.constant = 0
             break
             case "5":
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = false
+                self.viewStage5BG.isHidden = false
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStage5BGHeight.constant = 480
+            break
+            default:
+            break
+            }
+            break
+        case 3:
+            //contractor
+            switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String {
+            case "1":
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
+                break
+            case "2":
+                //reject
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
+            break
+            case "3":
+                //approve
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
+            break
+            case "4":
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = false
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStage5BGHeight.constant = 0
+            break
+            case "5":
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = false
+                self.viewStage5BG.isHidden = false
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStage5BGHeight.constant = 480
             break
             default:
             break
@@ -123,10 +243,15 @@ class InductionFormVC: UIViewController {
     @IBAction func btnStage2AproveRejectAction(_ sender: UIButton) {
         if sender.tag == 1 {
             //approve
+            self.viewStatge2NoteBG.isHidden = true
+            self.constraintViewStage1BGHeight.constant = 545
         }
         else {
             //reject
+            self.viewStatge2NoteBG.isHidden = false
+            self.constraintViewStage1BGHeight.constant = 635
         }
+        UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
     }
     @IBAction func btnStageAsbestosTopAction(_ sender: UIButton) {
     }
@@ -146,6 +271,12 @@ class InductionFormVC: UIViewController {
     @IBAction func btnBackToMainAction() {
     }
     @IBAction func btnSubmitFormAction(_ sender: UIButton) {
+        if (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String == "2" {
+            //resubmit
+        }
+        else {
+            
+        }
     }
     
     
