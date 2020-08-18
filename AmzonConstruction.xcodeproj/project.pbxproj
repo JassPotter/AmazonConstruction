@@ -19,12 +19,6 @@
 		CD458BE924E6981900AAB5AD /* ALSiteManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BE724E6981900AAB5AD /* ALSiteManagerCell.xib */; };
 		CD458BED24E6AA1A00AAB5AD /* ALReligionManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BEB24E6AA1A00AAB5AD /* ALReligionManagerCell.swift */; };
 		CD458BEE24E6AA1A00AAB5AD /* ALReligionManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD458BEC24E6AA1A00AAB5AD /* ALReligionManagerCell.xib */; };
-		CD45C35224EBA0B6002AF21C /* WorkPermitFormOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD45C34B24EBA0B6002AF21C /* WorkPermitFormOneVC.xib */; };
-		CD45C35324EBA0B6002AF21C /* WorkPermitFormOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD45C34C24EBA0B6002AF21C /* WorkPermitFormOneVC.swift */; };
-		CD45C35424EBA0B6002AF21C /* ContractorFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD45C34E24EBA0B6002AF21C /* ContractorFormVC.xib */; };
-		CD45C35524EBA0B6002AF21C /* ContractorFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD45C34F24EBA0B6002AF21C /* ContractorFormVC.swift */; };
-		CD45C35624EBA0B6002AF21C /* AdditionalContractorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD45C35024EBA0B6002AF21C /* AdditionalContractorCell.xib */; };
-		CD45C35724EBA0B6002AF21C /* AdditionalContractorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD45C35124EBA0B6002AF21C /* AdditionalContractorCell.swift */; };
 		CD80464824E576C20060B40B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD80464724E576C20060B40B /* Assets.xcassets */; };
 		CD80464B24E576C20060B40B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD80464924E576C20060B40B /* LaunchScreen.storyboard */; };
 		CD8046BB24E577660060B40B /* App_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80465324E577650060B40B /* App_Constants.swift */; };
@@ -94,12 +88,6 @@
 		CD458BE724E6981900AAB5AD /* ALSiteManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALSiteManagerCell.xib; sourceTree = "<group>"; };
 		CD458BEB24E6AA1A00AAB5AD /* ALReligionManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALReligionManagerCell.swift; sourceTree = "<group>"; };
 		CD458BEC24E6AA1A00AAB5AD /* ALReligionManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALReligionManagerCell.xib; sourceTree = "<group>"; };
-		CD45C34B24EBA0B6002AF21C /* WorkPermitFormOneVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkPermitFormOneVC.xib; sourceTree = "<group>"; };
-		CD45C34C24EBA0B6002AF21C /* WorkPermitFormOneVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkPermitFormOneVC.swift; sourceTree = "<group>"; };
-		CD45C34E24EBA0B6002AF21C /* ContractorFormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractorFormVC.xib; sourceTree = "<group>"; };
-		CD45C34F24EBA0B6002AF21C /* ContractorFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractorFormVC.swift; sourceTree = "<group>"; };
-		CD45C35024EBA0B6002AF21C /* AdditionalContractorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalContractorCell.xib; sourceTree = "<group>"; };
-		CD45C35124EBA0B6002AF21C /* AdditionalContractorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalContractorCell.swift; sourceTree = "<group>"; };
 		CD80463B24E576BD0060B40B /* AmzonConstruction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmzonConstruction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD80464724E576C20060B40B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD80464A24E576C20060B40B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -238,26 +226,6 @@
 				CD458BEC24E6AA1A00AAB5AD /* ALReligionManagerCell.xib */,
 			);
 			path = ALReligionManagerCell;
-			sourceTree = "<group>";
-		};
-		CD45C34A24EBA0B6002AF21C /* WorkPermitFormOne */ = {
-			isa = PBXGroup;
-			children = (
-				CD45C34B24EBA0B6002AF21C /* WorkPermitFormOneVC.xib */,
-				CD45C34C24EBA0B6002AF21C /* WorkPermitFormOneVC.swift */,
-			);
-			path = WorkPermitFormOne;
-			sourceTree = "<group>";
-		};
-		CD45C34D24EBA0B6002AF21C /* ContractorForm */ = {
-			isa = PBXGroup;
-			children = (
-				CD45C34E24EBA0B6002AF21C /* ContractorFormVC.xib */,
-				CD45C34F24EBA0B6002AF21C /* ContractorFormVC.swift */,
-				CD45C35024EBA0B6002AF21C /* AdditionalContractorCell.xib */,
-				CD45C35124EBA0B6002AF21C /* AdditionalContractorCell.swift */,
-			);
-			path = ContractorForm;
 			sourceTree = "<group>";
 		};
 		CD80463224E576BD0060B40B = {
@@ -422,8 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				CDEE46AE24E966CA0094546D /* InductionForm */,
-				CD45C34D24EBA0B6002AF21C /* ContractorForm */,
-				CD45C34A24EBA0B6002AF21C /* WorkPermitFormOne */,
 				CD80468824E577660060B40B /* Home */,
 				CD458BD124E68F2600AAB5AD /* ALContractor */,
 				CD458BD224E68F4600AAB5AD /* ALSiteManager */,
@@ -548,11 +514,9 @@
 				CD8046DF24E577660060B40B /* Poppins-Light.ttf in Resources */,
 				CD458BE924E6981900AAB5AD /* ALSiteManagerCell.xib in Resources */,
 				CD8046C024E577660060B40B /* JD_SideMenu.xib in Resources */,
-				CD45C35224EBA0B6002AF21C /* WorkPermitFormOneVC.xib in Resources */,
 				CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */,
 				CD8046E024E577660060B40B /* Poppins-Medium.ttf in Resources */,
 				CD458BE424E68FF700AAB5AD /* ALPhosterAdminVC.xib in Resources */,
-				CD45C35624EBA0B6002AF21C /* AdditionalContractorCell.xib in Resources */,
 				CD458BEE24E6AA1A00AAB5AD /* ALReligionManagerCell.xib in Resources */,
 				CD458BE024E68FE400AAB5AD /* ALReligionManagerVC.xib in Resources */,
 				CD8046E224E577660060B40B /* Poppins-Bold.ttf in Resources */,
@@ -560,7 +524,6 @@
 				CD8046BE24E577660060B40B /* SideMenuCell.xib in Resources */,
 				CD8046E324E577660060B40B /* Poppins-SemiBold.ttf in Resources */,
 				CD458BD824E68F9800AAB5AD /* ALContractorVC.xib in Resources */,
-				CD45C35424EBA0B6002AF21C /* ContractorFormVC.xib in Resources */,
 				CD8046C424E577660060B40B /* JDSelection.xib in Resources */,
 				CD8046E124E577660060B40B /* Poppins-Regular.ttf in Resources */,
 			);
@@ -616,13 +579,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8046D424E577660060B40B /* ServiceCollection.swift in Sources */,
-				CD45C35724EBA0B6002AF21C /* AdditionalContractorCell.swift in Sources */,
 				CDEE46B124E966F50094546D /* InductionFormVC.swift in Sources */,
 				CD458BE324E68FF700AAB5AD /* ALPhosterAdminVC.swift in Sources */,
-				CD45C35324EBA0B6002AF21C /* WorkPermitFormOneVC.swift in Sources */,
 				CD8046C724E577660060B40B /* CosmosAccessibility.swift in Sources */,
 				CD8046CD24E577660060B40B /* CosmosLayerHelper.swift in Sources */,
-				CD45C35524EBA0B6002AF21C /* ContractorFormVC.swift in Sources */,
 				CD8046CB24E577660060B40B /* CosmosLayers.swift in Sources */,
 				CD8046CE24E577660060B40B /* CosmosTouch.swift in Sources */,
 				CD8046C624E577660060B40B /* StarLayer.swift in Sources */,
