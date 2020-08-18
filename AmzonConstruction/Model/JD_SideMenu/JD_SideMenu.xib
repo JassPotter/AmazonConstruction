@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JD_SideMenu" customModule="FitnessFood" customModuleProvider="target">
+            <connections>
+                <outlet property="ViewBG" destination="ude-ye-GP5" id="mHs-2m-Nc7"/>
+                <outlet property="tableViewBG" destination="p44-h2-Ece" id="DOj-wz-c2H"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XYs-Ju-7My" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ude-ye-GP5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p44-h2-Ece">
+                            <rect key="frame" x="0.0" y="66" width="375" height="746"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="dt7-0u-2V7"/>
+                                <outlet property="delegate" destination="-1" id="yvp-CF-W8P"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.74509803919999995" green="0.039215686270000001" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="p44-h2-Ece" secondAttribute="bottom" id="9bo-oT-N19"/>
+                        <constraint firstItem="p44-h2-Ece" firstAttribute="leading" secondItem="ude-ye-GP5" secondAttribute="leading" id="aiy-Qq-LmI"/>
+                        <constraint firstItem="p44-h2-Ece" firstAttribute="top" secondItem="ude-ye-GP5" secondAttribute="top" constant="66" id="u37-TT-AKR"/>
+                        <constraint firstAttribute="trailing" secondItem="p44-h2-Ece" secondAttribute="trailing" id="xzt-9v-n5b"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ude-ye-GP5" firstAttribute="trailing" secondItem="oTe-3M-LMu" secondAttribute="trailing" id="P4v-Q4-Him"/>
+                <constraint firstItem="ude-ye-GP5" firstAttribute="leading" secondItem="oTe-3M-LMu" secondAttribute="leading" id="RsP-Zv-BUk"/>
+                <constraint firstAttribute="bottom" secondItem="ude-ye-GP5" secondAttribute="bottom" id="apr-UX-ULy"/>
+                <constraint firstItem="ude-ye-GP5" firstAttribute="top" secondItem="XYs-Ju-7My" secondAttribute="top" id="fMf-bV-cPm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="oTe-3M-LMu"/>
+            <point key="canvasLocation" x="132" y="152"/>
+        </view>
+    </objects>
+</document>
