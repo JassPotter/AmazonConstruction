@@ -36,9 +36,9 @@ class ContractorFormVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBar()
-    }
+           super.viewWillAppear(animated)
+           self.setNavigationBar()
+       }
 
     //MARK: NAVIGATION BAR
     func setNavigationBar() {
@@ -64,6 +64,7 @@ class ContractorFormVC: UIViewController {
         
         let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     @IBAction func btnAddContractorAction() {
