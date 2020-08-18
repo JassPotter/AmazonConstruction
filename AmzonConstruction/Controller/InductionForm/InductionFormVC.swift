@@ -141,15 +141,19 @@ class InductionFormVC: UIViewController {
             break
         case 3:
             //contractor
-            switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String {
+            switch "3"
+//                switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String
+
+            {
             case "1":
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = true
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
                 self.constraintViewStage1BGHeight.constant = 515
-                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStage2BGHeight.constant = 535
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
@@ -161,9 +165,9 @@ class InductionFormVC: UIViewController {
                 self.viewStageAsbestosBG.isHidden = true
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
-                self.viewStatge2NoteBG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = false
                 self.constraintViewStage1BGHeight.constant = 515
-                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStage2BGHeight.constant = 635
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
@@ -173,13 +177,13 @@ class InductionFormVC: UIViewController {
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = true
-                self.viewStage4BG.isHidden = true
+                self.viewStage4BG.isHidden = false
                 self.viewStage5BG.isHidden = true
                 self.viewStatge2NoteBG.isHidden = true
                 self.constraintViewStage1BGHeight.constant = 515
-                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStage2BGHeight.constant = 525
                 self.constraintViewStageAsbestosBGHeight.constant = 0
-                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 0
             break
             case "4":
@@ -244,12 +248,12 @@ class InductionFormVC: UIViewController {
         if sender.tag == 1 {
             //approve
             self.viewStatge2NoteBG.isHidden = true
-            self.constraintViewStage1BGHeight.constant = 545
+            self.constraintViewStage2BGHeight.constant = 535
         }
         else {
             //reject
             self.viewStatge2NoteBG.isHidden = false
-            self.constraintViewStage1BGHeight.constant = 635
+            self.constraintViewStage2BGHeight.constant = 635
         }
         UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
     }
