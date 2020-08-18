@@ -76,7 +76,7 @@
                             <rect key="frame" x="10" y="10" width="394" height="738"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSP-v8-M6h">
-                                    <rect key="frame" x="0.0" y="0.0" width="394" height="6180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="6090"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Oh-24-Sd4">
                                             <rect key="frame" x="10" y="10" width="374" height="800"/>
@@ -741,7 +741,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zde-0Z-uUz" userLabel="Views2">
-                                            <rect key="frame" x="10" y="2955" width="374" height="635"/>
+                                            <rect key="frame" x="10" y="2955" width="374" height="545"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBc-Qv-rnS">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
@@ -962,10 +962,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXv-kO-hrE">
-                                                    <rect key="frame" x="0.0" y="525" width="374" height="100"/>
+                                                    <rect key="frame" x="0.0" y="525" width="374" height="10"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C05-yS-yOp">
-                                                            <rect key="frame" x="5" y="5" width="364" height="90"/>
+                                                            <rect key="frame" x="5" y="5" width="364" height="0.0"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -1014,7 +1014,7 @@
                                                 <constraint firstItem="vlM-sn-Osi" firstAttribute="top" secondItem="eBc-Qv-rnS" secondAttribute="bottom" constant="10" id="aPJ-bV-igf"/>
                                                 <constraint firstItem="eBc-Qv-rnS" firstAttribute="top" secondItem="Zde-0Z-uUz" secondAttribute="top" id="eas-kf-Kiz"/>
                                                 <constraint firstItem="wXv-kO-hrE" firstAttribute="trailing" secondItem="eBc-Qv-rnS" secondAttribute="trailing" id="ec2-Hd-5FI"/>
-                                                <constraint firstAttribute="height" constant="635" id="fNI-EG-g4V"/>
+                                                <constraint firstAttribute="height" constant="545" id="fNI-EG-g4V"/>
                                                 <constraint firstItem="wXv-kO-hrE" firstAttribute="leading" secondItem="eBc-Qv-rnS" secondAttribute="leading" id="has-kL-wGZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="eBc-Qv-rnS" secondAttribute="trailing" id="kZj-eG-cjL"/>
                                                 <constraint firstItem="eBc-Qv-rnS" firstAttribute="leading" secondItem="Zde-0Z-uUz" secondAttribute="leading" id="pXn-Zp-Bq0"/>
@@ -1022,7 +1022,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHj-3B-skm" userLabel="ViewE">
-                                            <rect key="frame" x="10" y="3590" width="374" height="1545"/>
+                                            <rect key="frame" x="10" y="3500" width="374" height="1545"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeJ-ox-WSl">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="215"/>
@@ -1662,7 +1662,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al0-bE-FIf" userLabel="Views4">
-                                            <rect key="frame" x="10" y="5135" width="374" height="565"/>
+                                            <rect key="frame" x="10" y="5045" width="374" height="565"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jS1-Z8-NuT">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
@@ -1879,7 +1879,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYf-p4-hBb" userLabel="Views5">
-                                            <rect key="frame" x="10" y="5700" width="374" height="480"/>
+                                            <rect key="frame" x="10" y="5610" width="374" height="480"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-4p-wVa">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
