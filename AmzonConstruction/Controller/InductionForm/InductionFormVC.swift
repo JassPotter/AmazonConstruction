@@ -14,13 +14,13 @@ class InductionFormVC: UIViewController {
     //MARK: PROPERTIES
     //stage 1
     @IBOutlet weak var viewStage1BG: UIView!
-    @IBOutlet weak var constraintViewStage1BGHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintViewStage1BGHeight: NSLayoutConstraint!//515
     @IBOutlet weak var txtStage1Name: UITextField!
     @IBOutlet weak var txtStage1Company: UITextField!
     @IBOutlet weak var imageViewStage1Sign: UIImageView!
     //stage 2
     @IBOutlet weak var viewStage2BG: UIView!
-    @IBOutlet weak var constraintViewStage2BGHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintViewStage2BGHeight: NSLayoutConstraint!//635
     @IBOutlet weak var txtStage2Name: UITextField!
     @IBOutlet weak var txtStage2Postion: UITextField!
     @IBOutlet weak var imageViewStage2Sign: UIImageView!
@@ -55,6 +55,8 @@ class InductionFormVC: UIViewController {
     
     
     //MARK: VARIABLES
+    internal var dictPageInfo : typeAliasDictionary = typeAliasDictionary()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,21 +65,41 @@ class InductionFormVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBar()
-//        switch intLoginType {
-//        case 2:
-//            //site manager
-//            break
-//        case 3:
-//            //contractor
-//            break
-//        case 4:
-//            //Region manager
-//            break
-//        case 5:
-//            //Admin
-//            break
-//        default:break
-//        }
+        switch Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)! {
+        case 2:
+            //site manager
+            break
+        case 3:
+            //contractor
+            switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String {
+            case "1":
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = true
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                
+                break
+            case "2":
+            break
+            case "3":
+            break
+            case "4":
+            break
+            case "5":
+            break
+            default:
+            break
+            }
+            break
+        case 4:
+            //Region manager
+            break
+        case 5:
+            //Admin
+            break
+        default:break
+        }
         
     }
     
