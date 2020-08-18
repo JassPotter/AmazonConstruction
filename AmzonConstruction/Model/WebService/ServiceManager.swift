@@ -170,27 +170,27 @@
                             responseData(responseJSON, nil, self.Message, 1)
                         }
                         else {
-                        guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
-                            responseData(nil, nil, SOMETHING_WRONG, 0)
-                            return
-                        }
+                            guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
+                                responseData(nil, nil, SOMETHING_WRONG, 0)
+                                return
+                            }
                             self.Message = ""
                             responseData(responseJSON, nil, self.Message, 1)
                         }
                         //                        self.Message = (responseJSON["message"] as! String)
                         
-//                        let status : Int = Int(responseJSON["status"] as! String)!
+                        //                        let status : Int = Int(responseJSON["status"] as! String)!
                         
-//                        switch status {
-//                        case RESPONSE_STATUS.VALID.rawValue :
-//                            self.resObjects  = responseJSON
-//                            break
-//                        case RESPONSE_STATUS.INVALID.rawValue :
-//                            self.resObjects  = responseJSON
-//                            break
-//                        default:
-//                            break
-//                        }
+                        //                        switch status {
+                        //                        case RESPONSE_STATUS.VALID.rawValue :
+                        //                            self.resObjects  = responseJSON
+                        //                            break
+                        //                        case RESPONSE_STATUS.INVALID.rawValue :
+                        //                            self.resObjects  = responseJSON
+                        //                            break
+                        //                        default:
+                        //                            break
+                        //                        }
                         
                     case .failure(let error):
                         responseData(nil, error as NSError, SOMETHING_WRONG, 0)
@@ -309,6 +309,7 @@
                 }
         }
     }
+    
     func postRequestHandler1(_ endpointurl:String, parameters:typeAliasDictionary,responseData:@escaping (_ data: Any?, _ error: NSError?, _ message: String?, _ rstatus : Bool ) -> Void) {
         
         ShowNetworkIndicator(true)
@@ -318,11 +319,6 @@
             .validate()
             .responseJSON { response in
                 
-                //                print("--------------******------------")
-                //                print(response )
-                //                print(response.request ?? "")
-                //                print(response.result.value ?? "")
-                print("--------------******------------")
                 
                 ShowNetworkIndicator(false)
                 if let _ = response.error {
@@ -354,6 +350,38 @@
         }
     }
     
+    func postMultipartFormData(_ endpointurl:String, parameters:typeAliasDictionary,responseData:@escaping (_ data: Any?, _ error: NSError?, _ message: String?, _ rstatus : Int ) -> Void) {
+        
+        ShowNetworkIndicator(true)
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+        print(parameters)
+        AF.upload(multipartFormData: { multipartFormData in
+            for (key, value)in parameters {
+                var valueStr:String = ""
+                if let intVlaue:Int   = value as? Int{
+                    valueStr = String(format:"%d",intVlaue)
+                }else{
+                    valueStr = value as! String
+                }
+                multipartFormData.append(valueStr.data(using: String.Encoding.utf8)!, withName: key )
+            }
+            
+        }, to: endpointurl)
+            
+            .responseJSON { response in
+                debugPrint(response)
+                guard let responseJSON:typeAliasDictionary = response.value as? typeAliasDictionary else {
+                    print("Invalid tag information received from the service")
+                    responseData(nil, nil, SOMETHING_WRONG, 0)
+                    return
+                }
+                self.Message = ""
+                responseData(responseJSON, nil, self.Message, 1)
+                
+        }
+    }
+    
     func uploadImage(endpointurl:String,imageTagName: String, parameters:typeAliasDictionary, filePath:NSArray, responseData:@escaping ( _ responseDict: Any?, _ error: NSError?, _ message: String?, _ rstaus:Bool) -> Void)  {
         
         print(parameters)
@@ -378,12 +406,6 @@
                 multipartFormData.append("".data(using: String.Encoding.utf8)!, withName: imageTagName)
             }
         }, to: "https://rehabfinal.rejoinws.com/api/api")
-            //        let fileURL = Bundle.main.url(forResource: "video", withExtension: "mp4")!
-            //
-            //        AF.upload(fileURL, to: "https://rehabfinal.rejoinws.com/api/api")
-            //            .uploadProgress { progress in
-            //                print("Upload Progress: \(progress.fractionCompleted)")
-            //        }
             
             .responseJSON { response in
                 debugPrint(response)
@@ -391,7 +413,7 @@
                     print("JSON: \(JSON)")
                     let st: Bool = JSON[RES_success] as! Bool
                     responseData(typeAliasDictionary() ,nil, JSON[RES_message] as? String, st)
-                }else{
+                } else {
                     responseData(nil, nil, "Something went wrong",false)
                 }
         }

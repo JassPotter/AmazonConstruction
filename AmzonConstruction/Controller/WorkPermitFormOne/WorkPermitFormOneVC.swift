@@ -18,6 +18,9 @@ class WorkPermitFormOneVC: UIViewController {
     @IBOutlet weak var viewIsAsbestosRequired: UIView!
     
     //CHECKBOX
+    @IBOutlet  var chkBoxYes: [UIButton]!
+    @IBOutlet  var chkBoxNo: [UIButton]!
+
     @IBOutlet weak var chkBoxSiteRegulations: UIButton!
     @IBOutlet weak var chikVechicleEquipUsed: UIButton!
     @IBOutlet weak var chkContractorCondusctTask: UIButton!
@@ -64,14 +67,24 @@ class WorkPermitFormOneVC: UIViewController {
     @IBOutlet weak var chkAsbestosRequiredYes: UIButton!
     @IBOutlet weak var chkAsbestosRequiredNo: UIButton!
     
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
     
     //MARK:VARIABLES
     var arrSites = [typeAliasDictionary]()
     var siteID = ""
+    var categoryID = ""
+    var arrSubContractor = [typeAliasStringDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getSites()
+        let df = DateFormatter.init()
+        df.dateFormat = "MMM dd YYYY"
+        self.lblDate.text = df.string(from: Date())
+        
+        df.dateFormat = "HH:mm"
+        self.lblTime.text = df.string(from: Date())
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -96,11 +109,36 @@ class WorkPermitFormOneVC: UIViewController {
     
     
     @IBAction func btnSafetyCheckNoAction(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        for btn in chkBoxYes {
+            if btn.tag == sender.tag {
+                btn.isSelected = false
+            }
+        }
+        for btn in chkBoxNo {
+            if btn.tag == sender.tag {
+                btn.isSelected = true
+            }
+        }
+        if sender == chkHotWorkRequiredNO {
+            viewIsAsbestosRequired.isHidden = false
+        }
+        
     }
     
     @IBAction func btnSafetyCheckYesAction(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        for btn in chkBoxYes {
+            if btn.tag == sender.tag {
+                btn.isSelected = true
+            }
+        }
+        for btn in chkBoxNo {
+            if btn.tag == sender.tag {
+                btn.isSelected = false
+            }
+        }
+        if sender == chkHotWorkRequiredYes {
+            viewIsAsbestosRequired.isHidden = true
+        }
     }
     
     //MARK: CUSTOM METHODS
@@ -116,8 +154,16 @@ class WorkPermitFormOneVC: UIViewController {
     
     @IBAction func btnNextAction() {
         
-        
-        if !chkBoxSiteRegulations.isSelected {
+        if self.siteID == "" {
+            showFormValidationMessage();
+        }
+        else if self.txtLocation.text! == "" {
+            showFormValidationMessage();
+        }
+        else if  self.txtWorkToBePerformed.text! == "" {
+            showFormValidationMessage();
+        }
+        else if !chkBoxSiteRegulations.isSelected {
             showFormValidationMessage();
         } else if !chikVechicleEquipUsed.isSelected {
             showFormValidationMessage();
@@ -155,10 +201,61 @@ class WorkPermitFormOneVC: UIViewController {
             showFormValidationMessage();
         } else if (!chkSlipTripHazardsYes.isSelected && !chkSlipTripHazardsNo.isSelected) {
             showFormValidationMessage();
-        } else if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
+        }   else if viewIsAsbestosRequired.isHidden == false {
+                if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
+                    showFormValidationMessage();
+                }
+        }
+        else if txtViewOtherSafetyChecks.text == "" {
             showFormValidationMessage();
-        }  else {
-            
+        }
+        else {
+            // CALL API
+            /*
+             @Part("user_id") RequestBody user_id,
+             @Part("category_id") RequestBody category_id,
+             @Part("site_id") RequestBody site_id,
+             @Part("site_date_of_work") RequestBody site_date_of_work,
+             @Part("site_time") RequestBody site_time,
+             @Part("site_location") RequestBody site_location,
+             @Part("site_work_performed") RequestBody site_work_performed,
+             @Part("site_regulations") RequestBody site_regulations,
+             @Part("work_with_vehicles") RequestBody work_with_vehicles,
+             @Part("hot_works_conducted") RequestBody hot_works_conducted,
+             @Part("electricity_equipment_required") RequestBody electricity_equipment_required,
+             @Part("coshh_produced") RequestBody coshh_produced,
+             @Part("evacuation_required") RequestBody evacuation_required,
+             @Part("overhead_obstructions") RequestBody overhead_obstructions,
+             @Part("traffic_operating_area") RequestBody traffic_operating_area,
+             @Part("fragile_roof_coverings") RequestBody fragile_roof_coverings,
+             @Part("work_at_height") RequestBody work_at_height,
+             @Part("isolation_segregation") RequestBody isolation_segregation,
+             @Part("slip_trip_hazards") RequestBody slip_trip_hazards,
+             @Part("site_other_safety_checks") RequestBody site_other_safety_checks
+
+             */
+            var params = typeAliasStringDictionary()
+            let userData = GetSetModel.getObjectFromUserDefaults(UD_KEY_APPUSER_INFO)
+            params["user_id"] = "\(userData["user_id"]!)"
+            params["category_id"] = categoryID
+            params["site_id"] = siteID
+            params["site_date_of_work"] = self.lblDate.text!
+            params["site_time"] = self.lblTime.text!
+            params["site_location"] = txtLocation.text!
+            params["site_work_performed"] = txtWorkToBePerformed.text!
+            params["site_regulations"] = getRegulations()
+            params["work_with_vehicles"] = getYesNoCheckBoxValue(btnYes: chkWorkWithVehiclesYes, btnNo: chkWorkWithVehicleNO)
+            params["hot_works_conducted"] = getYesNoCheckBoxValue(btnYes: chkHotWorkRequiredYes, btnNo: chkHotWorkRequiredNO)
+            params["electricity_equipment_required"] = getYesNoCheckBoxValue(btnYes: chkElectricityEquipmentRequiredYes, btnNo: chkElectricityEquipmentRequiredNO)
+            params["coshh_produced"] = getYesNoCheckBoxValue(btnYes: chkCoshhProducedYes, btnNo: chkCoshhProducedNO)
+            params["evacuation_required"] = getYesNoCheckBoxValue(btnYes: chkEvacuationRequiredYes, btnNo: chkEvacuationRequiredNo)
+            params["traffic_operating_area"] = getYesNoCheckBoxValue(btnYes: chkTrafficOperatingAreaYes, btnNo: chkTrafficOperatingAreaNo)
+            params["fragile_roof_coverings"] = getYesNoCheckBoxValue(btnYes: chkFragileRoofCoveringsYes, btnNo: chkFragileRoofCoveringsNo)
+            params["work_at_height"] = getYesNoCheckBoxValue(btnYes: chkWorkAtHeightYes, btnNo: chkWorkAtHeightNo)
+            params["isolation_segregation"] = getYesNoCheckBoxValue(btnYes: chkIsolationSegregationYes, btnNo: chkIsolationSegregationNo)
+            params["slip_trip_hazards"] = getYesNoCheckBoxValue(btnYes: chkSlipTripHazardsYes, btnNo: chkSlipTripHazardsNo)
+            params["site_other_safety_checks"] = txtViewOtherSafetyChecks.text!
+            self.callCreateWorkPermitAPI(parmas: params)
         }
 
     }
@@ -169,6 +266,26 @@ class WorkPermitFormOneVC: UIViewController {
     
     func showFormValidationMessage() {
         showAlertWithTitleWithMessage(message: "Please fill all details to proceed further")
+    }
+    
+    func getYesNoCheckBoxValue(btnYes:UIButton , btnNo:UIButton) -> String {
+        
+        if btnYes.isSelected {
+            return "1"
+        }
+        return "0"
+    }
+    
+    func getRegulations() -> String {
+        var arrRegulations = [Int]()
+        for i in 0..<8 {
+            arrRegulations.append(i+1)
+        }
+        return convertToJSONString(value: arrRegulations as AnyObject) ?? ""
+    }
+    
+    func redirectToNextForm(work_Permit_id:String) {
+        
     }
     
 }
@@ -203,6 +320,75 @@ extension WorkPermitFormOneVC  {
             showNoInternetAlert()
         }
 
+    }
+    
+    func callCreateWorkPermitAPI(parmas:typeAliasStringDictionary) {
+        if isConnectedToNetwork() {
+            APP_SCENE_DELEGATE.showAppLoader()
+            ServiceCollection.sharedInstance.createWorkPermit(param: parmas as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
+                APP_SCENE_DELEGATE.removeAppLoader()
+                if "\(dictResponse["status"]!)" == "1" {
+                    let workPermitId = "\(dictResponse["work_permit_id"]!)"
+                    if !self.arrSubContractor.isEmpty {
+                        self.callAddSubcontractorList(workPermitID: workPermitId)
+                    }
+                    else {
+                        //NEXT STEPS
+                        self.redirectToNextForm(work_Permit_id: workPermitId)
+                    }
+                }
+                else {
+                    showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
+                }
+            })
+        } else {
+            showNoInternetAlert()
+        }
+    }
+    
+    func callUpdateWorkPermitAPI(parmas:typeAliasStringDictionary) {
+        if isConnectedToNetwork() {
+            APP_SCENE_DELEGATE.showAppLoader()
+            ServiceCollection.sharedInstance.updateWorkPermit(param: parmas as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
+                APP_SCENE_DELEGATE.removeAppLoader()
+                if "\(dictResponse["status"]!)" == "1" {
+                    let workPermitId = "\(dictResponse["work_permit_id"]!)"
+                    if !self.arrSubContractor.isEmpty {
+                        self.callAddSubcontractorList(workPermitID: workPermitId)
+                    }
+                    else {
+                        //NEXT STEPS
+                        self.redirectToNextForm(work_Permit_id: workPermitId)
+                    }
+                }
+                else {
+                    showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
+                }
+            })
+        } else {
+            showNoInternetAlert()
+        }
+    }
+    
+    func callAddSubcontractorList(workPermitID:String) {
+        if isConnectedToNetwork() {
+            var params = typeAliasStringDictionary()
+            params["work_permit_id"] = workPermitID
+            params["sub_contractors"] = convertToJSONString(value: self.arrSubContractor as AnyObject) ?? ""
+            APP_SCENE_DELEGATE.showAppLoader()
+            ServiceCollection.sharedInstance.CreateSubcontractors(param: params as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
+                APP_SCENE_DELEGATE.removeAppLoader()
+                if "\(dictResponse["status"]!)" == "1" {
+                    
+                }
+                else {
+                    showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
+                }
+            })
+        } else {
+            showNoInternetAlert()
+        }
+        
     }
     
 }

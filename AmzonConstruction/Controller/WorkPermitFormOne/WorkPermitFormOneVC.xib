@@ -56,12 +56,38 @@
                 <outlet property="chkWorkAtHeightYes" destination="aeG-MB-kfY" id="LxR-c2-IkY"/>
                 <outlet property="chkWorkWithVehicleNO" destination="fNB-aU-mBk" id="03W-IC-PWh"/>
                 <outlet property="chkWorkWithVehiclesYes" destination="RO4-tU-JRl" id="di0-Ja-FIl"/>
+                <outlet property="lblDate" destination="5Jf-es-d8O" id="irW-i9-B2b"/>
+                <outlet property="lblTime" destination="CHt-BU-9Ag" id="78f-Mc-Gbq"/>
                 <outlet property="txtLocation" destination="idy-eM-B9W" id="keS-vu-Nfo"/>
                 <outlet property="txtSite" destination="r2o-zF-aMO" id="ivV-1x-68f"/>
                 <outlet property="txtViewOtherSafetyChecks" destination="2so-Oy-uTV" id="nV4-m2-Vtj"/>
                 <outlet property="txtWorkToBePerformed" destination="IKy-TT-Dvz" id="6Vy-MG-9aL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewIsAsbestosRequired" destination="8gd-WA-Ld8" id="l84-iT-YdY"/>
+                <outletCollection property="chkBoxNo" destination="fNB-aU-mBk" collectionClass="NSMutableArray" id="cRK-Ph-bvd"/>
+                <outletCollection property="chkBoxYes" destination="RO4-tU-JRl" collectionClass="NSMutableArray" id="qZe-Ha-Zu7"/>
+                <outletCollection property="chkBoxNo" destination="15u-GK-PTi" collectionClass="NSMutableArray" id="3iY-gv-fO3"/>
+                <outletCollection property="chkBoxYes" destination="wnJ-qs-JfN" collectionClass="NSMutableArray" id="cab-02-Yy6"/>
+                <outletCollection property="chkBoxYes" destination="6U9-qa-XRG" collectionClass="NSMutableArray" id="JYp-J2-M5R"/>
+                <outletCollection property="chkBoxNo" destination="ldV-NI-rUa" collectionClass="NSMutableArray" id="NNK-7N-D2w"/>
+                <outletCollection property="chkBoxNo" destination="FJu-ec-sgQ" collectionClass="NSMutableArray" id="2xq-dj-Av7"/>
+                <outletCollection property="chkBoxYes" destination="xoy-lW-BRF" collectionClass="NSMutableArray" id="ypX-ca-eMF"/>
+                <outletCollection property="chkBoxYes" destination="109-Hj-ac8" collectionClass="NSMutableArray" id="1Mz-gp-QvS"/>
+                <outletCollection property="chkBoxNo" destination="rAb-1W-Nj8" collectionClass="NSMutableArray" id="U1B-Bz-gCI"/>
+                <outletCollection property="chkBoxNo" destination="b4F-SY-xMj" collectionClass="NSMutableArray" id="3Zx-Og-PgH"/>
+                <outletCollection property="chkBoxYes" destination="sor-5D-Fdi" collectionClass="NSMutableArray" id="u3W-65-qrn"/>
+                <outletCollection property="chkBoxYes" destination="uFg-eS-40M" collectionClass="NSMutableArray" id="Nqw-FZ-VTu"/>
+                <outletCollection property="chkBoxNo" destination="MYd-Ka-1JB" collectionClass="NSMutableArray" id="WxO-wP-kx5"/>
+                <outletCollection property="chkBoxYes" destination="HIt-fO-5yp" collectionClass="NSMutableArray" id="Pos-85-N1j"/>
+                <outletCollection property="chkBoxNo" destination="YlD-lc-4KI" collectionClass="NSMutableArray" id="Lnx-sx-jQm"/>
+                <outletCollection property="chkBoxYes" destination="aeG-MB-kfY" collectionClass="NSMutableArray" id="ncI-nj-V3G"/>
+                <outletCollection property="chkBoxNo" destination="Irg-jm-hap" collectionClass="NSMutableArray" id="X9a-77-ord"/>
+                <outletCollection property="chkBoxNo" destination="PLO-Ta-fBh" collectionClass="NSMutableArray" id="jqB-sH-KZN"/>
+                <outletCollection property="chkBoxYes" destination="lUK-gS-ZIF" collectionClass="NSMutableArray" id="nk7-at-xlX"/>
+                <outletCollection property="chkBoxNo" destination="0TV-sa-DVx" collectionClass="NSMutableArray" id="9l1-Nh-grj"/>
+                <outletCollection property="chkBoxYes" destination="cD6-SJ-sdA" collectionClass="NSMutableArray" id="qyM-8c-Yik"/>
+                <outletCollection property="chkBoxYes" destination="HH2-1o-02U" collectionClass="NSMutableArray" id="nuN-BP-iRj"/>
+                <outletCollection property="chkBoxNo" destination="TgY-T9-LQa" collectionClass="NSMutableArray" id="anH-QB-wBa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -73,7 +99,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXV-H9-YMN">
-                            <rect key="frame" x="8" y="8" width="398" height="739.99999999999955"/>
+                            <rect key="frame" x="8" y="8" width="398" height="740"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ8-4b-Xpb">
                                     <rect key="frame" x="0.0" y="8" width="398" height="4055.3333333333335"/>
@@ -864,7 +890,7 @@ equipment required?</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15u-GK-PTi">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15u-GK-PTi">
                                                             <rect key="frame" x="344" y="63.000000000000227" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="15u-GK-PTi" secondAttribute="height" id="F50-ak-dfP"/>
@@ -877,7 +903,7 @@ equipment required?</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="X5N-04-wm7"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnJ-qs-JfN">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnJ-qs-JfN">
                                                             <rect key="frame" x="306" y="63.000000000000227" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="9Ne-1j-Pbv"/>
@@ -935,7 +961,7 @@ off/isolated as necessary)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldV-NI-rUa">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldV-NI-rUa">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="HNO-Df-A5L"/>
@@ -948,7 +974,7 @@ off/isolated as necessary)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="gez-pM-ybg"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U9-qa-XRG">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U9-qa-XRG">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="6U9-qa-XRG" secondAttribute="height" id="Sad-GM-jaC"/>
@@ -1004,7 +1030,7 @@ off/isolated as necessary)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJu-ec-sgQ">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJu-ec-sgQ">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="5Pl-1c-jAU"/>
@@ -1017,7 +1043,7 @@ off/isolated as necessary)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="f1Y-bH-Nsk"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoy-lW-BRF">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoy-lW-BRF">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="8FN-o9-mKH"/>
@@ -1075,7 +1101,7 @@ off/isolated as necessary)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAb-1W-Nj8">
+                                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAb-1W-Nj8">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="rAb-1W-Nj8" secondAttribute="height" id="bej-os-82p"/>
@@ -1088,7 +1114,7 @@ off/isolated as necessary)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="wiq-oX-eOl"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="109-Hj-ac8">
+                                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="109-Hj-ac8">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="109-Hj-ac8" secondAttribute="height" id="4iS-Dy-fen"/>
@@ -1147,7 +1173,7 @@ identified and clearly marked)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4F-SY-xMj">
+                                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4F-SY-xMj">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="b4F-SY-xMj" secondAttribute="height" id="BoB-bV-Pwg"/>
@@ -1160,7 +1186,7 @@ identified and clearly marked)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="7vU-pZ-5WW"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sor-5D-Fdi">
+                                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sor-5D-Fdi">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="sor-5D-Fdi" secondAttribute="height" id="8XM-vl-BGT"/>
@@ -1220,7 +1246,7 @@ management)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYd-Ka-1JB">
+                                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYd-Ka-1JB">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="3Ed-Eu-jfw"/>
@@ -1233,8 +1259,8 @@ management)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="R2l-9t-q3i"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFg-eS-40M">
-                                                            <rect key="frame" x="306" y="63" width="30" height="216"/>
+                                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFg-eS-40M">
+                                                            <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="8IZ-60-AhA"/>
                                                                 <constraint firstAttribute="width" secondItem="uFg-eS-40M" secondAttribute="height" id="ylK-ry-CSS"/>
@@ -1291,7 +1317,7 @@ controls are in place)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlD-lc-4KI">
+                                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlD-lc-4KI">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="2OU-4r-Uur"/>
@@ -1304,7 +1330,7 @@ controls are in place)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="hIl-hi-dda"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIt-fO-5yp">
+                                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIt-fO-5yp">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="HIt-fO-5yp" secondAttribute="height" id="HyC-qv-gb4"/>
@@ -1362,7 +1388,7 @@ place)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-jm-hap">
+                                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-jm-hap">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Irg-jm-hap" secondAttribute="height" id="8aa-uG-Zci"/>
@@ -1375,7 +1401,7 @@ place)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="3ER-BB-UPh"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-MB-kfY">
+                                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-MB-kfY">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="3SW-5v-RUk"/>
@@ -1433,7 +1459,7 @@ isolation from power supplies or segregation of materials?)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLO-Ta-fBh">
+                                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLO-Ta-fBh">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="PLO-Ta-fBh" secondAttribute="height" id="0I9-yF-tYt"/>
@@ -1446,7 +1472,7 @@ isolation from power supplies or segregation of materials?)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="f31-xs-lBs"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUK-gS-ZIF">
+                                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUK-gS-ZIF">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="lUK-gS-ZIF" secondAttribute="height" id="c7u-L4-xMg"/>
@@ -1504,7 +1530,7 @@ footwear, spillage protection, housekeeping etc.)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TV-sa-DVx">
+                                                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TV-sa-DVx">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="0TV-sa-DVx" secondAttribute="height" id="9OM-8R-NYH"/>
@@ -1517,7 +1543,7 @@ footwear, spillage protection, housekeeping etc.)</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="PVx-KL-JAl"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD6-SJ-sdA">
+                                                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD6-SJ-sdA">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="0Yj-ut-lHf"/>
@@ -1647,7 +1673,7 @@ additional checks -</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-T9-LQa">
+                                                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-T9-LQa">
                                                             <rect key="frame" x="344" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="Q3n-6v-CU3"/>
@@ -1660,7 +1686,7 @@ additional checks -</string>
                                                                 <action selector="btnSafetyCheckNoAction:" destination="-1" eventType="touchUpInside" id="B2S-fV-LQL"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH2-1o-02U">
+                                                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH2-1o-02U">
                                                             <rect key="frame" x="306" y="63" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="igN-uI-ahX"/>
@@ -1811,7 +1837,7 @@ additional checks -</string>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="lbE-6V-h39" secondAttribute="top" id="qhZ-8k-xbY"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="157" y="147"/>
+            <point key="canvasLocation" x="41" y="145"/>
         </view>
     </objects>
     <resources>
