@@ -1,0 +1,6 @@
+framework module Pods_AmzonConstruction {
+  umbrella header "Pods-AmzonConstruction-umbrella.h"
+
+  export *
+  module * { export * }
+}
