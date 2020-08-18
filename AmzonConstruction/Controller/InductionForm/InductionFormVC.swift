@@ -65,6 +65,7 @@ class InductionFormVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBar()
+        self.btnSubmitFormBG.setTitle("Submit", for: .normal)
         switch Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)! {
         case 2:
             //site manager
@@ -88,9 +89,9 @@ class InductionFormVC: UIViewController {
                 self.viewStageAsbestosBG.isHidden = true
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
-                self.viewStatge2NoteBG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 512
-                self.constraintViewStage2BGHeight.constant = 545
+                self.viewStatge2NoteBG.isHidden = false
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 635
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
@@ -110,28 +111,30 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStage5BGHeight.constant = 0
             break
             case "4":
+                //edit
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
-                self.viewStageAsbestosBG.isHidden = true
-                self.viewStage4BG.isHidden = false
-                self.viewStage5BG.isHidden = true
-                self.viewStatge2NoteBG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 515
-                self.constraintViewStage2BGHeight.constant = 545
-                self.constraintViewStageAsbestosBGHeight.constant = 0
-                self.constraintViewStage4BGHeight.constant = 565
-                self.constraintViewStage5BGHeight.constant = 0
-            break
-            case "5":
-                self.viewStage1BG.isHidden = false
-                self.viewStage2BG.isHidden = false
-                self.viewStageAsbestosBG.isHidden = true
+                self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                 self.viewStage4BG.isHidden = false
                 self.viewStage5BG.isHidden = false
                 self.viewStatge2NoteBG.isHidden = true
                 self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
-                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
+                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStage5BGHeight.constant = 480
+            break
+            case "5":
+                //show
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = false
+                self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                self.viewStage4BG.isHidden = false
+                self.viewStage5BG.isHidden = false
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 545
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 480
             break
@@ -141,25 +144,25 @@ class InductionFormVC: UIViewController {
             break
         case 3:
             //contractor
-            switch "3"
-//                switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String
-
+//            switch "3"
+                switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String
             {
             case "1":
                 self.viewStage1BG.isHidden = false
-                self.viewStage2BG.isHidden = false
+                self.viewStage2BG.isHidden = true
                 self.viewStageAsbestosBG.isHidden = true
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
                 self.viewStatge2NoteBG.isHidden = true
                 self.constraintViewStage1BGHeight.constant = 515
-                self.constraintViewStage2BGHeight.constant = 535
+                self.constraintViewStage2BGHeight.constant = 0
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
                 break
             case "2":
                 //reject
+                self.btnSubmitFormBG.setTitle("ReSubmit", for: .normal)
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = true
@@ -182,33 +185,34 @@ class InductionFormVC: UIViewController {
                 self.viewStatge2NoteBG.isHidden = true
                 self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 525
-                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 0
             break
             case "4":
+                //show
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
-                self.viewStageAsbestosBG.isHidden = true
+                self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                 self.viewStage4BG.isHidden = false
                 self.viewStage5BG.isHidden = true
                 self.viewStatge2NoteBG.isHidden = true
                 self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
-                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 0
             break
             case "5":
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
-                self.viewStageAsbestosBG.isHidden = true
+                self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                 self.viewStage4BG.isHidden = false
                 self.viewStage5BG.isHidden = false
-                self.viewStatge2NoteBG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = false
                 self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
-                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 480
             break
