@@ -75,6 +75,9 @@ public enum WSRequestType : Int {
     case PostClusterSiteList
     case GetClusterList
     case GetSiteList
+    case CreateWorkpermit
+    case UpdateWorkpermit
+    case CreateSubcontractors
     
     case GetHomeCategoryList
     case GetCityList
@@ -143,6 +146,13 @@ struct WebServicePrefix {
             serviceURl = "getClusterdetails"
         case .GetSiteList:
             serviceURl = "getSitedetails"
+            
+        case .CreateWorkpermit:
+            serviceURl = "createWorkpermit"
+        case .UpdateWorkpermit:
+            serviceURl = "updateWorkpermit"
+        case .CreateSubcontractors:
+            serviceURl = "createSubcontractors"
         }
         return "\(BASE_URL)\(serviceURl!)"
     }
