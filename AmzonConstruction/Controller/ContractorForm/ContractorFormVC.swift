@@ -36,9 +36,9 @@ class ContractorFormVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBar()
-    }
+           super.viewWillAppear(animated)
+           self.setNavigationBar()
+       }
 
     //MARK: NAVIGATION BAR
     func setNavigationBar() {
