@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-AmzonConstruction/Pods-AmzonConstruction-
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/TPKeyboardAvoidingSwift/TPKeyboardAvoidingSwift.framework

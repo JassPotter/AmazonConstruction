@@ -8,8 +8,8 @@ target 'AmzonConstruction' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'FCAlertView'
-
-  #  pod "TPKeyboardAvoidingSwift"
+  pod "TPKeyboardAvoidingSwift"
+  
 #  pod 'Firebase/Core'
 #  pod 'Firebase/Messaging'
 
