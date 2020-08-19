@@ -198,6 +198,7 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+        vc.dictPageInfo = self.arrListSelected[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

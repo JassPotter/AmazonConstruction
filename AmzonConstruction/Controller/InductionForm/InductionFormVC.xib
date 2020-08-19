@@ -22,6 +22,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InductionFormVC" customModule="AmzonConstruction" customModuleProvider="target">
             <connections>
+                <outlet property="btnStatge2Approve" destination="fyO-4E-Lvg" id="AJj-8g-YYN"/>
+                <outlet property="btnStatge2Reject" destination="3ES-cQ-faG" id="1Lb-mR-xvy"/>
                 <outlet property="btnSubmitFormBG" destination="K52-EC-Ovb" id="VQS-F7-uk3"/>
                 <outlet property="constraintViewStage1BGHeight" destination="1fr-4w-XDR" id="gIh-fI-6mf"/>
                 <outlet property="constraintViewStage2BGHeight" destination="fNI-EG-g4V" id="qa8-G7-Lg4"/>

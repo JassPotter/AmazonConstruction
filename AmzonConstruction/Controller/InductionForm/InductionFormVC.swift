@@ -27,6 +27,10 @@ class InductionFormVC: UIViewController {
     @IBOutlet weak var viewStatge2NoteBG: UIView!
     @IBOutlet weak var txtViewStage2Note: UITextView!
     @IBOutlet weak var lblStage2NotePH: UILabel!
+    @IBOutlet weak var btnStatge2Approve: UIButton!
+    @IBOutlet weak var btnStatge2Reject: UIButton!
+    
+    
     //stage asbestos
     @IBOutlet weak var viewStageAsbestosBG: UIView!
     @IBOutlet weak var constraintViewStageAsbestosBGHeight: NSLayoutConstraint!//1545
@@ -69,8 +73,20 @@ class InductionFormVC: UIViewController {
         switch Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)! {
         case 2:
             //site manager
+            self.viewStage1BG.isUserInteractionEnabled = false
+            self.viewStage2BG.isUserInteractionEnabled = false
+            self.viewStageAsbestosBG.isUserInteractionEnabled = false
+            self.viewStage4BG.isUserInteractionEnabled = false
+            self.viewStage5BG.isUserInteractionEnabled = false
+            //s1
+            let dict : typeAliasDictionary = (dictPageInfo["work_permit"] as! typeAliasDictionary)
+            self.txtStage1Name.text = "\(dict["contractor_name"]!)"
+            self.txtStage1Company.text = "\(dict["contractor_company"]!)"
+            self.imageViewStage1Sign.sd_setImage(with: URL.init(string: (dictPageInfo["induction_permit"] as! typeAliasDictionary)["prework_signature"]as! String), completed: nil)
+            
             switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String {
             case "1":
+                self.viewStage2BG.isUserInteractionEnabled = true
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = true
                 self.viewStageAsbestosBG.isHidden = true
@@ -81,9 +97,19 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
+                
                 break
             case "2":
                 //reject
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                self.txtViewStage2Note.text = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["reject_notes"]!)"
+                self.lblStage2NotePH.text = ""
+                self.btnStatge2Approve.isSelected = false
+                self.btnStatge2Reject.isSelected = true
+                
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = true
@@ -98,6 +124,15 @@ class InductionFormVC: UIViewController {
             break
             case "3":
                 //approve
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                
+                self.txtViewStage2Note.text = ""
+                self.btnStatge2Approve.isSelected = true
+                self.btnStatge2Reject.isSelected = false
+                
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = true
@@ -112,6 +147,43 @@ class InductionFormVC: UIViewController {
             break
             case "4":
                 //edit
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                
+                self.txtViewStage2Note.text = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["reject_notes"]!)"
+                self.lblStage2NotePH.text = ""
+                self.btnStatge2Approve.isSelected = true
+                self.btnStatge2Reject.isSelected = false
+                
+                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
+                    for btn in self.btnViewAsbestosTopCollection {
+                        if btn.tag == 1{ btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("1") }
+                        else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
+                        else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
+                    }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                    }
+                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                    self.lblAsbestosCommentPH.text = ""
+                }
+                
+                self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
+                self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
+                self.imageViewStage4Sign.sd_setImage(with: URL.init(string: dict["afterwork_signature"]as! String), completed: nil)
+
+                self.viewStage5BG.isUserInteractionEnabled = true
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
@@ -126,6 +198,46 @@ class InductionFormVC: UIViewController {
             break
             case "5":
                 //show
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                
+                self.txtViewStage2Note.text = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["reject_notes"]!)"
+                self.lblStage2NotePH.text = ""
+                self.btnStatge2Approve.isSelected = true
+                self.btnStatge2Reject.isSelected = false
+                
+                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
+                    for btn in self.btnViewAsbestosTopCollection {
+                        if btn.tag == 1{ btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("1") }
+                        else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
+                        else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
+                    }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                    }
+                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                    self.lblAsbestosCommentPH.text = ""
+                }
+                
+                self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
+                self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
+                self.imageViewStage4Sign.sd_setImage(with: URL.init(string: dict["afterwork_signature"]as! String), completed: nil)
+                
+                self.txtStage5Name.text = "\(dict["afterwork_amazon_nameprint"]!)"
+                self.txtStage5Position.text = "\(dict["afterwork_amazon_position"]!)"
+                self.imageViewStage5Sign.sd_setImage(with: URL.init(string: dict["afterwork_amazon_signature"]as! String), completed: nil)
+                
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
@@ -144,8 +256,17 @@ class InductionFormVC: UIViewController {
             break
         case 3:
             //contractor
-//            switch "3"
-                switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String
+            self.viewStage1BG.isUserInteractionEnabled = false
+            self.viewStage2BG.isUserInteractionEnabled = false
+            self.viewStageAsbestosBG.isUserInteractionEnabled = false
+            self.viewStage4BG.isUserInteractionEnabled = false
+            self.viewStage5BG.isUserInteractionEnabled = false
+            //s1
+            let dict : typeAliasDictionary = (dictPageInfo["work_permit"] as! typeAliasDictionary)
+            self.txtStage1Name.text = "\(dict["contractor_name"]!)"
+            self.txtStage1Company.text = "\(dict["contractor_company"]!)"
+            self.imageViewStage1Sign.sd_setImage(with: URL.init(string: (dictPageInfo["induction_permit"] as! typeAliasDictionary)["prework_signature"]as! String), completed: nil)
+            switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String
             {
             case "1":
                 self.viewStage1BG.isHidden = false
@@ -162,6 +283,15 @@ class InductionFormVC: UIViewController {
                 break
             case "2":
                 //reject
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                self.txtViewStage2Note.text = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["reject_notes"]!)"
+                self.lblStage2NotePH.text = ""
+                self.btnStatge2Approve.isSelected = false
+                self.btnStatge2Reject.isSelected = true
+                
                 self.btnSubmitFormBG.setTitle("ReSubmit", for: .normal)
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
@@ -177,6 +307,16 @@ class InductionFormVC: UIViewController {
             break
             case "3":
                 //approve
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                self.txtViewStage2Note.text = ""
+                self.btnStatge2Approve.isSelected = true
+                self.btnStatge2Reject.isSelected = false
+                
+                self.viewStageAsbestosBG.isUserInteractionEnabled = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "")
+                self.viewStage4BG.isUserInteractionEnabled = false
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = true
@@ -191,6 +331,42 @@ class InductionFormVC: UIViewController {
             break
             case "4":
                 //show
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                
+                self.txtViewStage2Note.text = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["reject_notes"]!)"
+                self.lblStage2NotePH.text = ""
+                self.btnStatge2Approve.isSelected = true
+                self.btnStatge2Reject.isSelected = false
+                
+                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
+                    for btn in self.btnViewAsbestosTopCollection {
+                        if btn.tag == 1{ btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("1") }
+                        else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
+                        else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
+                    }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                    }
+                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                    self.lblAsbestosCommentPH.text = ""
+                }
+                
+                self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
+                self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
+                self.imageViewStage4Sign.sd_setImage(with: URL.init(string: dict["afterwork_signature"]as! String), completed: nil)
+                
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
@@ -204,6 +380,46 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStage5BGHeight.constant = 0
             break
             case "5":
+                let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+                self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
+                self.txtStage2Postion.text = "\(dict["prework_amazon_position"]!)"
+                self.imageViewStage2Sign.sd_setImage(with: URL.init(string: dict["prework_amazon_signature"]as! String), completed: nil)
+                
+                self.txtViewStage2Note.text = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["reject_notes"]!)"
+                self.lblStage2NotePH.text = ""
+                self.btnStatge2Approve.isSelected = true
+                self.btnStatge2Reject.isSelected = false
+                
+                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
+                    for btn in self.btnViewAsbestosTopCollection {
+                        if btn.tag == 1{ btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("1") }
+                        else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
+                        else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
+                    }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                    }
+                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                    self.lblAsbestosCommentPH.text = ""
+                }
+                
+                self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
+                self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
+                self.imageViewStage4Sign.sd_setImage(with: URL.init(string: dict["afterwork_signature"]as! String), completed: nil)
+                
+                self.txtStage5Name.text = "\(dict["afterwork_amazon_nameprint"]!)"
+                self.txtStage5Position.text = "\(dict["afterwork_amazon_position"]!)"
+                self.imageViewStage5Sign.sd_setImage(with: URL.init(string: dict["afterwork_amazon_signature"]as! String), completed: nil)
+                
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
                 self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
