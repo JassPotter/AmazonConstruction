@@ -4,23 +4,27 @@ PODS:
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
+  - TPKeyboardAvoidingSwift (3.2)
 
 DEPENDENCIES:
   - Alamofire
   - FCAlertView
   - SDWebImage
+  - TPKeyboardAvoidingSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - FCAlertView
     - SDWebImage
+    - TPKeyboardAvoidingSwift
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  TPKeyboardAvoidingSwift: ce1a75e0bc3af6b485f8bfa1d0a8320cfc565851
 
-PODFILE CHECKSUM: 78941f2fe130baa1dfaa245ad9b340665823aa5b
+PODFILE CHECKSUM: efe77c84c59d599cc3c05320f9887bae6597cba2
 
 COCOAPODS: 1.9.3
