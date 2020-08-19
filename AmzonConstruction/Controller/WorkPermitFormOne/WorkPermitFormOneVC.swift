@@ -75,6 +75,8 @@ class WorkPermitFormOneVC: UIViewController {
     var siteID = ""
     var categoryID = ""
     var arrSubContractor = [typeAliasStringDictionary]()
+    var isEditable = true
+    var isCameFrom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,6 +156,9 @@ class WorkPermitFormOneVC: UIViewController {
     
     @IBAction func btnNextAction() {
         
+        self.redirectToNextForm(work_Permit_id: "")
+        
+        return
         if self.siteID == "" {
             showFormValidationMessage();
         }
@@ -285,7 +290,11 @@ class WorkPermitFormOneVC: UIViewController {
     }
     
     func redirectToNextForm(work_Permit_id:String) {
-        
+        if self.chkHotWorkRequiredYes.isSelected {
+            let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
+            vc.permit_id = work_Permit_id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
