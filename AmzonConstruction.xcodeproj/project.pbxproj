@@ -77,6 +77,8 @@
 		CD8046E724E577660060B40B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80468D24E577660060B40B /* HomeVC.swift */; };
 		CD80470424E577660060B40B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8046B724E577660060B40B /* LoginVC.swift */; };
 		CD80470524E577660060B40B /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8046B824E577660060B40B /* LoginVC.xib */; };
+		CD8D6E9224EED22F002660E8 /* SignaturePadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8D6E9024EED22F002660E8 /* SignaturePadVC.swift */; };
+		CD8D6E9324EED22F002660E8 /* SignaturePadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8D6E9124EED22F002660E8 /* SignaturePadVC.xib */; };
 		CDEE46B124E966F50094546D /* InductionFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE46AF24E966F50094546D /* InductionFormVC.swift */; };
 		CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDEE46B024E966F50094546D /* InductionFormVC.xib */; };
 		FE5675806C808EEE8388D2A7 /* Pods_AmzonConstruction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B65FB947B1DC51ACB7490D4 /* Pods_AmzonConstruction.framework */; };
@@ -163,6 +165,8 @@
 		CD8046B724E577660060B40B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CD8046B824E577660060B40B /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		CD8046BA24E577660060B40B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8D6E9024EED22F002660E8 /* SignaturePadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignaturePadVC.swift; sourceTree = "<group>"; };
+		CD8D6E9124EED22F002660E8 /* SignaturePadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignaturePadVC.xib; sourceTree = "<group>"; };
 		CDEE46AF24E966F50094546D /* InductionFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InductionFormVC.swift; sourceTree = "<group>"; };
 		CDEE46B024E966F50094546D /* InductionFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InductionFormVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -466,6 +470,7 @@
 				7E1D572224ED7F8E008E64C5 /* HotWorkForm */,
 				7E81C2B624E987A20075546B /* WorkPermitFormOne */,
 				7E5CD63324E8369E004DC1FC /* ContractorForm */,
+				CD8D6E8F24EED20A002660E8 /* SignaturePad */,
 				CDEE46AE24E966CA0094546D /* InductionForm */,
 				CD45C35824EBA400002AF21C /* ContractorForm */,
 				CD80468824E577660060B40B /* Home */,
@@ -512,6 +517,15 @@
 				CD8046BA24E577660060B40B /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD8D6E8F24EED20A002660E8 /* SignaturePad */ = {
+			isa = PBXGroup;
+			children = (
+				CD8D6E9024EED22F002660E8 /* SignaturePadVC.swift */,
+				CD8D6E9124EED22F002660E8 /* SignaturePadVC.xib */,
+			);
+			path = SignaturePad;
 			sourceTree = "<group>";
 		};
 		CDEE46AE24E966CA0094546D /* InductionForm */ = {
@@ -603,6 +617,7 @@
 				CD458BE024E68FE400AAB5AD /* ALReligionManagerVC.xib in Resources */,
 				CD8046E224E577660060B40B /* Poppins-Bold.ttf in Resources */,
 				CD458BDC24E68FD400AAB5AD /* ALSiteManagerVC.xib in Resources */,
+				CD8D6E9324EED22F002660E8 /* SignaturePadVC.xib in Resources */,
 				CD8046BE24E577660060B40B /* SideMenuCell.xib in Resources */,
 				CD45C36224EBA400002AF21C /* AdditionalContractorCell.xib in Resources */,
 				CD8046E324E577660060B40B /* Poppins-SemiBold.ttf in Resources */,
@@ -664,6 +679,7 @@
 				CD45C36324EBA400002AF21C /* AdditionalContractorCell.swift in Sources */,
 				CD8046D424E577660060B40B /* ServiceCollection.swift in Sources */,
 				CDEE46B124E966F50094546D /* InductionFormVC.swift in Sources */,
+				CD8D6E9224EED22F002660E8 /* SignaturePadVC.swift in Sources */,
 				CD458BE324E68FF700AAB5AD /* ALPhosterAdminVC.swift in Sources */,
 				CD8046C724E577660060B40B /* CosmosAccessibility.swift in Sources */,
 				CD8046CD24E577660060B40B /* CosmosLayerHelper.swift in Sources */,
