@@ -499,11 +499,17 @@ class InductionFormVC: UIViewController {
             //resubmit
         }
         else {
-            
-        }
+            if APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String == "2" {
+                //site manager
+                
+            }
+            else if APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String == "3" {
+                //contractor
+//                if self.dictPageInfo.key
+            }
     }
     
-    
+    }
 }
 extension InductionFormVC : AppNavigationControllerDelegate {
     func appNavigationController_RightMenuAction() {
