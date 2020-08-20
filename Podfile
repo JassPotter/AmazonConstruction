@@ -9,7 +9,7 @@ target 'AmzonConstruction' do
   pod 'SDWebImage'
   pod 'FCAlertView'
   pod "TPKeyboardAvoidingSwift"
-  
+  pod 'SignaturePad'
 #  pod 'Firebase/Core'
 #  pod 'Firebase/Messaging'
 

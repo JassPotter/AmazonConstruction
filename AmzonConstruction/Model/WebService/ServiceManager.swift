@@ -382,14 +382,14 @@
         }
     }
     
-    func uploadImage(endpointurl:String,imageTagName: String, parameters:typeAliasDictionary, filePath:NSArray, responseData:@escaping ( _ responseDict: Any?, _ error: NSError?, _ message: String?, _ rstaus:Bool) -> Void)  {
+    func postUploadImage(endpointurl:String,imageTagName: String, parameters:typeAliasDictionary, imageData:UIImage, responseData:@escaping ( _ responseDict: Any?, _ error: NSError?, _ message: String?, _ rstaus:Int) -> Void)  {
         
         print(parameters)
         AF.upload(multipartFormData: { multipartFormData in
             for (key, value)in parameters{
                 if key != imageTagName  {
                     var valueStr:String = ""
-                    if let intVlaue:Int   = value as? Int{
+                    if let intVlaue:Int = value as? Int{
                         valueStr = String(format:"%d",intVlaue)
                     }else{
                         valueStr = value as! String
@@ -397,24 +397,25 @@
                     multipartFormData.append(valueStr.data(using: String.Encoding.utf8)!, withName: key )
                 }
             }
-            if filePath.count > 0 {
-                for obj in filePath {
-                    let url : URL = obj as! URL
-                    multipartFormData.append(url, withName: imageTagName)
-                }
-            }else{
-                multipartFormData.append("".data(using: String.Encoding.utf8)!, withName: imageTagName)
-            }
-        }, to: "https://rehabfinal.rejoinws.com/api/api")
-            
+            multipartFormData.append(imageData.jpegData(compressionQuality: 0.5)!, withName: imageTagName, fileName: "\(imageTagName).png", mimeType: "image/png")
+
+//            if filePath.count > 0 {
+//                for obj in filePath {
+//                    let url : URL = obj
+//                    multipartFormData.append(url, withName: imageTagName)
+//                }
+//            }else{
+//                multipartFormData.append("".data(using: String.Encoding.utf8)!, withName: imageTagName)
+//            }
+        }, to: endpointurl)
             .responseJSON { response in
                 debugPrint(response)
                 if let JSON:typeAliasDictionary = response.value as? typeAliasDictionary {
                     print("JSON: \(JSON)")
-                    let st: Bool = JSON[RES_success] as! Bool
+                    let st: Int = JSON[RES_success] as! Int
                     responseData(typeAliasDictionary() ,nil, JSON[RES_message] as? String, st)
                 } else {
-                    responseData(nil, nil, "Something went wrong",false)
+                    responseData(nil, nil, "Something went wrong",0)
                 }
         }
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import FCAlertView
+import SignaturePad
 
 class InductionFormVC: UIViewController {
     
@@ -60,15 +61,9 @@ class InductionFormVC: UIViewController {
     
     //MARK: VARIABLES
     internal var dictPageInfo : typeAliasDictionary = typeAliasDictionary()
-    
+    var signUrls : URL!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBar()
         self.btnSubmitFormBG.setTitle("Submit", for: .normal)
         switch Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)! {
         case 2:
@@ -121,7 +116,7 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
-            break
+                break
             case "3":
                 //approve
                 let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
@@ -144,7 +139,7 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
-            break
+                break
             case "4":
                 //edit
                 let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
@@ -182,7 +177,7 @@ class InductionFormVC: UIViewController {
                 self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
                 self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
                 self.imageViewStage4Sign.sd_setImage(with: URL.init(string: dict["afterwork_signature"]as! String), completed: nil)
-
+                
                 self.viewStage5BG.isUserInteractionEnabled = true
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
@@ -195,7 +190,7 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 480
-            break
+                break
             case "5":
                 //show
                 let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
@@ -249,9 +244,9 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 480
-            break
+                break
             default:
-            break
+                break
             }
             break
         case 3:
@@ -304,7 +299,7 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
                 self.constraintViewStage5BGHeight.constant = 0
-            break
+                break
             case "3":
                 //approve
                 let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
@@ -328,7 +323,7 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 0
-            break
+                break
             case "4":
                 //show
                 let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
@@ -378,7 +373,7 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 0
-            break
+                break
             case "5":
                 let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
                 self.txtStage2Name.text = "\(dict["prework_amazon_nameprint"]!)"
@@ -431,9 +426,9 @@ class InductionFormVC: UIViewController {
                 self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
                 self.constraintViewStage4BGHeight.constant = 565
                 self.constraintViewStage5BGHeight.constant = 480
-            break
+                break
             default:
-            break
+                break
             }
             break
         case 4:
@@ -445,6 +440,11 @@ class InductionFormVC: UIViewController {
         default:break
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBar()
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle { return UIStatusBarStyle.lightContent }
@@ -461,6 +461,10 @@ class InductionFormVC: UIViewController {
     
     //MARK: UIBUTTON ACTION
     @IBAction func btnStage1SignAction() {
+        let vc = SignaturePadVC.init(nibName: "SignaturePadVC", bundle: nil)
+        vc.delegate = self
+        vc.intType = 1
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func brnStage2SignAction() {
     }
@@ -478,15 +482,27 @@ class InductionFormVC: UIViewController {
         UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
     }
     @IBAction func btnStageAsbestosTopAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
     @IBAction func btnViewAsbestosQ1Action(_ sender: UIButton) {
-        
+        for btn in self.btnViewAsbestosQ1Collection {
+            btn.isSelected = btn.tag == sender.tag
+        }
     }
     @IBAction func btnViewAsbestosQ2Action(_ sender: UIButton) {
+        for btn in self.btnViewAsbestosQ2Collection {
+            btn.isSelected = btn.tag == sender.tag
+        }
     }
     @IBAction func btnViewAsbestosQ3Action(_ sender: UIButton) {
+        for btn in self.btnViewAsbestosQ3Collection {
+            btn.isSelected = btn.tag == sender.tag
+        }
     }
     @IBAction func btnViewAsbestosQ4Action(_ sender: UIButton) {
+        for btn in self.btnViewAsbestosQ4Collection {
+            btn.isSelected = btn.tag == sender.tag
+        }
     }
     @IBAction func btnStage4SignAction() {
     }
@@ -501,14 +517,33 @@ class InductionFormVC: UIViewController {
         else {
             if APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String == "2" {
                 //site manager
-                
+                if (dictPageInfo["work_permit"] as!
+                    typeAliasDictionary)["status"]as! String == "1"{
+                    //s1
+                    self.callUpdateFormDetail(isContractor: false, forStage: 23)
+                }
+                else if (dictPageInfo["work_permit"] as!
+                    typeAliasDictionary)["status"]as! String == "4"{
+                    //s5
+                    self.callUpdateFormDetail(isContractor: false, forStage: 5)
+                }
             }
             else if APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String == "3" {
                 //contractor
-//                if self.dictPageInfo.key
+                if self.dictPageInfo.isEmpty {
+                    //first
+                    
+                }
+                else {
+                    if (dictPageInfo["work_permit"] as!
+                        typeAliasDictionary)["status"]as! String == "3"{
+                        //approve
+                        self.callUpdateFormDetail(isContractor: true, forStage: 4)
+                    }
+                }
             }
-    }
-    
+        }
+        
     }
 }
 extension InductionFormVC : AppNavigationControllerDelegate {
@@ -534,4 +569,187 @@ extension InductionFormVC : FCAlertViewDelegate {
     func fcAlertView(_ alertView: FCAlertView!, clickedButtonIndex index: Int, buttonTitle title: String!) {
         
     }
+}
+extension InductionFormVC {
+    func callFirstTimeAPIForContractor() {
+        if isConnectedToNetwork() {
+            var param : typeAliasDictionary = typeAliasDictionary()
+            param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
+            param["prework_nameprint"] = "prework_nameprint" as AnyObject
+            param["prework_company"] = "prework_company" as AnyObject
+            //            param["prework_signature_img"] = "prework_signature_img" as AnyObject
+            APP_SCENE_DELEGATE.showAppLoader()
+            ServiceCollection.sharedInstance.createInductionForm(param: param, imageTagName: "prework_signature_img", fileSign: self.imageViewStage1Sign.image!, response: {(dictResponse,rstatus,message) in
+                APP_SCENE_DELEGATE.removeAppLoader()
+                if rstatus == 1 {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                else {
+                    showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
+                }
+            })
+        } else {
+            showNoInternetAlert()
+        }
+    }
+    
+    func callUpdateFormDetail(isContractor : Bool,forStage : Int) {
+        if isConnectedToNetwork() {
+            var param : typeAliasDictionary = typeAliasDictionary()
+            var imgTagName : String = ""
+            let dict : typeAliasDictionary = (dictPageInfo["induction_permit"] as! typeAliasDictionary)
+            var imgSIgnBG : UIImage = UIImage()
+            if isContractor {
+                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
+                    var isFilled : Bool = true
+                    for btn in self.btnViewAsbestosTopCollection {
+                        if !btn.isSelected { isFilled = false ; break }
+                    }
+                    if !isFilled {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        if !btn.isSelected { isFilled = false ; break }
+                    }
+                    if !isFilled {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        if !btn.isSelected { isFilled = false ; break }
+                    }
+                    if !isFilled {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        if !btn.isSelected { isFilled = false ; break }
+                    }
+                    if !isFilled {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        if !btn.isSelected { isFilled = false ; break }
+                    }
+                    if !isFilled {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    if self.txtViewAsbestosComment.text.trim() == "" {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                }
+                if self.imageViewStage4Sign.image == UIImage() {
+                    showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                    return
+                }
+                param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
+                param["status"] = "4" as AnyObject
+                param["user_id"] = APP_SCENE_DELEGATE.dictUserInfo["user_id"] as AnyObject
+                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
+                    
+                    param["asbestos_risks"] = "1,2,3" as AnyObject
+                    param["asbestos_comments"] = "" as AnyObject
+                    param["prework_further_comments"] = self.txtViewAsbestosComment.text.trim() as AnyObject
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        if btn.tag == 1 {
+                            param["prework_work_area"] = (btn.isSelected ? "1" : "2") as AnyObject
+                        }
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        if btn.tag == 1 {
+                            param["prework_waste_produced"] = (btn.isSelected ? "1" : "2") as AnyObject
+                        }
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        if btn.tag == 1 {
+                            param["prework_equipment_repaired"] = (btn.isSelected ? "1" : "2") as AnyObject
+                        }
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        if btn.tag == 1 {
+                            param["prework_document_report"] = (btn.isSelected ? "1" : "2") as AnyObject
+                        }
+                    }
+                }
+                else {
+                    param["asbestos_risks"] = "" as AnyObject
+                    param["asbestos_comments"] = "" as AnyObject
+                    param["prework_further_comments"] = "" as AnyObject
+                    param["prework_work_area"] = "" as AnyObject
+                    param["prework_waste_produced"] = "" as AnyObject
+                    param["prework_equipment_repaired"] = "" as AnyObject
+                    param["prework_document_report"] = "" as AnyObject
+                }
+                
+                param["afterwork_nameprint"] = "\(dict["afterwork_nameprint"]!)" as AnyObject
+                param["afterwork_company"] = "\(dict["afterwork_company"]!)" as AnyObject
+                imgTagName = "afterwork_signature"
+                imgSIgnBG = self.imageViewStage4Sign.image!
+            }
+            else {
+                if forStage == 23 {
+                    if self.imageViewStage4Sign.image == UIImage() {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    if !self.btnStatge2Approve.isSelected {
+                        if self.txtViewStage2Note.text.trim() == "" {
+                            showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                            return
+                        }
+                    }
+                    
+                    param["prework_amazon_nameprint"] = "\(dict["prework_amazon_nameprint"]!)" as AnyObject
+                    param["prework_amazon_position"] = "\(dict["prework_amazon_position"]!)" as AnyObject
+                    param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
+                    param["status"] = "\(self.btnStatge2Approve.isSelected ? "3" : "2")" as AnyObject
+                    param["user_id"] = APP_SCENE_DELEGATE.dictUserInfo["user_id"] as AnyObject
+                    param["reject_notes"] = "\(self.btnStatge2Approve.isSelected ? "" : "\(self.txtViewStage2Note.text.trim())")" as AnyObject
+                    imgTagName = "prework_amazon_signature"
+                    imgSIgnBG = self.imageViewStage2Sign.image!
+                }
+                else if forStage == 5 {
+                    if self.imageViewStage5Sign.image == UIImage() {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
+                    
+                    param["afterwork_amazon_nameprint"] = "\(dict["afterwork_amazon_nameprint"]!)" as AnyObject
+                    param["afterwork_amazon_position"] = "\(dict["afterwork_amazon_position"]!)" as AnyObject
+                    param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
+                    param["status"] = "5" as AnyObject
+                    param["user_id"] = APP_SCENE_DELEGATE.dictUserInfo["user_id"] as AnyObject
+                    imgTagName = "afterwork_amazon_signature"
+                    imgSIgnBG = self.imageViewStage5Sign.image!
+                }
+            }
+            
+            APP_SCENE_DELEGATE.showAppLoader()
+            ServiceCollection.sharedInstance.createInductionForm(param: param, imageTagName: imgTagName, fileSign: imgSIgnBG, response: {(dictResponse,rstatus,message) in
+                APP_SCENE_DELEGATE.removeAppLoader()
+                if rstatus == 1 {
+                    self.appNavigationController_BackAction()
+                }
+                else {
+                    showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
+                }
+            })
+        } else {
+            showNoInternetAlert()
+        }
+    }
+}
+extension InductionFormVC : delegateSignPad {
+    func getImageFromSignPad(imgSign: UIImage, signPad: SignaturePad) {
+        if signPad.isSigned {
+            if signPad.accessibilityValue == "1" {
+                self.imageViewStage1Sign.image = imgSign
+            }
+        }
+    }
+    
 }
