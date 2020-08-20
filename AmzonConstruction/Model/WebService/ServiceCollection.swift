@@ -94,7 +94,20 @@ class ServiceCollection {
         }
     }
     
-    
+    func createAsbestosWork(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
+    let url : String = WebServicePrefix.GetWSUrl(.CreateAsbestosWork)
+        ServiceManager.sharedInstance.postMultipartFormData(url, parameters: param) { (data, error, message, rstatus ) in
+            if error != nil {
+                response(typeAliasDictionary(), 0, message!)
+            }else{
+                if rstatus == 1 {
+                    response(data as! typeAliasDictionary, 1, message!)
+                }else{
+                    response(typeAliasDictionary(), 0, message!)
+                }
+            }
+        }
+    }
     
     func updateWorkPermit(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
     let url : String = WebServicePrefix.GetWSUrl(.UpdateWorkpermit)

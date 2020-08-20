@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E1D572524ED81F3008E64C5 /* HotWorksFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D572324ED81F3008E64C5 /* HotWorksFormVC.swift */; };
 		7E1D572624ED81F3008E64C5 /* HotWorksFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D572424ED81F3008E64C5 /* HotWorksFormVC.xib */; };
+		7E6DF37524EED2E900C76F50 /* AsbestosFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DF37324EED2E900C76F50 /* AsbestosFormVC.swift */; };
+		7E6DF37624EED2E900C76F50 /* AsbestosFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6DF37424EED2E900C76F50 /* AsbestosFormVC.xib */; };
 		7E81C2B924E987D60075546B /* WorkPermitFormOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E81C2B724E987D60075546B /* WorkPermitFormOneVC.swift */; };
 		7E81C2BA24E987D60075546B /* WorkPermitFormOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E81C2B824E987D60075546B /* WorkPermitFormOneVC.xib */; };
 		CD458BD724E68F9800AAB5AD /* ALContractorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */; };
@@ -90,6 +92,8 @@
 		7E5CD63524E8369E004DC1FC /* ContractorFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractorFormVC.swift; sourceTree = "<group>"; };
 		7E5CD63624E8369E004DC1FC /* AdditionalContractorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalContractorCell.xib; sourceTree = "<group>"; };
 		7E5CD63724E8369E004DC1FC /* AdditionalContractorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalContractorCell.swift; sourceTree = "<group>"; };
+		7E6DF37324EED2E900C76F50 /* AsbestosFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsbestosFormVC.swift; sourceTree = "<group>"; };
+		7E6DF37424EED2E900C76F50 /* AsbestosFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsbestosFormVC.xib; sourceTree = "<group>"; };
 		7E81C2B724E987D60075546B /* WorkPermitFormOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitFormOneVC.swift; sourceTree = "<group>"; };
 		7E81C2B824E987D60075546B /* WorkPermitFormOneVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkPermitFormOneVC.xib; sourceTree = "<group>"; };
 		CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALContractorVC.swift; sourceTree = "<group>"; };
@@ -193,6 +197,15 @@
 				7E5CD63724E8369E004DC1FC /* AdditionalContractorCell.swift */,
 			);
 			path = ContractorForm;
+			sourceTree = "<group>";
+		};
+		7E6DF37224EED2C200C76F50 /* AsbestosForm */ = {
+			isa = PBXGroup;
+			children = (
+				7E6DF37324EED2E900C76F50 /* AsbestosFormVC.swift */,
+				7E6DF37424EED2E900C76F50 /* AsbestosFormVC.xib */,
+			);
+			path = AsbestosForm;
 			sourceTree = "<group>";
 		};
 		7E81C2B624E987A20075546B /* WorkPermitFormOne */ = {
@@ -449,6 +462,7 @@
 		CD80468724E577660060B40B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7E6DF37224EED2C200C76F50 /* AsbestosForm */,
 				7E1D572224ED7F8E008E64C5 /* HotWorkForm */,
 				7E81C2B624E987A20075546B /* WorkPermitFormOne */,
 				7E5CD63324E8369E004DC1FC /* ContractorForm */,
@@ -581,6 +595,7 @@
 				CD8046C024E577660060B40B /* JD_SideMenu.xib in Resources */,
 				CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */,
 				CD8046E024E577660060B40B /* Poppins-Medium.ttf in Resources */,
+				7E6DF37624EED2E900C76F50 /* AsbestosFormVC.xib in Resources */,
 				7E1D572624ED81F3008E64C5 /* HotWorksFormVC.xib in Resources */,
 				CD45C36024EBA400002AF21C /* ContractorFormVC.xib in Resources */,
 				CD458BE424E68FF700AAB5AD /* ALPhosterAdminVC.xib in Resources */,
@@ -674,6 +689,7 @@
 				CD8046E724E577660060B40B /* HomeVC.swift in Sources */,
 				CD8046C324E577660060B40B /* JDSelection.swift in Sources */,
 				CD458BE824E6981900AAB5AD /* ALSiteManagerCell.swift in Sources */,
+				7E6DF37524EED2E900C76F50 /* AsbestosFormVC.swift in Sources */,
 				CD8046D124E577660060B40B /* CosmosTouchTarget.swift in Sources */,
 				CD8046CC24E577660060B40B /* CosmosLocalizedRating.swift in Sources */,
 				CD8046D924E577660060B40B /* App_ Messages.swift in Sources */,

@@ -79,6 +79,7 @@ public enum WSRequestType : Int {
     case UpdateWorkpermit
     case CreateSubcontractors
     case CreateHotWork
+    case CreateAsbestosWork
     
     case GetHomeCategoryList
     case GetCityList
@@ -156,6 +157,8 @@ struct WebServicePrefix {
             serviceURl = "createSubcontractors"
         case .CreateHotWork:
             serviceURl = "createHotworkpermit"
+        case .CreateAsbestosWork:
+            serviceURl = "createAsbestospermit"
         }
         return "\(BASE_URL)\(serviceURl!)"
     }
