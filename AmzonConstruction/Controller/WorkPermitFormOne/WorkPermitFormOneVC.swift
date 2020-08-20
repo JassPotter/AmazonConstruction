@@ -291,9 +291,9 @@ class WorkPermitFormOneVC: UIViewController {
     
     func redirectToNextForm(work_Permit_id:String) {
         if self.chkHotWorkRequiredYes.isSelected {
-            let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
-            vc.permit_id = work_Permit_id
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
+//            vc.permit_id = work_Permit_id
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

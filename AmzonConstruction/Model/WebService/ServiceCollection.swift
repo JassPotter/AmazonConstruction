@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 //import Alamofire
 //import SwiftyJSON
 //import FCAlertView
@@ -110,6 +111,37 @@ class ServiceCollection {
             }
         }
     }
+
+    func createInductionForm(param : typeAliasDictionary,imageTagName : String, fileSign : UIImage ,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
+       let url : String = WebServicePrefix.GetWSUrl(.CreateInductionForm)
+        ServiceManager.sharedInstance.postUploadImage(endpointurl: url, imageTagName: imageTagName,parameters: param,imageData : fileSign) { (data, error, message, rstatus ) in
+               if error != nil {
+                   response(typeAliasDictionary(), 0, message!)
+               }else{
+                   if rstatus == 1 {
+                       response(data as! typeAliasDictionary, 1, message!)
+                   }else{
+                       response(typeAliasDictionary(), 0, message!)
+                   }
+               }
+           }
+       }
+    
+    func updateFormDetail(param : typeAliasDictionary,imageTagName : String, fileSign : UIImage ,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
+    let url : String = WebServicePrefix.GetWSUrl(.PostUpdateFormDetail)
+     ServiceManager.sharedInstance.postUploadImage(endpointurl: url, imageTagName: imageTagName,parameters: param,imageData : fileSign) { (data, error, message, rstatus ) in
+            if error != nil {
+                response(typeAliasDictionary(), 0, message!)
+            }else{
+                if rstatus == 1 {
+                    response(data as! typeAliasDictionary, 1, message!)
+                }else{
+                    response(typeAliasDictionary(), 0, message!)
+                }
+            }
+        }
+    }
+
 
     func CreateSubcontractors(param : typeAliasDictionary,response : @escaping( _ data : typeAliasDictionary , _ rstatus : Int, _ message : String) -> Void ) {
     let url : String = WebServicePrefix.GetWSUrl(.CreateSubcontractors)
