@@ -62,6 +62,8 @@ class InductionFormVC: UIViewController {
     //MARK: VARIABLES
     internal var dictPageInfo : typeAliasDictionary = typeAliasDictionary()
     var signUrls : URL!
+    var strWorkPermitId : String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnSubmitFormBG.setTitle("Submit", for: .normal)
@@ -251,6 +253,24 @@ class InductionFormVC: UIViewController {
             break
         case 3:
             //contractor
+            if dictPageInfo.isEmpty {
+                //from back form
+                self.viewStage1BG.isUserInteractionEnabled = true
+                self.txtStage1Name.text = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)"
+                self.txtStage1Company.text = "\(APP_SCENE_DELEGATE.dictUserInfo["contractor_company"]!)"
+                self.viewStage1BG.isHidden = false
+                self.viewStage2BG.isHidden = true
+                self.viewStageAsbestosBG.isHidden = true
+                self.viewStage4BG.isHidden = true
+                self.viewStage5BG.isHidden = true
+                self.viewStatge2NoteBG.isHidden = true
+                self.constraintViewStage1BGHeight.constant = 515
+                self.constraintViewStage2BGHeight.constant = 0
+                self.constraintViewStageAsbestosBGHeight.constant = 0
+                self.constraintViewStage4BGHeight.constant = 0
+                self.constraintViewStage5BGHeight.constant = 0
+            }
+            else {
             self.viewStage1BG.isUserInteractionEnabled = false
             self.viewStage2BG.isUserInteractionEnabled = false
             self.viewStageAsbestosBG.isUserInteractionEnabled = false
@@ -429,6 +449,7 @@ class InductionFormVC: UIViewController {
                 break
             default:
                 break
+            }
             }
             break
         case 4:
