@@ -8,8 +8,8 @@
 
 import UIKit
 
-let KEY_FIRST_NAME = "KEY_FIRST_NAME"
-let KEY_SURNAME = "KEY_SURNAME"
+let KEY_FIRST_NAME = "first_name"
+let KEY_SURNAME = "sur_name"
 
 class ContractorFormVC: UIViewController {
 
@@ -26,6 +26,7 @@ class ContractorFormVC: UIViewController {
     var arrCategory = [typeAliasDictionary]()
     var arrContractors = [typeAliasStringDictionary]()
     var selectedCategoryID = ""
+    var dictFormData = typeAliasDictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +34,13 @@ class ContractorFormVC: UIViewController {
         let nib = UINib.init(nibName: "AdditionalContractorCell", bundle: nil)
         self.tblViewContractors.register(nib, forCellReuseIdentifier: "AdditionalContractorCell")
         self.getCategories()
+        self.fillFormData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            self.setNavigationBar()
-       }
+    }
 
     //MARK: NAVIGATION BAR
     func setNavigationBar() {
@@ -107,6 +109,20 @@ class ContractorFormVC: UIViewController {
         }
     }
     
+    func fillFormData() {
+        if let dictWorkPermit = self.dictFormData["work_permit"] as? typeAliasDictionary {
+            self.selectedCategoryID = "\(dictWorkPermit["category_id"]!)"
+            let _ = self.arrCategory.map { if "\($0["id"]!)" == self.selectedCategoryID {
+                    self.lblCategoryName.text = "\($0["name"]!)"
+                }
+            }
+        }
+        if let dictSubContractors = self.dictFormData["sub_contractors"] as? [typeAliasStringDictionary]{
+            self.arrContractors = dictSubContractors
+        }
+        self.tblViewContractors.reloadData()
+    }
+    
 }
 
 
@@ -131,6 +147,7 @@ extension ContractorFormVC  {
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if !dictResponse.isEmpty {
                     self.arrCategory = dictResponse as! [typeAliasDictionary]
+                    self.fillFormData()
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)

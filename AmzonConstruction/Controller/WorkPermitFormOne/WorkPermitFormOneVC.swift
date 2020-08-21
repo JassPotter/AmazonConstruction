@@ -77,6 +77,8 @@ class WorkPermitFormOneVC: UIViewController {
     var arrSubContractor = [typeAliasStringDictionary]()
     var isEditable = true
     var isCameFrom = ""
+    var dictFormData = typeAliasDictionary()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +87,9 @@ class WorkPermitFormOneVC: UIViewController {
         df.dateFormat = "MMM dd YYYY"
         self.lblDate.text = df.string(from: Date())
         
-        df.dateFormat = "HH:mm"
+        df.dateFormat = "hh:mm a"
         self.lblTime.text = df.string(from: Date())
+        self.fillFormData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -108,7 +111,6 @@ class WorkPermitFormOneVC: UIViewController {
     @IBAction func btnSafeyCheckAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
     }
-    
     
     @IBAction func btnSafetyCheckNoAction(_ sender: UIButton) {
         for btn in chkBoxYes {
@@ -143,22 +145,8 @@ class WorkPermitFormOneVC: UIViewController {
         }
     }
     
-    //MARK: CUSTOM METHODS
-    
-    func showSites() {
-        let jdSelection = JDSelection.init(title: "Select Site", arrayItems: self.arrSites, arraySelected: [typeAliasDictionary](), VALUE_KEY: "name", ID_KEY: "id", IS_MULTI_SELECTION: false)
-        jdSelection.onSelection = { arrSelected in
-            self.txtSite.text = arrSelected.first!["name"] as! String
-            self.siteID = arrSelected.first!["id"] as! String
-        }
-    }
-    
-    
     @IBAction func btnNextAction() {
         
-        self.redirectToNextForm(work_Permit_id: "")
-        
-        return
         if self.siteID == "" {
             showFormValidationMessage();
         }
@@ -207,9 +195,9 @@ class WorkPermitFormOneVC: UIViewController {
         } else if (!chkSlipTripHazardsYes.isSelected && !chkSlipTripHazardsNo.isSelected) {
             showFormValidationMessage();
         }   else if viewIsAsbestosRequired.isHidden == false {
-                if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
-                    showFormValidationMessage();
-                }
+            if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
+                showFormValidationMessage();
+            }
         }
         else if txtViewOtherSafetyChecks.text == "" {
             showFormValidationMessage();
@@ -237,7 +225,7 @@ class WorkPermitFormOneVC: UIViewController {
              @Part("isolation_segregation") RequestBody isolation_segregation,
              @Part("slip_trip_hazards") RequestBody slip_trip_hazards,
              @Part("site_other_safety_checks") RequestBody site_other_safety_checks
-
+             
              */
             var params = typeAliasStringDictionary()
             let userData = GetSetModel.getObjectFromUserDefaults(UD_KEY_APPUSER_INFO)
@@ -262,13 +250,73 @@ class WorkPermitFormOneVC: UIViewController {
             params["site_other_safety_checks"] = txtViewOtherSafetyChecks.text!
             self.callCreateWorkPermitAPI(parmas: params)
         }
-
+        
     }
-    
+       
     @IBAction func btnBackMenuAction() {
-  
+        
     }
     
+    //MARK: CUSTOM METHODS
+    
+    func showSites() {
+        let jdSelection = JDSelection.init(title: "Select Site", arrayItems: self.arrSites, arraySelected: [typeAliasDictionary](), VALUE_KEY: "name", ID_KEY: "id", IS_MULTI_SELECTION: false)
+        jdSelection.onSelection = { arrSelected in
+            self.txtSite.text = arrSelected.first!["name"] as! String
+            self.siteID = arrSelected.first!["id"] as! String
+        }
+    }
+    
+    func fillFormData() {
+        if let dictWorkPermit = self.dictFormData["work_permit"] as? typeAliasDictionary , !dictWorkPermit.isEmpty{
+            self.siteID = dictWorkPermit["site_id"] as! String
+            self.lblDate.text = dictWorkPermit["site_date_of_work"] as? String
+            self.lblTime.text = dictWorkPermit["site_time"] as? String
+            self.txtLocation.text = dictWorkPermit["site_location"] as? String
+            self.txtSite.text = dictWorkPermit["site_name"] as? String
+            self.txtWorkToBePerformed.text = dictWorkPermit["site_work_performed"] as? String
+            self.txtViewOtherSafetyChecks.text = dictWorkPermit["site_other_safety_checks"] as? String
+            
+            //CHECK BOX REGUALTIONS
+            if dictWorkPermit["site_regulations"] as! String != "" {
+                chkBoxSiteRegulations.isSelected = true
+                chikVechicleEquipUsed.isSelected = true
+                chkContractorCondusctTask.isSelected = true
+                chkAccidentIncidentSafety.isSelected = true
+                chkWorkAreaNecessary.isSelected = true
+                chkSiteMandatoryPpe.isSelected = true
+                chkHazardsTask.isSelected = true
+                chkWorkAreaResponsibility.isSelected = true
+            }
+            
+            //CHECKBOX YES NO
+            self.setYesNoCheckBox(yesButton: chkSlipTripHazardsYes, noButton: chkSlipTripHazardsNo, key: "slip_trip_hazards")
+            self.setYesNoCheckBox(yesButton: chkCoshhProducedYes, noButton: chkCoshhProducedNO, key: "coshh_produced")
+            self.setYesNoCheckBox(yesButton: chkWorkWithVehiclesYes, noButton: chkWorkWithVehicleNO, key: "work_with_vehicles")
+            self.setYesNoCheckBox(yesButton: chkHotWorkRequiredYes, noButton: chkHotWorkRequiredNO, key: "hot_works_conducted")
+            self.setYesNoCheckBox(yesButton: chkElectricityEquipmentRequiredYes, noButton: chkElectricityEquipmentRequiredNO, key: "electricity_equipment_required")
+            self.setYesNoCheckBox(yesButton: chkEvacuationRequiredYes, noButton: chkEvacuationRequiredNo, key: "evacuation_required")
+            self.setYesNoCheckBox(yesButton: chkTrafficOperatingAreaYes, noButton: chkTrafficOperatingAreaNo, key: "traffic_operating_area")
+            self.setYesNoCheckBox(yesButton: chkFragileRoofCoveringsYes, noButton: chkFragileRoofCoveringsNo, key: "fragile_roof_coverings")
+            self.setYesNoCheckBox(yesButton: chkWorkAtHeightYes, noButton: chkWorkAtHeightNo, key: "work_at_height")
+            self.setYesNoCheckBox(yesButton: chkIsolationSegregationYes, noButton: chkIsolationSegregationNo, key: "isolation_segregation")
+            
+        }
+    }
+    
+    func setYesNoCheckBox(yesButton:UIButton , noButton:UIButton , key:String) {
+        let dictWorkPermit = self.dictFormData["work_permit"] as! typeAliasDictionary
+        yesButton.isSelected = false
+        noButton.isSelected = false
+        if "\(dictWorkPermit[key]!)" == "1" {
+            yesButton.isSelected = true
+        }
+        else {
+            noButton.isSelected = true
+        }
+    }
+    
+       
     func showFormValidationMessage() {
         showAlertWithTitleWithMessage(message: "Please fill all details to proceed further")
     }
@@ -278,7 +326,7 @@ class WorkPermitFormOneVC: UIViewController {
         if btnYes.isSelected {
             return "1"
         }
-        return "0"
+        return "2"
     }
     
     func getRegulations() -> String {
@@ -290,11 +338,27 @@ class WorkPermitFormOneVC: UIViewController {
     }
     
     func redirectToNextForm(work_Permit_id:String) {
+
         if self.chkHotWorkRequiredYes.isSelected {
-//            let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
-//            vc.permit_id = work_Permit_id
-//            self.navigationController?.pushViewController(vc, animated: true)
+            //
+            let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
+            vc.permit_id = work_Permit_id
+            vc.dictFormData = self.dictFormData
+            vc.isEditable = self.isEditable
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+        else if self.chkAsbestosRequiredYes.isSelected {
+            let vc = AsbestosFormVC.init(nibName: "AsbestosFormVC", bundle: nil)
+            vc.permit_id = work_Permit_id
+            vc.dictFormData = self.dictFormData
+            vc.isEditable = self.isEditable
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
 }
@@ -320,6 +384,7 @@ extension WorkPermitFormOneVC  {
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if !dictResponse.isEmpty {
                     self.arrSites = dictResponse as! [typeAliasDictionary]
+                    self.fillFormData()
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
