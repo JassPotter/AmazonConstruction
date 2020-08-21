@@ -63,11 +63,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXV-H9-YMN">
-<<<<<<< HEAD
                             <rect key="frame" x="8" y="8" width="398" height="732"/>
-=======
-                            <rect key="frame" x="8" y="8" width="398" height="740"/>
->>>>>>> master
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ8-4b-Xpb">
                                     <rect key="frame" x="0.0" y="8" width="398" height="2890.3333333333335"/>
@@ -1205,12 +1201,7 @@ contractor</string>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="wQ8-4b-Xpb" firstAttribute="width" secondItem="bXV-H9-YMN" secondAttribute="width" id="Er0-PE-nsP"/>
-<<<<<<< HEAD
                                 <constraint firstAttribute="bottom" secondItem="wQ8-4b-Xpb" secondAttribute="bottom" constant="8" id="SCa-90-A22"/>
-=======
-                                <constraint firstAttribute="bottom" secondItem="wQ8-4b-Xpb" secondAttribute="bottom" id="SCa-90-A22"/>
-
->>>>>>> master
                                 <constraint firstItem="wQ8-4b-Xpb" firstAttribute="top" secondItem="bXV-H9-YMN" secondAttribute="top" constant="8" id="jN5-vA-rKH"/>
                                 <constraint firstAttribute="trailing" secondItem="wQ8-4b-Xpb" secondAttribute="trailing" id="m6i-nI-5VV"/>
                                 <constraint firstItem="wQ8-4b-Xpb" firstAttribute="leading" secondItem="bXV-H9-YMN" secondAttribute="leading" id="tHj-Vm-KyH"/>
@@ -1260,11 +1251,7 @@ contractor</string>
                                     </connections>
                                 </button>
                             </subviews>
-<<<<<<< HEAD
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-=======
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
->>>>>>> master
                             <constraints>
                                 <constraint firstItem="fkI-89-z24" firstAttribute="leading" secondItem="JGc-D8-P6X" secondAttribute="leading" constant="16" id="1vr-P4-WPo"/>
                                 <constraint firstAttribute="trailing" secondItem="wxg-tZ-uqn" secondAttribute="trailing" id="2Ua-6R-UMT"/>
@@ -1281,11 +1268,7 @@ contractor</string>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="JGc-D8-P6X" firstAttribute="leading" secondItem="lbE-6V-h39" secondAttribute="leading" id="2Md-0n-7ZO"/>
-<<<<<<< HEAD
                         <constraint firstItem="JGc-D8-P6X" firstAttribute="top" secondItem="bXV-H9-YMN" secondAttribute="bottom" constant="8" id="GDX-C6-Rvw"/>
-=======
-                        <constraint firstItem="JGc-D8-P6X" firstAttribute="top" secondItem="bXV-H9-YMN" secondAttribute="bottom" id="GDX-C6-Rvw"/>
->>>>>>> master
                         <constraint firstAttribute="bottom" secondItem="JGc-D8-P6X" secondAttribute="bottom" id="INT-S3-cTp"/>
                         <constraint firstAttribute="trailing" secondItem="JGc-D8-P6X" secondAttribute="trailing" id="ODH-XC-q8Y"/>
                         <constraint firstItem="bXV-H9-YMN" firstAttribute="top" secondItem="lbE-6V-h39" secondAttribute="top" constant="8" id="fgZ-7h-WiO"/>
@@ -1294,11 +1277,7 @@ contractor</string>
                     </constraints>
                 </view>
             </subviews>
-<<<<<<< HEAD
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-=======
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
->>>>>>> master
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lbE-6V-h39" secondAttribute="bottom" id="OLl-iM-8fS"/>
                 <constraint firstItem="lbE-6V-h39" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XMp-eC-Hgf"/>

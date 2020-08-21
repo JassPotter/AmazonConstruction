@@ -11,10 +11,6 @@ import UIKit
 class HotWorksFormVC: UIViewController {
 
     //MARK: PROPERTIES
-<<<<<<< HEAD
-=======
-    @IBOutlet weak var txtSite: UITextField!
->>>>>>> master
     @IBOutlet weak var txtLocation: UITextField!
     @IBOutlet weak var txtWorkToBePerformed: UITextField!
     @IBOutlet weak var txtViewOtherSafetyChecks: UITextView!
@@ -25,42 +21,6 @@ class HotWorksFormVC: UIViewController {
     @IBOutlet  var chkBoxNo: [UIButton]!
     @IBOutlet  var chkBoxParameters: [UIButton]!
 
-<<<<<<< HEAD
-=======
-    @IBOutlet weak var chkWorkWithVehiclesYes: UIButton!
-    @IBOutlet weak var chkWorkWithVehicleNO: UIButton!
-    
-    @IBOutlet weak var chkHotWorkRequiredYes: UIButton!
-    @IBOutlet weak var chkHotWorkRequiredNO: UIButton!
-    
-    @IBOutlet weak var chkElectricityEquipmentRequiredYes: UIButton!
-    @IBOutlet weak var chkElectricityEquipmentRequiredNO: UIButton!
-    
-    @IBOutlet weak var chkCoshhProducedYes: UIButton!
-    @IBOutlet weak var chkCoshhProducedNO: UIButton!
-    
-    @IBOutlet weak var chkEvacuationRequiredYes: UIButton!
-    @IBOutlet weak var chkEvacuationRequiredNo: UIButton!
-    
-    @IBOutlet weak var chkOverheadObstructionsYes: UIButton!
-    @IBOutlet weak var chkOverheadObstructionsNO: UIButton!
-    
-    @IBOutlet weak var chkTrafficOperatingAreaYes: UIButton!
-    @IBOutlet weak var chkTrafficOperatingAreaNo: UIButton!
-    
-    @IBOutlet weak var chkFragileRoofCoveringsYes: UIButton!
-    @IBOutlet weak var chkFragileRoofCoveringsNo: UIButton!
-    
-    @IBOutlet weak var chkWorkAtHeightYes: UIButton!
-    @IBOutlet weak var chkWorkAtHeightNo: UIButton!
-    
-    @IBOutlet weak var chkIsolationSegregationYes: UIButton!
-    @IBOutlet weak var chkIsolationSegregationNo: UIButton!
-    
-    @IBOutlet weak var chkSlipTripHazardsYes: UIButton!
-    @IBOutlet weak var chkSlipTripHazardsNo: UIButton!
-    
->>>>>>> master
     @IBOutlet weak var chkAsbestosRequiredYes: UIButton!
     @IBOutlet weak var chkAsbestosRequiredNo: UIButton!
     
@@ -74,10 +34,7 @@ class HotWorksFormVC: UIViewController {
     var arrSubContractor = [typeAliasStringDictionary]()
     var permit_id = ""
     var isEditable = true
-<<<<<<< HEAD
     var dictFormData = typeAliasDictionary()
-=======
->>>>>>> master
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,11 +42,7 @@ class HotWorksFormVC: UIViewController {
         df.dateFormat = "MMM dd YYYY"
         self.lblDate.text = df.string(from: Date())
         
-<<<<<<< HEAD
         df.dateFormat = "hh:mm a"
-=======
-        df.dateFormat = "HH:mm"
->>>>>>> master
         self.lblTime.text = df.string(from: Date())
     }
 
@@ -125,12 +78,6 @@ class HotWorksFormVC: UIViewController {
                 btn.isSelected = true
             }
         }
-<<<<<<< HEAD
-=======
-        if sender == chkHotWorkRequiredNO {
-            viewIsAsbestosRequired.isHidden = false
-        }
->>>>>>> master
         
     }
     
@@ -145,28 +92,11 @@ class HotWorksFormVC: UIViewController {
                 btn.isSelected = false
             }
         }
-<<<<<<< HEAD
-    }
-    
-=======
-        if sender == chkHotWorkRequiredYes {
-            viewIsAsbestosRequired.isHidden = true
-        }
     }
     
     //MARK: CUSTOM METHODS
     
-    func showSites() {
-        let jdSelection = JDSelection.init(title: "Select Site", arrayItems: self.arrSites, arraySelected: [typeAliasDictionary](), VALUE_KEY: "name", ID_KEY: "id", IS_MULTI_SELECTION: false)
-        jdSelection.onSelection = { arrSelected in
-            self.txtSite.text = arrSelected.first!["name"] as! String
-            self.siteID = arrSelected.first!["id"] as! String
-        }
-    }
     
-    
-    
->>>>>>> master
     @IBAction func btnNextAction() {
         
         if self.txtLocation.text! == "" {
@@ -181,39 +111,6 @@ class HotWorksFormVC: UIViewController {
         else if !checkIsAllYesNoSelected() {
             showFormValidationMessage();
         }
-<<<<<<< HEAD
-=======
-        /*else if (!chkWorkWithVehiclesYes.isSelected && !chkWorkWithVehicleNO.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkHotWorkRequiredYes.isSelected && !chkHotWorkRequiredNO.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkElectricityEquipmentRequiredYes.isSelected && !chkElectricityEquipmentRequiredNO.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkCoshhProducedYes.isSelected && !chkCoshhProducedNO.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkEvacuationRequiredYes.isSelected && !chkEvacuationRequiredNo.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkOverheadObstructionsYes.isSelected && !chkOverheadObstructionsNO.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkTrafficOperatingAreaYes.isSelected && !chkTrafficOperatingAreaNo.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkFragileRoofCoveringsYes.isSelected && !chkFragileRoofCoveringsNo.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkWorkAtHeightYes.isSelected && !chkWorkAtHeightNo.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkIsolationSegregationYes.isSelected && !chkIsolationSegregationNo.isSelected) {
-            showFormValidationMessage();
-        } else if (!chkSlipTripHazardsYes.isSelected && !chkSlipTripHazardsNo.isSelected) {
-            showFormValidationMessage();
-        }   else if viewIsAsbestosRequired.isHidden == false {
-                if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
-                    showFormValidationMessage();
-                }
-        }
-        else if txtViewOtherSafetyChecks.text == "" {
-            showFormValidationMessage();
-        }*/
->>>>>>> master
         else {
             // CALL API
             /*
@@ -234,10 +131,6 @@ class HotWorksFormVC: UIViewController {
              
              */
             
-=======
-
-             */
->>>>>>> master
             var params = typeAliasStringDictionary()
             params["work_permit_id"] = self.permit_id
             params["category_id"] = categoryID
@@ -251,8 +144,6 @@ class HotWorksFormVC: UIViewController {
             params = getYesNoParams(params: params)
             self.callCreateHotWorkAPI(parmas: params)
         }
-<<<<<<< HEAD
-        
     }
        
     @IBAction func btnBackMenuAction() {
@@ -325,15 +216,8 @@ class HotWorksFormVC: UIViewController {
             }
         }
         
-=======
-
     }
-    
-    @IBAction func btnBackMenuAction() {
-  
->>>>>>> master
-    }
-    
+        
     func isAllParamsSelected() -> Bool {
         for btn in chkBoxParameters {
             if !btn.isSelected {
@@ -372,11 +256,7 @@ class HotWorksFormVC: UIViewController {
         if btnYes.isSelected {
             return "1"
         }
-<<<<<<< HEAD
         return "2"
-=======
-        return "0"
->>>>>>> master
     }
     
     func getRegulations() -> String {
@@ -414,7 +294,6 @@ class HotWorksFormVC: UIViewController {
     }
     
     func redirectToNextForm(work_Permit_id:String) {
-<<<<<<< HEAD
         if self.chkAsbestosRequiredYes.isSelected {
             let vc = AsbestosFormVC.init(nibName: "AsbestosFormVC", bundle: nil)
             vc.permit_id = work_Permit_id
@@ -426,9 +305,6 @@ class HotWorksFormVC: UIViewController {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         }
-=======
-        
->>>>>>> master
     }
     
 }
@@ -539,13 +415,6 @@ extension HotWorksFormVC  {
 extension HotWorksFormVC : UITextFieldDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-<<<<<<< HEAD
-=======
-        if textField == txtSite {
-            self.showSites()
-            return false
-        }
->>>>>>> master
         return true
     }
 }
