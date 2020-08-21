@@ -24,13 +24,13 @@ class AsbestosFormVC: UIViewController {
     @IBOutlet weak var txtValidTilTIme: UITextField!
     @IBOutlet weak var lblDate: UILabel!
     
-    
     //MARK: VARIABLES
     
     var permit_id = ""
     var isEditable = true
     var datePicker = UIDatePicker.init()
     var currentTextfield = UITextField()
+    var dictFormData = typeAliasDictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class AsbestosFormVC: UIViewController {
         
         let df = DateFormatter()
         if datePicker.datePickerMode == .time {
-            df.dateFormat = "HH:mm"
+            df.dateFormat = "hh:mm a"
             self.currentTextfield.text = df.string(from: datePicker.date)
         }
         else {
@@ -133,6 +133,38 @@ class AsbestosFormVC: UIViewController {
     
     func redirectToNextForm(work_Permit_id:String) {
         
+    }
+    
+    func fillFormData() {
+        
+        /*
+         "asbestos_building" = TeT;
+         "asbestos_company_department" = Test;
+         "asbestos_location" = Twst;
+         "asbestos_regsiter_ref" = Tszt;
+         "asbestos_risk_assessment" = Tsst;
+         "asbestos_supervisor" = Test;
+         "asbestos_work_carried" = Tsst;
+         "permit_valid_date" = "Aug 21, 2020";
+         "permit_valid_time" = "06:54 PM";
+         "util_valid_date" = "Aug 22, 2020";
+         "util_valid_time" = "06:54 PM";
+         */
+        
+        if let dictWorkPermit = self.dictFormData["asbestos_permit"] as? typeAliasDictionary , !dictWorkPermit.isEmpty {
+//            self.lblDate.text = dictWorkPermit["hotwork_date_of_work"] as? String
+            self.txtLocation.text = dictWorkPermit["asbestos_location"] as? String
+            self.txtBuilding.text = dictWorkPermit["asbestos_building"] as? String
+            self.txtConpanyDepartment.text = dictWorkPermit["asbestos_company_department"] as? String
+            self.txtAsbestosRegister.text = dictWorkPermit["asbestos_regsiter_ref"] as? String
+            self.txtRiskAssesment.text = dictWorkPermit["asbestos_risk_assessment"] as? String
+            self.txtSupervisor.text = dictWorkPermit["asbestos_supervisor"] as? String
+            self.txtWorkToBeCarriedOut.text = dictWorkPermit["asbestos_work_carried"] as? String
+            self.txtValidFrom.text = dictWorkPermit["permit_valid_date"] as? String
+            self.txtValidFromTime.text = dictWorkPermit["permit_valid_time"] as? String
+            self.txtValidTillDate.text = dictWorkPermit["util_valid_date"] as? String
+            self.txtValidTilTIme.text = dictWorkPermit["util_valid_time"] as? String
+        }
     }
 }
 
