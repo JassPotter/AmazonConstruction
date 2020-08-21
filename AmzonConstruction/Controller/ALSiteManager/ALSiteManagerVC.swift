@@ -28,13 +28,23 @@ class ALSiteManagerVC: UIViewController {
 
     fileprivate var arrList : [typeAliasDictionary] = [typeAliasDictionary]()
     fileprivate var arrListSelected : [typeAliasDictionary] = [typeAliasDictionary]()
-    
+    var refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewBG.register(UINib.init(nibName: CELL_IDENTIFIER_AL_SITE_MANAGER, bundle: nil), forCellReuseIdentifier: CELL_IDENTIFIER_AL_SITE_MANAGER)
         tableViewBG.tableFooterView = UIView(frame: CGRect.zero)
         tableViewBG.rowHeight = UITableView.automaticDimension
         tableViewBG.estimatedRowHeight = 150
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        self.tableViewBG.addSubview(refreshControl)
+    }
+    @objc func refresh(sender:AnyObject)
+    {
+        self.viewWillAppear(false)
+        self.refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
