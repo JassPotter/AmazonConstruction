@@ -79,9 +79,9 @@ public enum WSRequestType : Int {
     case UpdateWorkpermit
     case CreateSubcontractors
     case CreateHotWork
+    case CreateAsbestosWork
     case CreateInductionForm
     case PostUpdateFormDetail
-
     case GetHomeCategoryList
     case GetCityList
     case UserRegistration
@@ -158,6 +158,8 @@ struct WebServicePrefix {
             serviceURl = "createSubcontractors"
         case .CreateHotWork:
             serviceURl = "createHotworkpermit"
+        case .CreateAsbestosWork:
+            serviceURl = "createAsbestospermit"
         case .CreateInductionForm:
             serviceURl = "createInductionpermit"
         case .PostUpdateFormDetail:
