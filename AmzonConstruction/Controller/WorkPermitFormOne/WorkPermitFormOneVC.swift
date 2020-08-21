@@ -340,6 +340,7 @@ class WorkPermitFormOneVC: UIViewController {
     func redirectToNextForm(work_Permit_id:String) {
 
         if self.chkHotWorkRequiredYes.isSelected {
+<<<<<<< HEAD
             //
             let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
             vc.permit_id = work_Permit_id
@@ -357,6 +358,11 @@ class WorkPermitFormOneVC: UIViewController {
         else {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
+=======
+//            let vc = HotWorksFormVC.init(nibName: "HotWorksFormVC", bundle: nil)
+//            vc.permit_id = work_Permit_id
+//            self.navigationController?.pushViewController(vc, animated: true)
+>>>>>>> master
         }
         
     }
