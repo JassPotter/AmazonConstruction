@@ -28,13 +28,23 @@ class ALSiteManagerVC: UIViewController {
 
     fileprivate var arrList : [typeAliasDictionary] = [typeAliasDictionary]()
     fileprivate var arrListSelected : [typeAliasDictionary] = [typeAliasDictionary]()
-    
+    var refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewBG.register(UINib.init(nibName: CELL_IDENTIFIER_AL_SITE_MANAGER, bundle: nil), forCellReuseIdentifier: CELL_IDENTIFIER_AL_SITE_MANAGER)
         tableViewBG.tableFooterView = UIView(frame: CGRect.zero)
         tableViewBG.rowHeight = UITableView.automaticDimension
         tableViewBG.estimatedRowHeight = 150
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        self.tableViewBG.addSubview(refreshControl)
+    }
+    @objc func refresh(sender:AnyObject)
+    {
+        self.viewWillAppear(false)
+        self.refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -197,9 +207,32 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
-        vc.dictPageInfo = self.arrListSelected[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        let dict : typeAliasDictionary = self.arrListSelected[indexPath.row]
+        let dictInner : typeAliasDictionary = dict["work_permit"]as! typeAliasDictionary
+        if Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)! == 2 {
+            //site manager
+            if dictInner["status"]as! String == "1" || dictInner["status"]as! String == "2" {
+                //redirect to olf form with fill without editable
+            }
+            else {
+                //status approve and above
+                let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+                vc.dictPageInfo = dict
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else {
+            //contractor
+            if dictInner["status"]as! String == "2" {
+                //status reject //redirect to olf form with fill with editable
+                
+            }
+            else {
+                let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+                vc.dictPageInfo = dict
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return UITableView.automaticDimension }
