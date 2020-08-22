@@ -42,9 +42,10 @@ class HotWorksFormVC: UIViewController {
         let df = DateFormatter.init()
         df.dateFormat = "MMM dd YYYY"
         self.lblDate.text = df.string(from: Date())
-        
+        self.txtViewOtherSafetyChecks.delegate = self
         df.dateFormat = "hh:mm a"
         self.lblTime.text = df.string(from: Date())
+        self.fillFormData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +110,10 @@ class HotWorksFormVC: UIViewController {
     
     @IBAction func btnNextAction() {
         
+        if !self.isEditable {
+            self.redirectToNextForm(work_Permit_id: self.permit_id)
+            return
+        }
         if self.txtLocation.text! == "" {
             showFormValidationMessage();
         }
@@ -138,7 +143,7 @@ class HotWorksFormVC: UIViewController {
     }
        
     @IBAction func btnBackMenuAction() {
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: CUSTOM METHODS
@@ -147,8 +152,9 @@ class HotWorksFormVC: UIViewController {
     }
     
     func fillFormData() {
+        
         if let dictWorkPermit = self.dictFormData["hot_work"] as? typeAliasDictionary , !dictWorkPermit.isEmpty {
-            self.siteID = dictWorkPermit["site_id"] as! String
+//            self.siteID = dictWorkPermit["site_id"] as! String
             self.lblDate.text = dictWorkPermit["hotwork_date_of_work"] as? String
             self.lblTime.text = dictWorkPermit["hotwork_time_of_work"] as? String
             self.txtLocation.text = dictWorkPermit["hotwork_location"] as? String
@@ -163,8 +169,15 @@ class HotWorksFormVC: UIViewController {
             }
             
             //CHECKBOX YES NO
+            self.chkAsbestosRequiredYes.isSelected = false
+            self.chkAsbestosRequiredNo.isSelected = false
             self.setYesNoCheckBoxes()
-            
+            if let asbestosData = self.dictFormData["asbestos_permit"] as? typeAliasDictionary {
+                if let dateOfWork = asbestosData["permit_valid_date"] as? String , dateOfWork != "" {
+                    self.chkAsbestosRequiredYes.isSelected = true
+                    self.chkAsbestosRequiredNo.isSelected = false
+                }
+            }
         }
     }
     
@@ -174,7 +187,7 @@ class HotWorksFormVC: UIViewController {
         
         let arrParams = ["work_area_free","housekeeping_area","remaining_combustibles","isolation_energy","necessary_fire","hotwork_fire_safety_checks"]
         
-        for i in 0..<7 {
+        for i in 0..<6 {
             let btnYes = chkBoxYes.filter { (btn) -> Bool in
                 return btn.tag == i
             }.first!
@@ -246,7 +259,7 @@ class HotWorksFormVC: UIViewController {
         var dictParams = params
         let arrParams = ["work_area_free","housekeeping_area","remaining_combustibles","isolation_energy","necessary_fire","hotwork_fire_safety_checks"]
         
-        for i in 0..<7 {
+        for i in 0..<6 {
             let btnYes = chkBoxYes.filter { (btn) -> Bool in
                 return btn.tag == i
             }.first!
@@ -269,6 +282,8 @@ class HotWorksFormVC: UIViewController {
         }
         else {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+            vc.strWorkPermitId = self.permit_id
+            vc.dictPageInfo = self.dictFormData
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -329,14 +344,8 @@ extension HotWorksFormVC  {
             ServiceCollection.sharedInstance.createHotWork(param: parmas as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if "\(dictResponse["status"]!)" == "1" {
-                    let workPermitId = "\(dictResponse["work_permit_id"]!)"
-                    if !self.arrSubContractor.isEmpty {
-                        self.callAddSubcontractorList(workPermitID: workPermitId)
-                    }
-                    else {
-                        //NEXT STEPS
-                        self.redirectToNextForm(work_Permit_id: workPermitId)
-                    }
+                    self.redirectToNextForm(work_Permit_id: self.permit_id)
+                    
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
@@ -399,6 +408,17 @@ extension HotWorksFormVC : UITextFieldDelegate , UITextViewDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if !isEditable {
             return false
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+     
+        if textField == txtLocation{
+            txtWorkToBePerformed.becomeFirstResponder()
+        }
+        else if textField == txtWorkToBePerformed{
+            txtWorkToBePerformed.resignFirstResponder()
         }
         return true
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_uncheckedbox.png",
+      "filename" : "icons8-unchecked-checkbox-102.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_uncheckedbox@2x.png",
+      "filename" : "icons8-unchecked-checkbox-101.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_uncheckedbox@3x.png",
+      "filename" : "icons8-unchecked-checkbox-100.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

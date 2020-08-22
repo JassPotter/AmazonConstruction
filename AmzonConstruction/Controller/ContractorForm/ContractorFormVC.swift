@@ -56,7 +56,7 @@ class ContractorFormVC: UIViewController {
     
     //MARK: BUTTON ACTIONS
     @IBAction func btnBackToMenuAction() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
    
     @IBAction func btnNextAction() {

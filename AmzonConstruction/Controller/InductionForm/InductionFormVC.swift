@@ -555,7 +555,8 @@ class InductionFormVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnBackToMainAction() {
-        self.appNavigationController_BackAction()
+//        self.appNavigationController_BackAction()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     @IBAction func btnSubmitFormAction(_ sender: UIButton) {
         if (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String == "2" {
@@ -579,7 +580,7 @@ class InductionFormVC: UIViewController {
                 //contractor
                 if self.dictPageInfo.isEmpty {
                     //first
-                    
+                    self.callFirstTimeAPIForContractor()
                 }
                 else {
                     if (dictPageInfo["work_permit"] as!
@@ -784,7 +785,8 @@ extension InductionFormVC {
             ServiceCollection.sharedInstance.updateFormDetail(param: param, imageTagName: imgTagName, fileSign: imgSIgnBG, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if rstatus == 1 {
-                    self.appNavigationController_BackAction()
+//                    self.appNavigationController_BackAction()
+                    self.btnBackToMainAction()
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)

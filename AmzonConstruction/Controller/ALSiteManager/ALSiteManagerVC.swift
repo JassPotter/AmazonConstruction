@@ -213,6 +213,18 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
             //site manager
             if dictInner["status"]as! String == "1" || dictInner["status"]as! String == "2" {
                 //redirect to olf form with fill without editable
+                if let dictWorkPermit = dict["work_permit"] as? typeAliasDictionary {
+                    let selectedCategoryID = "\(dictWorkPermit["category_id"]!)"
+                    let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
+                    vc.categoryID = selectedCategoryID
+                    if let dictSubContractors = dict["sub_contractors"] as? [typeAliasStringDictionary]{
+                        vc.arrSubContractor = dictSubContractors
+                    }
+                    vc.dictFormData = dict
+                    vc.isEditable = false
+                    vc.permitID = "\(dictWorkPermit["work_permit_id"]!)"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             else {
                 //status approve and above
@@ -225,6 +237,19 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
             //contractor
             if dictInner["status"]as! String == "2" {
                 //status reject //redirect to olf form with fill with editable
+                if let dictWorkPermit = dict["work_permit"] as? typeAliasDictionary {
+                    let selectedCategoryID = "\(dictWorkPermit["category_id"]!)"
+                    let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
+                    vc.categoryID = selectedCategoryID
+                    if let dictSubContractors = dict["sub_contractors"] as? [typeAliasStringDictionary]{
+                        vc.arrSubContractor = dictSubContractors
+                    }
+                    vc.dictFormData = dict
+                    vc.isEditable = true
+                    vc.permitID = "\(dictWorkPermit["work_permit_id"]!)"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+
                 
             }
             else {

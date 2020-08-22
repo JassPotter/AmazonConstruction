@@ -45,6 +45,7 @@ class AsbestosFormVC: UIViewController {
         self.txtValidTilTIme.inputView = datePicker
         self.txtValidFromTime.inputView = datePicker
         self.datePicker.minimumDate = Date()
+        self.fillFormData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,12 @@ class AsbestosFormVC: UIViewController {
     }
     
     @IBAction func btnNextAction() {
+        
+        if !self.isEditable {
+            self.redirectToNextForm(work_Permit_id: self.permit_id)
+            return
+        }
+        
         let stBuilding = txtBuilding.text!.trim()
         let stLocation = txtLocation.text!.trim()
         let stAsbestosRegister = txtAsbestosRegister.text!.trim()
@@ -113,11 +120,17 @@ class AsbestosFormVC: UIViewController {
     }
     
     @IBAction func btnBackToMainMenuAction() {
-   
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func redirectToNextForm(work_Permit_id:String) {
-        
+        let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+        vc.strWorkPermitId = self.permit_id
+        if !self.isEditable {
+            vc.dictPageInfo = self.dictFormData
+        }
+        vc.dictPageInfo = self.dictFormData
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func fillFormData() {
@@ -141,7 +154,7 @@ class AsbestosFormVC: UIViewController {
 
 extension AsbestosFormVC : AppNavigationControllerDelegate {
     func appNavigationController_BackAction() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func appNavigationController_RightMenuAction() {

@@ -30,13 +30,22 @@ extension UITextField {
         
         let barFlexible = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         
-        let barBtnDone = UIBarButtonItem.init(image: #imageLiteral(resourceName: "icon_Hide_Keyboard"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBarDoneAction))
-        
-        barBtnDone.tintColor = UIColor.black
-        toolbar.barTintColor = UIColor.lightGray
-        toolbar.tintColor = COLOR_RED
-        toolbar.items = [barFlexible,barBtnDone]
-        toolbar.alpha = 0.8
+        if self.tag == 123456 {
+            let barBtnDone = UIBarButtonItem.init(title: "Done", style: .plain, target: self, action: #selector(btnBarDoneAction))
+            barBtnDone.tintColor = UIColor.black
+            toolbar.barTintColor = UIColor.lightGray
+            toolbar.tintColor = COLOR_RED
+            toolbar.items = [barFlexible,barBtnDone]
+            toolbar.alpha = 0.8
+        }
+        else {
+            let barBtnDone = UIBarButtonItem.init(image: #imageLiteral(resourceName: "icon_Hide_Keyboard"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBarDoneAction))
+            barBtnDone.tintColor = UIColor.black
+            toolbar.barTintColor = UIColor.lightGray
+            toolbar.tintColor = COLOR_RED
+            toolbar.items = [barFlexible,barBtnDone]
+            toolbar.alpha = 0.8
+        }
         self.inputAccessoryView = toolbar
         
         if self.keyboardType == UIKeyboardType.default {

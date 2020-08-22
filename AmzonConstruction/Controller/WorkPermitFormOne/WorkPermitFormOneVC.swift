@@ -77,7 +77,7 @@ class WorkPermitFormOneVC: UIViewController {
     var categoryID = ""
     var arrSubContractor = [typeAliasStringDictionary]()
     var isEditable = true
-    var isCameFrom = ""
+    var permitID = ""
     var dictFormData = typeAliasDictionary()
     
     
@@ -87,9 +87,10 @@ class WorkPermitFormOneVC: UIViewController {
         let df = DateFormatter.init()
         df.dateFormat = "MMM dd YYYY"
         self.lblDate.text = df.string(from: Date())
-        
+        self.txtViewOtherSafetyChecks.delegate = self
         df.dateFormat = "hh:mm a"
         self.lblTime.text = df.string(from: Date())
+        self.viewIsAsbestosRequired.isHidden = true
         self.fillFormData()
     }
 
@@ -157,6 +158,11 @@ class WorkPermitFormOneVC: UIViewController {
     
     @IBAction func btnNextAction() {
         
+        if !self.isEditable {
+            self.redirectToNextForm(work_Permit_id:self.permitID)
+            return
+        }
+        
         if self.siteID == "" {
             showFormValidationMessage();
         }
@@ -204,39 +210,14 @@ class WorkPermitFormOneVC: UIViewController {
             showFormValidationMessage();
         } else if (!chkSlipTripHazardsYes.isSelected && !chkSlipTripHazardsNo.isSelected) {
             showFormValidationMessage();
-        }   else if viewIsAsbestosRequired.isHidden == false {
-            if (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
-                showFormValidationMessage();
-            }
+        }   else if viewIsAsbestosRequired.isHidden == false &&  (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
+            showFormValidationMessage();
         }
         else if txtViewOtherSafetyChecks.text == "" {
             showFormValidationMessage();
         }
         else {
             // CALL API
-            /*
-             @Part("user_id") RequestBody user_id,
-             @Part("category_id") RequestBody category_id,
-             @Part("site_id") RequestBody site_id,
-             @Part("site_date_of_work") RequestBody site_date_of_work,
-             @Part("site_time") RequestBody site_time,
-             @Part("site_location") RequestBody site_location,
-             @Part("site_work_performed") RequestBody site_work_performed,
-             @Part("site_regulations") RequestBody site_regulations,
-             @Part("work_with_vehicles") RequestBody work_with_vehicles,
-             @Part("hot_works_conducted") RequestBody hot_works_conducted,
-             @Part("electricity_equipment_required") RequestBody electricity_equipment_required,
-             @Part("coshh_produced") RequestBody coshh_produced,
-             @Part("evacuation_required") RequestBody evacuation_required,
-             @Part("overhead_obstructions") RequestBody overhead_obstructions,
-             @Part("traffic_operating_area") RequestBody traffic_operating_area,
-             @Part("fragile_roof_coverings") RequestBody fragile_roof_coverings,
-             @Part("work_at_height") RequestBody work_at_height,
-             @Part("isolation_segregation") RequestBody isolation_segregation,
-             @Part("slip_trip_hazards") RequestBody slip_trip_hazards,
-             @Part("site_other_safety_checks") RequestBody site_other_safety_checks
-             
-             */
             var params = typeAliasStringDictionary()
             let userData = GetSetModel.getObjectFromUserDefaults(UD_KEY_APPUSER_INFO)
             params["user_id"] = "\(userData["user_id"]!)"
@@ -258,13 +239,18 @@ class WorkPermitFormOneVC: UIViewController {
             params["isolation_segregation"] = getYesNoCheckBoxValue(btnYes: chkIsolationSegregationYes, btnNo: chkIsolationSegregationNo)
             params["slip_trip_hazards"] = getYesNoCheckBoxValue(btnYes: chkSlipTripHazardsYes, btnNo: chkSlipTripHazardsNo)
             params["site_other_safety_checks"] = txtViewOtherSafetyChecks.text!
-            self.callCreateWorkPermitAPI(parmas: params)
+            
+            if self.permitID != "" {
+                params["work_permit_id"] = self.permitID
+                self.callUpdateWorkPermitAPI(parmas: params)
+            }
+            else { self.callCreateWorkPermitAPI(parmas: params) }
         }
         
     }
        
     @IBAction func btnBackMenuAction() {
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: CUSTOM METHODS
@@ -310,7 +296,13 @@ class WorkPermitFormOneVC: UIViewController {
             self.setYesNoCheckBox(yesButton: chkFragileRoofCoveringsYes, noButton: chkFragileRoofCoveringsNo, key: "fragile_roof_coverings")
             self.setYesNoCheckBox(yesButton: chkWorkAtHeightYes, noButton: chkWorkAtHeightNo, key: "work_at_height")
             self.setYesNoCheckBox(yesButton: chkIsolationSegregationYes, noButton: chkIsolationSegregationNo, key: "isolation_segregation")
-            
+            self.setYesNoCheckBox(yesButton: chkOverheadObstructionsYes, noButton: chkOverheadObstructionsNO, key: "overhead_obstructions")
+            if let asbestosData = self.dictFormData["asbestos_permit"] as? typeAliasDictionary {
+                if let dateOfWork = asbestosData["permit_valid_date"] as? String , dateOfWork != "" {
+                    self.chkAsbestosRequiredYes.isSelected = true
+                    self.chkAsbestosRequiredNo.isSelected = false
+                }
+            }
         }
     }
     
@@ -366,6 +358,8 @@ class WorkPermitFormOneVC: UIViewController {
         }
         else {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+            vc.strWorkPermitId = work_Permit_id
+            vc.dictPageInfo = self.dictFormData
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -452,13 +446,12 @@ extension WorkPermitFormOneVC  {
             ServiceCollection.sharedInstance.updateWorkPermit(param: parmas as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if "\(dictResponse["status"]!)" == "1" {
-                    let workPermitId = "\(dictResponse["work_permit_id"]!)"
                     if !self.arrSubContractor.isEmpty {
-                        self.callAddSubcontractorList(workPermitID: workPermitId)
+                        self.callAddSubcontractorList(workPermitID: self.permitID)
                     }
                     else {
                         //NEXT STEPS
-                        self.redirectToNextForm(work_Permit_id: workPermitId)
+                        self.redirectToNextForm(work_Permit_id: self.permitID)
                     }
                 }
                 else {
@@ -479,7 +472,7 @@ extension WorkPermitFormOneVC  {
             ServiceCollection.sharedInstance.CreateSubcontractors(param: params as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if "\(dictResponse["status"]!)" == "1" {
-                    
+                    self.redirectToNextForm(work_Permit_id: workPermitID)
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
@@ -505,6 +498,17 @@ extension WorkPermitFormOneVC : UITextFieldDelegate , UITextViewDelegate {
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+           if textField == txtLocation{
+               txtWorkToBePerformed.becomeFirstResponder()
+           }
+           else if textField == txtWorkToBePerformed{
+               txtWorkToBePerformed.resignFirstResponder()
+           }
+           return true
+       }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if !isEditable {
