@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FCAlertView
 
 class AsbestosFormVC: UIViewController {
 
@@ -92,21 +93,7 @@ class AsbestosFormVC: UIViewController {
             return
         }
         else {
-            /*
-             @Part("work_permit_id") RequestBody work_permit_id,
-             @Part("asbestos_building") RequestBody asbestos_building,
-             @Part("asbestos_location") RequestBody asbestos_location,
-             @Part("asbestos_regsiter_ref") RequestBody asbestos_regsiter_ref,
-             @Part("asbestos_company_department") RequestBody asbestos_company_department,
-             @Part("asbestos_supervisor") RequestBody asbestos_supervisor,
-             @Part("asbestos_work_carried") RequestBody asbestos_work_carried,
-             @Part("asbestos_risk_assessment") RequestBody asbestos_risk_assessment,
-             @Part("permit_valid_date") RequestBody permit_valid_date,
-             @Part("permit_valid_time") RequestBody permit_valid_time,
-             @Part("util_valid_date") RequestBody util_valid_date,
-             @Part("util_valid_time") RequestBody util_valid_time
 
-             */
             var params = typeAliasStringDictionary()
             params["work_permit_id"] = permit_id
             params["asbestos_building"] = stBuilding
@@ -120,9 +107,7 @@ class AsbestosFormVC: UIViewController {
             params["permit_valid_time"] = stFromTime
             params["util_valid_date"] = stToDate
             params["util_valid_time"] = stToTime
-            
             self.callCreateAsbestosWorkAPI(parmas: params)
-            
         }
         
     }
@@ -136,21 +121,7 @@ class AsbestosFormVC: UIViewController {
     }
     
     func fillFormData() {
-        
-        /*
-         "asbestos_building" = TeT;
-         "asbestos_company_department" = Test;
-         "asbestos_location" = Twst;
-         "asbestos_regsiter_ref" = Tszt;
-         "asbestos_risk_assessment" = Tsst;
-         "asbestos_supervisor" = Test;
-         "asbestos_work_carried" = Tsst;
-         "permit_valid_date" = "Aug 21, 2020";
-         "permit_valid_time" = "06:54 PM";
-         "util_valid_date" = "Aug 22, 2020";
-         "util_valid_time" = "06:54 PM";
-         */
-        
+                
         if let dictWorkPermit = self.dictFormData["asbestos_permit"] as? typeAliasDictionary , !dictWorkPermit.isEmpty {
 //            self.lblDate.text = dictWorkPermit["hotwork_date_of_work"] as? String
             self.txtLocation.text = dictWorkPermit["asbestos_location"] as? String
@@ -174,6 +145,22 @@ extension AsbestosFormVC : AppNavigationControllerDelegate {
     }
     
     func appNavigationController_RightMenuAction() {
+        let alert : FCAlertView = FCAlertView()
+        alert.delegate = self
+        alert.accessibilityValue = "LOGOUT"
+        showAlertWithTitleWithMessageAndButtons(message: MSG_ID_LOGOUT, alert: alert, buttons: ["Cancel"], withDoneTitle:"Logout", alertTitle: APP_NAME)
+
+    }
+}
+
+extension AsbestosFormVC : FCAlertViewDelegate {
+    func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
+        if alertView.accessibilityValue == "LOGOUT" {
+            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            APP_SCENE_DELEGATE.setLoginVC()
+        }
+    }
+    func fcAlertView(_ alertView: FCAlertView!, clickedButtonIndex index: Int, buttonTitle title: String!) {
         
     }
 }
@@ -201,7 +188,7 @@ extension AsbestosFormVC  {
     
 }
 
-extension AsbestosFormVC : UITextFieldDelegate {
+extension AsbestosFormVC : UITextFieldDelegate , UITextViewDelegate  {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtValidFrom {
@@ -228,6 +215,11 @@ extension AsbestosFormVC : UITextFieldDelegate {
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if !isEditable {
+            return false
+        }
+        
         if textField == txtValidFrom {
             self.datePicker.minimumDate = Date()
             self.datePicker.datePickerMode = .date
@@ -277,6 +269,13 @@ extension AsbestosFormVC : UITextFieldDelegate {
             txtRiskAssesment.resignFirstResponder()
         }
         
+        return true
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if !self.isEditable {
+            return false
+        }
         return true
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FCAlertView
 
 class HotWorksFormVC: UIViewController {
 
@@ -63,11 +64,17 @@ class HotWorksFormVC: UIViewController {
     
     //MARK: BUTTON ACTIONS
     @IBAction func btnSafeyCheckAction(_ sender: UIButton) {
+        if !self.isEditable {
+            return
+        }
         sender.isSelected = !sender.isSelected
     }
     
     
     @IBAction func btnSafetyCheckNoAction(_ sender: UIButton) {
+        if !self.isEditable {
+            return
+        }
         for btn in chkBoxYes {
             if btn.tag == sender.tag {
                 btn.isSelected = false
@@ -82,6 +89,9 @@ class HotWorksFormVC: UIViewController {
     }
     
     @IBAction func btnSafetyCheckYesAction(_ sender: UIButton) {
+        if !self.isEditable {
+            return
+        }
         for btn in chkBoxYes {
             if btn.tag == sender.tag {
                 btn.isSelected = true
@@ -112,25 +122,6 @@ class HotWorksFormVC: UIViewController {
             showFormValidationMessage();
         }
         else {
-            // CALL API
-            /*
-             @Part("work_permit_id") RequestBody work_permit_id,
-             @Part("hotwork_date_of_work") RequestBody hotwork_date_of_work,
-             @Part("hotwork_time_of_work") RequestBody hotwork_time_of_work,
-             @Part("hotwork_location") RequestBody hotwork_location,
-             @Part("hotworks_performed") RequestBody hotworks_performed,
-             @Part("immediate_access") RequestBody immediate_access,
-             @Part("work_area_free") RequestBody work_area_free,
-             @Part("housekeeping_area") RequestBody housekeeping_area,
-             @Part("remaining_combustibles") RequestBody remaining_combustibles,
-             @Part("isolation_energy") RequestBody isolation_energy,
-             @Part("necessary_fire") RequestBody necessary_fire,
-             @Part("hotwork_fire_safety_checks") RequestBody hotwork_fire_safety_checks,
-             @Part("hotwork_other_safety_checks") RequestBody hotwork_other_safety_checks
-<<<<<<< HEAD
-             
-             */
-            
             var params = typeAliasStringDictionary()
             params["work_permit_id"] = self.permit_id
             params["category_id"] = categoryID
@@ -156,23 +147,6 @@ class HotWorksFormVC: UIViewController {
     }
     
     func fillFormData() {
-        
-        /*
-         "hotwork_date_of_work" = "Aug 21, 2020";
-         "hotwork_fire_safety_checks" = 2;
-         "hotwork_location" = Test;
-         "hotwork_other_safety_checks" = Tsst;
-         "hotwork_time_of_work" = "06:53 PM";
-         "hotworks_performed" = Test;
-         "housekeeping_area" = 1;
-         "immediate_access" = "1,2,3,4,5,6";
-         "isolation_energy" = 1;
-         "necessary_fire" = 2;
-         "remaining_combustibles" = 2;
-         "work_area_free" = 1;
-
-         */
-        
         if let dictWorkPermit = self.dictFormData["hot_work"] as? typeAliasDictionary , !dictWorkPermit.isEmpty {
             self.siteID = dictWorkPermit["site_id"] as! String
             self.lblDate.text = dictWorkPermit["hotwork_date_of_work"] as? String
@@ -269,14 +243,6 @@ class HotWorksFormVC: UIViewController {
     
     func getYesNoParams(params:typeAliasStringDictionary) -> typeAliasStringDictionary {
         
-        /*
-         @Part("work_area_free") RequestBody work_area_free,
-         @Part("housekeeping_area") RequestBody housekeeping_area,
-         @Part("remaining_combustibles") RequestBody remaining_combustibles,
-         @Part("isolation_energy") RequestBody isolation_energy,
-         @Part("necessary_fire") RequestBody necessary_fire,
-         @Part("hotwork_fire_safety_checks") RequestBody hotwork_fire_safety_checks,
-         */
         var dictParams = params
         let arrParams = ["work_area_free","housekeeping_area","remaining_combustibles","isolation_energy","necessary_fire","hotwork_fire_safety_checks"]
         
@@ -315,6 +281,22 @@ extension HotWorksFormVC : AppNavigationControllerDelegate {
     }
     
     func appNavigationController_RightMenuAction() {
+        let alert : FCAlertView = FCAlertView()
+        alert.delegate = self
+        alert.accessibilityValue = "LOGOUT"
+        showAlertWithTitleWithMessageAndButtons(message: MSG_ID_LOGOUT, alert: alert, buttons: ["Cancel"], withDoneTitle:"Logout", alertTitle: APP_NAME)
+
+    }
+}
+
+extension HotWorksFormVC : FCAlertViewDelegate {
+    func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
+        if alertView.accessibilityValue == "LOGOUT" {
+            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            APP_SCENE_DELEGATE.setLoginVC()
+        }
+    }
+    func fcAlertView(_ alertView: FCAlertView!, clickedButtonIndex index: Int, buttonTitle title: String!) {
         
     }
 }
@@ -412,9 +394,19 @@ extension HotWorksFormVC  {
     
 }
 
-extension HotWorksFormVC : UITextFieldDelegate {
+extension HotWorksFormVC : UITextFieldDelegate , UITextViewDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if !isEditable {
+            return false
+        }
+        return true
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if !self.isEditable {
+            return false
+        }
         return true
     }
 }

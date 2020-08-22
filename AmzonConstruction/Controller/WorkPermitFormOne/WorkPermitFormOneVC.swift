@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FCAlertView
 
 class WorkPermitFormOneVC: UIViewController {
 
@@ -109,10 +110,16 @@ class WorkPermitFormOneVC: UIViewController {
     
     //MARK: BUTTON ACTIONS
     @IBAction func btnSafeyCheckAction(_ sender: UIButton) {
+        if !self.isEditable {
+            return
+        }
         sender.isSelected = !sender.isSelected
     }
     
     @IBAction func btnSafetyCheckNoAction(_ sender: UIButton) {
+        if !self.isEditable {
+            return
+        }
         for btn in chkBoxYes {
             if btn.tag == sender.tag {
                 btn.isSelected = false
@@ -130,6 +137,9 @@ class WorkPermitFormOneVC: UIViewController {
     }
     
     @IBAction func btnSafetyCheckYesAction(_ sender: UIButton) {
+        if !self.isEditable {
+            return
+        }
         for btn in chkBoxYes {
             if btn.tag == sender.tag {
                 btn.isSelected = true
@@ -369,6 +379,22 @@ extension WorkPermitFormOneVC : AppNavigationControllerDelegate {
     }
     
     func appNavigationController_RightMenuAction() {
+        let alert : FCAlertView = FCAlertView()
+        alert.delegate = self
+        alert.accessibilityValue = "LOGOUT"
+        showAlertWithTitleWithMessageAndButtons(message: MSG_ID_LOGOUT, alert: alert, buttons: ["Cancel"], withDoneTitle:"Logout", alertTitle: APP_NAME)
+
+    }
+}
+
+extension WorkPermitFormOneVC : FCAlertViewDelegate {
+    func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
+        if alertView.accessibilityValue == "LOGOUT" {
+            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            APP_SCENE_DELEGATE.setLoginVC()
+        }
+    }
+    func fcAlertView(_ alertView: FCAlertView!, clickedButtonIndex index: Int, buttonTitle title: String!) {
         
     }
 }
@@ -467,11 +493,21 @@ extension WorkPermitFormOneVC  {
     
 }
 
-extension WorkPermitFormOneVC : UITextFieldDelegate {
+extension WorkPermitFormOneVC : UITextFieldDelegate , UITextViewDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if !isEditable {
+            return false
+        }
         if textField == txtSite {
             self.showSites()
+            return false
+        }
+        return true
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if !isEditable {
             return false
         }
         return true
