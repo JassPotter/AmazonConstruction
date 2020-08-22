@@ -73,7 +73,7 @@ class ContractorFormVC: UIViewController {
     
     @IBAction func btnAddContractorAction() {
         
-        !if self.isEditable {
+        if !self.isEditable {
             return
         }
         let stFName = txtFirstName.text!
