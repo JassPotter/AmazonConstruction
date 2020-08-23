@@ -360,6 +360,9 @@ class WorkPermitFormOneVC: UIViewController {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             vc.strWorkPermitId = work_Permit_id
             vc.dictPageInfo = self.dictFormData
+            if self.dictFormData.isEmpty {
+                vc.dictPageInfo = self.dictFormData
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -467,10 +470,10 @@ extension WorkPermitFormOneVC  {
         if isConnectedToNetwork() {
             var params = typeAliasStringDictionary()
             params["work_permit_id"] = workPermitID
-            params["sub_contractors"] = convertToJSONString(value: self.arrSubContractor as AnyObject) ?? ""
+            params["sub_contractors"] = ["sub_contractors":self.arrSubContractor].convertToJSonString() // convertToJSONString(value:  as AnyObject) ?? ""
             print(params)
             APP_SCENE_DELEGATE.showAppLoader()
-            ServiceCollection.sharedInstance.CreateSubcontractors(param: params as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
+            ServiceCollection.sharedInstance.CreateSubcontractors(param: params as typeAliasDictionary, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if "\(dictResponse["status"]!)" == "1" {
                     self.redirectToNextForm(work_Permit_id: workPermitID)

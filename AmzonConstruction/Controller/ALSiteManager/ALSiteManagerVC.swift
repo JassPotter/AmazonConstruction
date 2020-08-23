@@ -262,6 +262,7 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
             
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             vc.dictPageInfo = dict
+            vc.isCameFromDashboard = true
             self.navigationController?.pushViewController(vc, animated: true)
 
         }
