@@ -559,8 +559,21 @@ class InductionFormVC: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     @IBAction func btnSubmitFormAction(_ sender: UIButton) {
-        if (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String == "2" {
+        if !self.dictPageInfo.isEmpty && (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"] as! String == "2" {
             //resubmit
+            //status reject //redirect to olf form with fill with editable
+            if let dictWorkPermit = dictPageInfo["work_permit"] as? typeAliasDictionary {
+                let selectedCategoryID = "\(dictWorkPermit["category_id"]!)"
+                let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
+                vc.categoryID = selectedCategoryID
+                if let dictSubContractors = dictPageInfo["sub_contractors"] as? [typeAliasStringDictionary]{
+                    vc.arrSubContractor = dictSubContractors
+                }
+                vc.dictFormData = dictPageInfo
+                vc.isEditable = true
+                vc.permitID = "\(dictWorkPermit["work_permit_id"]!)"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         else {
             if APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String == "2" {
@@ -584,10 +597,21 @@ class InductionFormVC: UIViewController {
                 }
                 else {
                     if (dictPageInfo["work_permit"] as!
+                        typeAliasDictionary)["status"]as! String == "1"{
+                        //update
+                        let dictWorkPermit = dictPageInfo["work_permit"] as!
+                        typeAliasDictionary
+                        self.strWorkPermitId = "\(dictWorkPermit["work_permit_id"]!)"
+                        self.callFirstTimeAPIForContractor()
+
+//                        self.callUpdateFormDetail(isContractor: true, forStage: 4)
+                    }
+                    else if (dictPageInfo["work_permit"] as!
                         typeAliasDictionary)["status"]as! String == "3"{
                         //approve
                         self.callUpdateFormDetail(isContractor: true, forStage: 4)
                     }
+                    
                 }
             }
         }

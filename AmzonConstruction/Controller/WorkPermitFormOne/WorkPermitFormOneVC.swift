@@ -468,6 +468,7 @@ extension WorkPermitFormOneVC  {
             var params = typeAliasStringDictionary()
             params["work_permit_id"] = workPermitID
             params["sub_contractors"] = convertToJSONString(value: self.arrSubContractor as AnyObject) ?? ""
+            print(params)
             APP_SCENE_DELEGATE.showAppLoader()
             ServiceCollection.sharedInstance.CreateSubcontractors(param: params as! typeAliasDictionary, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()

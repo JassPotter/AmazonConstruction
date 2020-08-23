@@ -129,7 +129,10 @@ class AsbestosFormVC: UIViewController {
         if !self.isEditable {
             vc.dictPageInfo = self.dictFormData
         }
-        vc.dictPageInfo = self.dictFormData
+        if self.dictFormData.isEmpty {
+            vc.dictPageInfo = self.dictFormData
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -117,6 +117,8 @@ extension LoginVC {
                         GetSetModel.setObjectToUserDefaults(objValue: (dictResponse["data"] as! [typeAliasDictionary]).first!, ForKey: UD_KEY_APPUSER_INFO)
                         APP_SCENE_DELEGATE.dictUserInfo = (dictResponse["data"] as! [typeAliasDictionary]).first!
 //                        self.appNavigationController_BackAction()
+                        APP_SCENE_DELEGATE.setRootVC()
+                        return
                        switch APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String {
                         case "2":
                             //site manager

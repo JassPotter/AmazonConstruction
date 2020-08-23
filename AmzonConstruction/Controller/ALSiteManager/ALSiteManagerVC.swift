@@ -232,10 +232,12 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
                 vc.dictPageInfo = dict
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+            
+            
         }
         else {
             //contractor
-            if dictInner["status"]as! String == "2" {
+           /* if dictInner["status"]as! String == "2" {
                 //status reject //redirect to olf form with fill with editable
                 if let dictWorkPermit = dict["work_permit"] as? typeAliasDictionary {
                     let selectedCategoryID = "\(dictWorkPermit["category_id"]!)"
@@ -256,7 +258,12 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
                 let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
                 vc.dictPageInfo = dict
                 self.navigationController?.pushViewController(vc, animated: true)
-            }
+            } */
+            
+            let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
+            vc.dictPageInfo = dict
+            self.navigationController?.pushViewController(vc, animated: true)
+
         }
     }
     
