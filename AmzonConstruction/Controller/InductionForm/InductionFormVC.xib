@@ -1168,8 +1168,8 @@
                                                                         <constraint firstAttribute="width" secondItem="2Y0-zI-6CX" secondAttribute="height" id="Rdk-Cs-PEX"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnStageAsbestosTopAction:" destination="-1" eventType="touchUpInside" id="d71-0h-fAN"/>
                                                                     </connections>
@@ -1211,8 +1211,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="XPQ-u5-Qn8"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnStageAsbestosTopAction:" destination="-1" eventType="touchUpInside" id="Sfe-sb-8Jp"/>
                                                                     </connections>
@@ -1254,8 +1254,8 @@
                                                                         <constraint firstAttribute="width" secondItem="9B7-zM-H11" secondAttribute="height" id="ke5-SI-fOK"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnStageAsbestosTopAction:" destination="-1" eventType="touchUpInside" id="BQZ-d2-gce"/>
                                                                     </connections>
@@ -1392,8 +1392,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="g5v-sy-TNf"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ1Action:" destination="-1" eventType="touchUpInside" id="RcY-1b-46e"/>
                                                                     </connections>
@@ -1405,8 +1405,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="sOv-Ay-R3G"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ1Action:" destination="-1" eventType="touchUpInside" id="7Hs-AX-sDW"/>
                                                                     </connections>
@@ -1463,8 +1463,8 @@
                                                                         <constraint firstAttribute="width" secondItem="CD8-Oa-9ia" secondAttribute="height" id="fXh-pa-LIG"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ2Action:" destination="-1" eventType="touchUpInside" id="8OH-Jg-c1e"/>
                                                                     </connections>
@@ -1476,8 +1476,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="YgD-Tn-lHM"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ2Action:" destination="-1" eventType="touchUpInside" id="iUi-E2-e7n"/>
                                                                     </connections>
@@ -1534,8 +1534,8 @@
                                                                         <constraint firstAttribute="width" secondItem="2F7-Rd-zUM" secondAttribute="height" id="cRo-ZA-ABp"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ3Action:" destination="-1" eventType="touchUpInside" id="LqN-ws-11r"/>
                                                                     </connections>
@@ -1547,8 +1547,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="d7w-cU-haN"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ3Action:" destination="-1" eventType="touchUpInside" id="Sjd-Xq-kax"/>
                                                                     </connections>
@@ -1605,8 +1605,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="Mio-yL-cgc"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ4Action:" destination="-1" eventType="touchUpInside" id="6f6-9S-RlX"/>
                                                                     </connections>
@@ -1618,8 +1618,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="seA-QI-J7d"/>
                                                                     </constraints>
                                                                     <color key="tintColor" name="PrimaryOrange"/>
-                                                                    <state key="normal" image="square" catalog="system"/>
-                                                                    <state key="selected" image="checkmark.square.fill" catalog="system"/>
+                                                                    <state key="normal" image="ic_uncheckedbox"/>
+                                                                    <state key="selected" image="ic_checkedbox"/>
                                                                     <connections>
                                                                         <action selector="btnViewAsbestosQ4Action:" destination="-1" eventType="touchUpInside" id="wrK-U2-xfT"/>
                                                                     </connections>
@@ -2401,10 +2401,10 @@ Menu</string>
         </view>
     </objects>
     <resources>
-        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="ic_checkedbox" width="50" height="50"/>
+        <image name="ic_uncheckedbox" width="50" height="50"/>
         <image name="largecircle.fill.circle" catalog="system" width="128" height="121"/>
-        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="PrimaryOrange">
             <color red="0.93300002813339233" green="0.51399999856948853" blue="0.0080000003799796104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
