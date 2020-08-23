@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FCAlertView
 
 let KEY_FIRST_NAME = "first_name"
 let KEY_SURNAME = "sur_name"
@@ -55,7 +56,7 @@ class ContractorFormVC: UIViewController {
     
     //MARK: BUTTON ACTIONS
     @IBAction func btnBackToMenuAction() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
    
     @IBAction func btnNextAction() {
@@ -71,6 +72,10 @@ class ContractorFormVC: UIViewController {
     }
     
     @IBAction func btnAddContractorAction() {
+        
+        if !self.isEditable {
+            return
+        }
         let stFName = txtFirstName.text!
         let stSurname = txtLastName.text!
         
@@ -95,6 +100,9 @@ class ContractorFormVC: UIViewController {
     }
     
     @IBAction func btnSelectCategoryAction() {
+        if !self.isEditable {
+           return
+        }
         self.showCategories()
     }
     
@@ -132,6 +140,22 @@ extension ContractorFormVC : AppNavigationControllerDelegate {
     }
     
     func appNavigationController_RightMenuAction() {
+            let alert : FCAlertView = FCAlertView()
+            alert.delegate = self
+            alert.accessibilityValue = "LOGOUT"
+            showAlertWithTitleWithMessageAndButtons(message: MSG_ID_LOGOUT, alert: alert, buttons: ["Cancel"], withDoneTitle:"Logout", alertTitle: APP_NAME)
+
+        }
+}
+
+extension ContractorFormVC : FCAlertViewDelegate {
+    func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
+        if alertView.accessibilityValue == "LOGOUT" {
+            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            APP_SCENE_DELEGATE.setLoginVC()
+        }
+    }
+    func fcAlertView(_ alertView: FCAlertView!, clickedButtonIndex index: Int, buttonTitle title: String!) {
         
     }
 }

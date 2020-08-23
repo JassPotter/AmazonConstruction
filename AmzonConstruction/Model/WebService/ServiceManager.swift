@@ -412,8 +412,17 @@
                 debugPrint(response)
                 if let JSON:typeAliasDictionary = response.value as? typeAliasDictionary {
                     print("JSON: \(JSON)")
-                    let st: Bool = JSON["status"] as! Bool
-                    responseData(typeAliasDictionary() ,nil, "Success", st ? 1 : 0)
+                    if let st = JSON["status"] as? String {
+                        responseData(typeAliasDictionary() ,nil, "Success", st == "1" ? 1 : 0)
+
+                    }
+                    else if let stBool = JSON["status"] as? Bool {
+                        responseData(typeAliasDictionary() ,nil, "Success", stBool ? 1 : 0)
+
+                    }
+                    else {
+                        responseData(nil, nil, "Something went wrong",0)
+                    }
                 } else {
                     responseData(nil, nil, "Something went wrong",0)
                 }

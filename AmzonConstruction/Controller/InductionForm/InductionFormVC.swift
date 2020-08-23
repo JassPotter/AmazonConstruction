@@ -63,6 +63,7 @@ class InductionFormVC: UIViewController {
     internal var dictPageInfo : typeAliasDictionary = typeAliasDictionary()
     var signUrls : URL!
     var strWorkPermitId : String = ""
+    var isCameFromDashboard = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -555,22 +556,40 @@ class InductionFormVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnBackToMainAction() {
-        self.appNavigationController_BackAction()
+//        self.appNavigationController_BackAction()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     @IBAction func btnSubmitFormAction(_ sender: UIButton) {
-        if (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String == "2" {
+        if !self.dictPageInfo.isEmpty && (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"] as! String == "2" {
             //resubmit
+            //status reject //redirect to olf form with fill with editable
+            if let dictWorkPermit = dictPageInfo["work_permit"] as? typeAliasDictionary {
+                let selectedCategoryID = "\(dictWorkPermit["category_id"]!)"
+                let vc  = WorkPermitFormOneVC.init(nibName: "WorkPermitFormOneVC", bundle: nil)
+                vc.categoryID = selectedCategoryID
+                if let dictSubContractors = dictPageInfo["sub_contractors"] as? [typeAliasStringDictionary]{
+                    vc.arrSubContractor = dictSubContractors
+                }
+                var dictFormData = dictPageInfo
+                var dicWorkPermitNew = dictWorkPermit
+                dicWorkPermitNew["status"] = "1" as AnyObject
+                dictFormData["work_permit"] = dicWorkPermitNew as AnyObject
+                vc.dictFormData = dictFormData
+                vc.isEditable = true
+                vc.permitID = "\(dictWorkPermit["work_permit_id"]!)"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         else {
             if APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String == "2" {
                 //site manager
                 if (dictPageInfo["work_permit"] as!
-                    typeAliasDictionary)["status"]as! String == "1"{
+                    typeAliasDictionary)["status"]as! String == "1" {
                     //s1
                     self.callUpdateFormDetail(isContractor: false, forStage: 23)
                 }
                 else if (dictPageInfo["work_permit"] as!
-                    typeAliasDictionary)["status"]as! String == "4"{
+                    typeAliasDictionary)["status"]as! String == "4" {
                     //s5
                     self.callUpdateFormDetail(isContractor: false, forStage: 5)
                 }
@@ -579,14 +598,25 @@ class InductionFormVC: UIViewController {
                 //contractor
                 if self.dictPageInfo.isEmpty {
                     //first
-                    
+                    self.callFirstTimeAPIForContractor()
                 }
                 else {
                     if (dictPageInfo["work_permit"] as!
+                        typeAliasDictionary)["status"]as! String == "1" && !isCameFromDashboard {
+                        //update
+                        let dictWorkPermit = dictPageInfo["work_permit"] as!
+                        typeAliasDictionary
+                        self.strWorkPermitId = "\(dictWorkPermit["work_permit_id"]!)"
+                        self.callFirstTimeAPIForContractor()
+
+//                        self.callUpdateFormDetail(isContractor: true, forStage: 4)
+                    }
+                    else if (dictPageInfo["work_permit"] as!
                         typeAliasDictionary)["status"]as! String == "3"{
                         //approve
                         self.callUpdateFormDetail(isContractor: true, forStage: 4)
                     }
+                    
                 }
             }
         }
@@ -629,7 +659,7 @@ extension InductionFormVC {
             param["prework_nameprint"] = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)" as AnyObject
             param["prework_company"] = "\(APP_SCENE_DELEGATE.dictUserInfo["contractor_company"]!)" as AnyObject
             APP_SCENE_DELEGATE.showAppLoader()
-            ServiceCollection.sharedInstance.createInductionForm(param: param, imageTagName: "prework_signature_img", fileSign: self.imageViewStage1Sign.image!, response: {(dictResponse,rstatus,message) in
+            ServiceCollection.sharedInstance.createInductionForm(param: param, imageTagName: "prework_signature", fileSign: self.imageViewStage1Sign.image!, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if rstatus == 1 {
                     self.navigationController?.popToRootViewController(animated: true)
@@ -784,7 +814,8 @@ extension InductionFormVC {
             ServiceCollection.sharedInstance.updateFormDetail(param: param, imageTagName: imgTagName, fileSign: imgSIgnBG, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if rstatus == 1 {
-                    self.appNavigationController_BackAction()
+//                    self.appNavigationController_BackAction()
+                    self.btnBackToMainAction()
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
