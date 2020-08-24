@@ -10,7 +10,7 @@ target 'AmzonConstruction' do
   pod 'FCAlertView'
   pod "TPKeyboardAvoidingSwift"
   pod 'SignaturePad'
-#  pod 'Firebase/Core'
-#  pod 'Firebase/Messaging'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 end

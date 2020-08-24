@@ -360,9 +360,9 @@ class WorkPermitFormOneVC: UIViewController {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             vc.strWorkPermitId = work_Permit_id
             vc.dictPageInfo = self.dictFormData
-            if self.dictFormData.isEmpty {
-                vc.dictPageInfo = self.dictFormData
-            }
+//            if self.dictFormData.isEmpty {
+//                vc.dictPageInfo = self.dictFormData
+//            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -387,7 +387,7 @@ extension WorkPermitFormOneVC : AppNavigationControllerDelegate {
 extension WorkPermitFormOneVC : FCAlertViewDelegate {
     func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
         if alertView.accessibilityValue == "LOGOUT" {
-            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            GetSetModel.removeAllKeyFromDefault()
             APP_SCENE_DELEGATE.setLoginVC()
         }
     }
