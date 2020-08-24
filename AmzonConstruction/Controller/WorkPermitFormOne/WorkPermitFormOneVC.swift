@@ -297,10 +297,23 @@ class WorkPermitFormOneVC: UIViewController {
             self.setYesNoCheckBox(yesButton: chkWorkAtHeightYes, noButton: chkWorkAtHeightNo, key: "work_at_height")
             self.setYesNoCheckBox(yesButton: chkIsolationSegregationYes, noButton: chkIsolationSegregationNo, key: "isolation_segregation")
             self.setYesNoCheckBox(yesButton: chkOverheadObstructionsYes, noButton: chkOverheadObstructionsNO, key: "overhead_obstructions")
+            
+            self.viewIsAsbestosRequired.isHidden = true
+            if self.chkHotWorkRequiredNO.isSelected {
+                self.viewIsAsbestosRequired.isHidden = false
+            }
+            self.chkAsbestosRequiredYes.isSelected = false
+            self.chkAsbestosRequiredNo.isSelected = false
+
             if let asbestosData = self.dictFormData["asbestos_permit"] as? typeAliasDictionary {
                 if let dateOfWork = asbestosData["permit_valid_date"] as? String , dateOfWork != "" {
                     self.chkAsbestosRequiredYes.isSelected = true
                     self.chkAsbestosRequiredNo.isSelected = false
+                }
+                else{
+                    self.chkAsbestosRequiredYes.isSelected = false
+                    self.chkAsbestosRequiredNo.isSelected = true
+
                 }
             }
         }

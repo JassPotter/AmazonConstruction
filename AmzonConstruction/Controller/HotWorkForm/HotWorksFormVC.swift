@@ -177,6 +177,10 @@ class HotWorksFormVC: UIViewController {
                     self.chkAsbestosRequiredYes.isSelected = true
                     self.chkAsbestosRequiredNo.isSelected = false
                 }
+                else {
+                    self.chkAsbestosRequiredYes.isSelected = false
+                    self.chkAsbestosRequiredNo.isSelected = true
+                }
             }
         }
     }
