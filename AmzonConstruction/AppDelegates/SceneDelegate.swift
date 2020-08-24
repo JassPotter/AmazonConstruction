@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import UserNotifications
+import FirebaseInstanceID
+import FirebaseMessaging
 
 @available(iOS 13.0, *)
 var APP_SCENE_DELEGATE : SceneDelegate!
@@ -169,5 +173,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             loaderView.removeFromSuperview()
         }
     }
+    
+    //PUSH NOTIFICATION
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
 }
 

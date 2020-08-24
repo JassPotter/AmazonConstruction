@@ -29,6 +29,7 @@
 		CD45C36124EBA400002AF21C /* ContractorFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD45C35A24EBA400002AF21C /* ContractorFormVC.swift */; };
 		CD45C36224EBA400002AF21C /* AdditionalContractorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD45C35B24EBA400002AF21C /* AdditionalContractorCell.xib */; };
 		CD45C36324EBA400002AF21C /* AdditionalContractorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD45C35C24EBA400002AF21C /* AdditionalContractorCell.swift */; };
+		CD4E098B24F3F811001BC25A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD4E098A24F3F811001BC25A /* GoogleService-Info.plist */; };
 		CD80464824E576C20060B40B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD80464724E576C20060B40B /* Assets.xcassets */; };
 		CD80464B24E576C20060B40B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD80464924E576C20060B40B /* LaunchScreen.storyboard */; };
 		CD8046BB24E577660060B40B /* App_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80465324E577650060B40B /* App_Constants.swift */; };
@@ -114,6 +115,7 @@
 		CD45C35A24EBA400002AF21C /* ContractorFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractorFormVC.swift; sourceTree = "<group>"; };
 		CD45C35B24EBA400002AF21C /* AdditionalContractorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalContractorCell.xib; sourceTree = "<group>"; };
 		CD45C35C24EBA400002AF21C /* AdditionalContractorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalContractorCell.swift; sourceTree = "<group>"; };
+		CD4E098A24F3F811001BC25A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD80463B24E576BD0060B40B /* AmzonConstruction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmzonConstruction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD80464724E576C20060B40B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD80464A24E576C20060B40B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 		CD8046B924E577660060B40B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD4E098A24F3F811001BC25A /* GoogleService-Info.plist */,
 				CD8046BA24E577660060B40B /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -610,6 +613,7 @@
 				CDEE46B224E966F50094546D /* InductionFormVC.xib in Resources */,
 				CD8046E024E577660060B40B /* Poppins-Medium.ttf in Resources */,
 				7E6DF37624EED2E900C76F50 /* AsbestosFormVC.xib in Resources */,
+				CD4E098B24F3F811001BC25A /* GoogleService-Info.plist in Resources */,
 				7E1D572624ED81F3008E64C5 /* HotWorksFormVC.xib in Resources */,
 				CD45C36024EBA400002AF21C /* ContractorFormVC.xib in Resources */,
 				CD458BE424E68FF700AAB5AD /* ALPhosterAdminVC.xib in Resources */,

@@ -172,7 +172,7 @@ extension AsbestosFormVC : AppNavigationControllerDelegate {
 extension AsbestosFormVC : FCAlertViewDelegate {
     func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
         if alertView.accessibilityValue == "LOGOUT" {
-            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            GetSetModel.removeAllKeyFromDefault()
             APP_SCENE_DELEGATE.setLoginVC()
         }
     }
