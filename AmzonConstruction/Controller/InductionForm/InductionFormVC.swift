@@ -609,7 +609,7 @@ class InductionFormVC: UIViewController {
                         self.strWorkPermitId = "\(dictWorkPermit["work_permit_id"]!)"
                         self.callFirstTimeAPIForContractor()
 
-//                        self.callUpdateFormDetail(isContractor: true, forStage: 4)
+//                      self.callUpdateFormDetail(isContractor: true, forStage: 4)
                     }
                     else if (dictPageInfo["work_permit"] as!
                         typeAliasDictionary)["status"]as! String == "3"{

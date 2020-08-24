@@ -177,6 +177,10 @@ class HotWorksFormVC: UIViewController {
                     self.chkAsbestosRequiredYes.isSelected = true
                     self.chkAsbestosRequiredNo.isSelected = false
                 }
+                else {
+                    self.chkAsbestosRequiredYes.isSelected = false
+                    self.chkAsbestosRequiredNo.isSelected = true
+                }
             }
         }
     }
@@ -283,9 +287,7 @@ class HotWorksFormVC: UIViewController {
         else {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             vc.strWorkPermitId = self.permit_id
-            if self.dictFormData.isEmpty {
-                vc.dictPageInfo = self.dictFormData
-            }
+            vc.dictPageInfo = self.dictFormData
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
