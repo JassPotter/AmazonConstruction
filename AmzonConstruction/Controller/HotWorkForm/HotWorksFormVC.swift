@@ -288,6 +288,8 @@ class HotWorksFormVC: UIViewController {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             vc.strWorkPermitId = self.permit_id
             vc.dictPageInfo = self.dictFormData
+//            if self.dictFormData.isEmpty {
+//            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -311,7 +313,7 @@ extension HotWorksFormVC : AppNavigationControllerDelegate {
 extension HotWorksFormVC : FCAlertViewDelegate {
     func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
         if alertView.accessibilityValue == "LOGOUT" {
-            GetSetModel.removeObjectForKey(objectKey: UD_KEY_APPUSER_INFO)
+            GetSetModel.removeAllKeyFromDefault()
             APP_SCENE_DELEGATE.setLoginVC()
         }
     }
