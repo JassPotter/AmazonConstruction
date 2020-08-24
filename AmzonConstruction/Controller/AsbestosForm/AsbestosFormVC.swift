@@ -126,12 +126,12 @@ class AsbestosFormVC: UIViewController {
     func redirectToNextForm(work_Permit_id:String) {
         let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
         vc.strWorkPermitId = self.permit_id
-        if !self.isEditable {
-            vc.dictPageInfo = self.dictFormData
-        }
-        if self.dictFormData.isEmpty {
-            vc.dictPageInfo = self.dictFormData
-        }
+        vc.dictPageInfo = self.dictFormData
+//        if !self.isEditable {
+//        }
+//        if self.dictFormData.isEmpty {
+//            vc.dictPageInfo = self.dictFormData
+//        }
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

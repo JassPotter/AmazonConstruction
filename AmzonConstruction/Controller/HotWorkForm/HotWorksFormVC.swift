@@ -283,9 +283,9 @@ class HotWorksFormVC: UIViewController {
         else {
             let vc = InductionFormVC.init(nibName: "InductionFormVC", bundle: nil)
             vc.strWorkPermitId = self.permit_id
-            if self.dictFormData.isEmpty {
-                vc.dictPageInfo = self.dictFormData
-            }
+            vc.dictPageInfo = self.dictFormData
+//            if self.dictFormData.isEmpty {
+//            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
