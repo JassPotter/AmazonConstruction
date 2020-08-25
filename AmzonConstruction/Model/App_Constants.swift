@@ -523,6 +523,19 @@ func showNoInternetAlert()  {
     alert.showAlert(in: APP_SCENE_DELEGATE.window, withTitle: APP_NAME, withSubtitle: "No internet connection available. Please try again!", withCustomImage: nil , withDoneButtonTitle: "Dismiss", andButtons: nil)
 }
 
+func convertToJSONString(value: AnyObject) -> String? {
+    if JSONSerialization.isValidJSONObject(value) {
+        do{
+            let data = try JSONSerialization.data(withJSONObject: value, options: [])
+            if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                return string as String
+            }
+        }catch{
+        }
+    }
+    return nil
+}
+
 
 func getDirectoryPath() -> String {
     let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)

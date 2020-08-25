@@ -105,7 +105,7 @@ extension LoginVC {
         params["password"] = password as AnyObject
         params["user_type"] = password as AnyObject
 //        params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
-        params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
+        params["token"] = getAccessToken() as AnyObject
         if isConnectedToNetwork() {
             APP_SCENE_DELEGATE.showAppLoader()
             ServiceCollection.sharedInstance.getLogin(param: params, response: {(dictResponse,rstatus,message) in
@@ -117,6 +117,8 @@ extension LoginVC {
                         GetSetModel.setObjectToUserDefaults(objValue: (dictResponse["data"] as! [typeAliasDictionary]).first!, ForKey: UD_KEY_APPUSER_INFO)
                         APP_SCENE_DELEGATE.dictUserInfo = (dictResponse["data"] as! [typeAliasDictionary]).first!
 //                        self.appNavigationController_BackAction()
+                        APP_SCENE_DELEGATE.setRootVC()
+                        return
                        switch APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String {
                         case "2":
                             //site manager

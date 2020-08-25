@@ -7,7 +7,7 @@
 
 import Foundation
 
-let SOMETHING_WRONG                             = "Something Went wrong, Please trye again"
+let SOMETHING_WRONG                             = "Something Went wrong, Please try again"
 let MSG_SOMETHING_WROG                          = "Something went wrong"
 let MSG_TXT_PASSCODE_NEW                        = "Enter new password"
 let MSG_TXT_PASSCODE                            = "Enter password"
@@ -29,3 +29,4 @@ let MSG_TXT_MOBILE                                    = "Enter Mobile No"
 let MSG_TXT_POSTAL_CODE                               = "Enter Postal Code"
 let MSG_TXT_CITY                                      = "Enter City"
 let MSG_TXT_GENDER                                    = "Select Gender"
+let MSG_TXT_FILL_ALL                                  = "Please fill all details to proceed further"

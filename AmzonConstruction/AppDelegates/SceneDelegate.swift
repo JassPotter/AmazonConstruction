@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import UserNotifications
+import FirebaseInstanceID
+import FirebaseMessaging
 
 @available(iOS 13.0, *)
 var APP_SCENE_DELEGATE : SceneDelegate!
@@ -95,6 +99,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
+    func setRootVC() {
+        
+        
+        switch APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String {
+        case "2":
+            //site manager
+            let vc = ALSiteManagerVC.init(nibName: "ALSiteManagerVC", bundle: nil)
+            vc.intLoginType = Int(APP_SCENE_DELEGATE.dictUserInfo["user_type"]as! String)!
+            navigationController = AppNavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = navigationController
+            break
+        case "3":
+            //contractor
+            let vc = ALContractorVC.init(nibName: "ALContractorVC", bundle: nil)
+            navigationController = AppNavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = navigationController
+            break
+        case "4":
+            //Region manager
+            let vc = ALReligionManagerVC.init(nibName: "ALReligionManagerVC", bundle: nil)
+            vc.isDirect = true
+            vc.arrList = APP_SCENE_DELEGATE.dictUserInfo["site_details"] as! [typeAliasDictionary]
+            navigationController = AppNavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = navigationController
+            break
+        case "5":
+            //Admin
+            let vc = ALPhosterAdminVC.init(nibName: "ALPhosterAdminVC", bundle: nil)
+            navigationController = AppNavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = navigationController
+            break
+        default:break
+        }
+    }
+    
     //MARK: CUSTOM METHOD
     func setHomeVC(){
         let homeVC = HomeVC.init(nibName: "HomeVC", bundle: nil)
@@ -134,5 +173,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             loaderView.removeFromSuperview()
         }
     }
+    
+    //PUSH NOTIFICATION
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
 }
 
