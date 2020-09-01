@@ -16,7 +16,7 @@ import AVFoundation
 
 @available(iOS 13.0, *)
 let APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
-public let APP_NAME  = "AmazonConstruction"
+public let APP_NAME  = "Amazon"
 public let APP_VERSION : String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 public let KEYCHAIN_KEY                         = ""
 public let APP_SHARE_LINK                       = "https://itunes.apple.com/us/app/fitness-food/id1511733245?ls=1&mt=8"

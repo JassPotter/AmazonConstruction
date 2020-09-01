@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ALReligionManagerVC" customModule="AmzonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ALReligionManagerVC" customModule="AmazonConstruction" customModuleProvider="target">
             <connections>
                 <outlet property="tableViewBG" destination="TOU-T4-sh1" id="9V4-lN-88D"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,14 +34,14 @@
                                     <rect key="frame" x="5" y="0.0" width="394" height="70"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Site Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9C-J7-6L2">
-                                            <rect key="frame" x="0.0" y="0.0" width="148" height="70"/>
-                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                                            <rect key="frame" x="5" y="0.0" width="148" height="70"/>
+                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No of contractor currently working on site" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogT-oZ-9VJ">
-                                            <rect key="frame" x="148" y="0.0" width="246" height="70"/>
-                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                                            <rect key="frame" x="153" y="0.0" width="236" height="70"/>
+                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -53,10 +53,10 @@
                                         <constraint firstAttribute="bottom" secondItem="O9C-J7-6L2" secondAttribute="bottom" id="g5d-7c-eU1"/>
                                         <constraint firstItem="O9C-J7-6L2" firstAttribute="top" secondItem="tbv-VM-Dhz" secondAttribute="top" id="gUx-oI-u44"/>
                                         <constraint firstItem="O9C-J7-6L2" firstAttribute="width" secondItem="tbv-VM-Dhz" secondAttribute="width" multiplier="0.375:1" id="imy-iq-bqK"/>
-                                        <constraint firstAttribute="trailing" secondItem="ogT-oZ-9VJ" secondAttribute="trailing" id="mGj-9w-BgJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="ogT-oZ-9VJ" secondAttribute="trailing" constant="5" id="mGj-9w-BgJ"/>
                                         <constraint firstItem="ogT-oZ-9VJ" firstAttribute="top" secondItem="O9C-J7-6L2" secondAttribute="top" id="nYJ-aw-7JU"/>
                                         <constraint firstAttribute="height" constant="70" id="pn1-A8-sSj"/>
-                                        <constraint firstItem="O9C-J7-6L2" firstAttribute="leading" secondItem="tbv-VM-Dhz" secondAttribute="leading" id="vtT-ja-hVa"/>
+                                        <constraint firstItem="O9C-J7-6L2" firstAttribute="leading" secondItem="tbv-VM-Dhz" secondAttribute="leading" constant="5" id="vtT-ja-hVa"/>
                                     </constraints>
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TOU-T4-sh1">
