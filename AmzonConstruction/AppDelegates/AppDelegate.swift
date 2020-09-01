@@ -41,7 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK: - FIREBASE METHODS
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        GetSetModel.setStringValueToUserDefaults(strValue: fcmToken, ForKey: UD_KEY_ACCESSTOKEN)
+        if !GetSetModel.iskeyAlreadyExist(key: UD_KEY_APPUSER_INFO) {
+            GetSetModel.setStringValueToUserDefaults(strValue: fcmToken, ForKey: UD_KEY_ACCESSTOKEN)            
+        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
