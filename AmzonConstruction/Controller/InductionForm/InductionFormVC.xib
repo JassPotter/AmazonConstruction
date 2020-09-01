@@ -20,7 +20,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InductionFormVC" customModule="AmzonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InductionFormVC" customModule="AmazonConstruction" customModuleProvider="target">
             <connections>
                 <outlet property="btnStatge2Approve" destination="fyO-4E-Lvg" id="AJj-8g-YYN"/>
                 <outlet property="btnStatge2Reject" destination="3ES-cQ-faG" id="1Lb-mR-xvy"/>
