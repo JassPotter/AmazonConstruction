@@ -99,6 +99,7 @@
 		7E6DF37424EED2E900C76F50 /* AsbestosFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsbestosFormVC.xib; sourceTree = "<group>"; };
 		7E81C2B724E987D60075546B /* WorkPermitFormOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitFormOneVC.swift; sourceTree = "<group>"; };
 		7E81C2B824E987D60075546B /* WorkPermitFormOneVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkPermitFormOneVC.xib; sourceTree = "<group>"; };
+		CD43733D24FE9AF2000D3667 /* AmazonConstruction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AmazonConstruction.entitlements; sourceTree = "<group>"; };
 		CD458BD524E68F9800AAB5AD /* ALContractorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALContractorVC.swift; sourceTree = "<group>"; };
 		CD458BD624E68F9800AAB5AD /* ALContractorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ALContractorVC.xib; sourceTree = "<group>"; };
 		CD458BD924E68FD400AAB5AD /* ALSiteManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALSiteManagerVC.swift; sourceTree = "<group>"; };
@@ -328,6 +329,7 @@
 		CD80463D24E576BD0060B40B /* AmzonConstruction */ = {
 			isa = PBXGroup;
 			children = (
+				CD43733D24FE9AF2000D3667 /* AmazonConstruction.entitlements */,
 				CD80467E24E577660060B40B /* AppDelegates */,
 				CD80468724E577660060B40B /* Controller */,
 				CD80468124E577660060B40B /* Font */,
@@ -863,7 +865,8 @@
 			baseConfigurationReference = 1A9F9A19ACF4D81EF15A27F0 /* Pods-AmzonConstruction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = AmzonConstruction/AmazonConstruction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = A9CTC5J9GL;
@@ -876,7 +879,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDC.AmzonConstruction;
 				PRODUCT_NAME = AmazonConstruction;
-				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Adhoc";
+				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -887,7 +890,8 @@
 			baseConfigurationReference = 170EE477BA054503F58D1F7A /* Pods-AmzonConstruction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = AmzonConstruction/AmazonConstruction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = A9CTC5J9GL;
@@ -900,7 +904,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDC.AmzonConstruction;
 				PRODUCT_NAME = AmazonConstruction;
-				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Adhoc";
+				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

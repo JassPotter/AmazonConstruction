@@ -103,7 +103,7 @@ extension LoginVC {
         var params = typeAliasDictionary()
         params["email_id"] = email as AnyObject
         params["password"] = password as AnyObject
-        params["user_type"] = password as AnyObject
+        params["user_type"] = "2" as AnyObject
 //        params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
         params["token"] = getAccessToken() as AnyObject
         if isConnectedToNetwork() {
