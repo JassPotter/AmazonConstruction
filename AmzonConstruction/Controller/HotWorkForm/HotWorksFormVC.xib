@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotWorksFormVC" customModule="AmzonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotWorksFormVC" customModule="AmazonConstruction" customModuleProvider="target">
             <connections>
                 <outlet property="chkAsbestosRequiredNo" destination="TgY-T9-LQa" id="ZI6-vF-18j"/>
                 <outlet property="chkAsbestosRequiredYes" destination="HH2-1o-02U" id="h0X-oL-0na"/>
@@ -1213,11 +1213,11 @@ contractor</string>
                             <rect key="frame" x="0.0" y="748" width="414" height="70"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxv-lS-oTU">
-                                    <rect key="frame" x="248" y="12.666666666666629" width="150" height="45"/>
+                                    <rect key="frame" x="278" y="12.666666666666629" width="120" height="45"/>
                                     <color key="backgroundColor" name="PrimaryOrange"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="TYk-8O-zlm"/>
-                                        <constraint firstAttribute="width" constant="150" id="mMk-Wq-5e1"/>
+                                        <constraint firstAttribute="width" constant="120" id="mMk-Wq-5e1"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
                                     <state key="normal" title="Next">
@@ -1240,10 +1240,7 @@ contractor</string>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fkI-89-z24">
-                                    <rect key="frame" x="16" y="0.0" width="100" height="70"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="GpK-C1-j2u"/>
-                                    </constraints>
+                                    <rect key="frame" x="16" y="0.0" width="149" height="70"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                     <state key="normal" title="Back to Main Menu">
                                         <color key="titleColor" name="PrimaryOrange"/>
@@ -1291,8 +1288,8 @@ contractor</string>
         </view>
     </objects>
     <resources>
-        <image name="ic_checkedbox" width="20" height="20"/>
-        <image name="ic_uncheckedbox" width="20" height="20"/>
+        <image name="ic_checkedbox" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="ic_uncheckedbox" width="33.333332061767578" height="33.333332061767578"/>
         <namedColor name="PrimaryOrange">
             <color red="0.93300002813339233" green="0.51399999856948853" blue="0.0080000003799796104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
