@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ALPhosterAdminVC" customModule="AmzonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ALPhosterAdminVC" customModule="AmazonConstruction" customModuleProvider="target">
             <connections>
                 <outlet property="lblChoosenTitle" destination="bcj-Wg-EES" id="dju-OV-bad"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

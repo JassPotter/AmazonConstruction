@@ -562,6 +562,7 @@ class InductionFormVC: UIViewController {
     }
     @IBAction func btnBackToMainAction() {
         //        self.appNavigationController_BackAction()
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
     @IBAction func btnSubmitFormAction(_ sender: UIButton) {
@@ -667,7 +668,7 @@ extension InductionFormVC {
             ServiceCollection.sharedInstance.createInductionForm(param: param, imageTagName: "prework_signature", fileSign: self.imageViewStage1Sign.image!, response: {(dictResponse,rstatus,message) in
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if rstatus == 1 {
-                    self.navigationController?.popToRootViewController(animated: true)
+                    self.redirecToMenu()
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
@@ -820,7 +821,7 @@ extension InductionFormVC {
                 APP_SCENE_DELEGATE.removeAppLoader()
                 if rstatus == 1 {
                     //                    self.appNavigationController_BackAction()
-                    self.btnBackToMainAction()
+                    self.redirecToMenu()
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
@@ -829,6 +830,17 @@ extension InductionFormVC {
         } else {
             showNoInternetAlert()
         }
+    }
+    
+    func redirecToMenu(){
+        for vc in self.navigationController!.viewControllers {
+            
+            if vc .isKind(of: ALSiteManagerVC.self) {
+                self.navigationController?.popToViewController(vc, animated: true)
+                return
+            }
+        }
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 extension InductionFormVC : delegateSignPad {
