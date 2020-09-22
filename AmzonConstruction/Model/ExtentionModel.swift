@@ -13,7 +13,7 @@ extension UITextField {
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        self.autocapitalizationType = UITextAutocapitalizationType.none;
+        self.autocapitalizationType = UITextAutocapitalizationType.sentences;
         self.autocorrectionType = UITextAutocorrectionType.no;
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
@@ -69,7 +69,7 @@ extension UITableView {
 extension UITextView
 {
     open override func awakeFromNib() {
-        self.autocapitalizationType = UITextAutocapitalizationType.none;
+        self.autocapitalizationType = UITextAutocapitalizationType.sentences;
         self.autocorrectionType = UITextAutocorrectionType.no;
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))

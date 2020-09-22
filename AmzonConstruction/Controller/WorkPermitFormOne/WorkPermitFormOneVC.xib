@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkPermitFormOneVC" customModule="AmazonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkPermitFormOneVC" customModule="Amazon_Construction" customModuleProvider="target">
             <connections>
                 <outlet property="chikVechicleEquipUsed" destination="yNv-P4-rEy" id="fLk-89-XfZ"/>
                 <outlet property="chkAccidentIncidentSafety" destination="BmM-P8-STt" id="5ny-XR-OiO"/>
@@ -1025,7 +1025,7 @@ off/isolated as necessary)</string>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(If so use, store 8, dispose of correctly)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Z-da-wQg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(If so use, store &amp; dispose of correctly)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Z-da-wQg">
                                                             <rect key="frame" x="8" y="25.666666666666515" width="290" height="130.33333333333334"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" name="PrimaryText"/>
@@ -1312,7 +1312,7 @@ management)</string>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrT-xc-iJM">
                                                             <rect key="frame" x="8" y="25.666666666666515" width="290" height="130.33333333333334"/>
-                                                            <string key="text">(If yes ensure that fall protection ,crawling boards and any other
+                                                            <string key="text">(If yes ensure that fall protection, crawling boards and any other
 controls are in place)</string>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" name="PrimaryText"/>
@@ -1383,7 +1383,7 @@ controls are in place)</string>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-q1-S61">
                                                             <rect key="frame" x="8" y="103.33333333333304" width="290" height="52.666666666666671"/>
-                                                            <string key="text">(If yes ensure that fall protection — 1-1 for persons and falling objects in " 
+                                                            <string key="text">(If yes ensure that fall protection for persons and falling objects in 
 place)</string>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" name="PrimaryText"/>

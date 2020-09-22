@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContractorFormVC" customModule="AmazonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContractorFormVC" customModule="Amazon_Construction" customModuleProvider="target">
             <connections>
                 <outlet property="constraintTblViewContractorHeight" destination="fJX-YD-QLY" id="aJo-qk-KCn"/>
                 <outlet property="lblCategoryName" destination="qPU-BR-KuH" id="AcN-mj-2lT"/>
@@ -41,19 +41,19 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUY-du-mOV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="505.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQT-fb-j9f">
-                                            <rect key="frame" x="16" y="16" width="343" height="93.5"/>
+                                            <rect key="frame" x="16" y="16" width="343" height="71"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contractor Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1F-bt-eu1">
-                                                    <rect key="frame" x="8" y="8" width="327" height="28"/>
+                                                    <rect key="frame" x="8" y="8" width="327" height="20"/>
                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                     <color key="textColor" name="PrimaryPlaceHolder"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose which category of work you are performing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYS-pI-CYz">
-                                                    <rect key="frame" x="8" y="36" width="327" height="49.5"/>
+                                                    <rect key="frame" x="8" y="28" width="327" height="35"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                     <color key="textColor" name="PrimaryPlaceHolder"/>
                                                     <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7K-0h-awr">
-                                            <rect key="frame" x="16" y="125.5" width="343" height="50"/>
+                                            <rect key="frame" x="16" y="103" width="343" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click here to select category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPU-BR-KuH">
                                                     <rect key="frame" x="8" y="8" width="291" height="34"/>
@@ -127,16 +127,16 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b81-e5-dK6">
-                                            <rect key="frame" x="16" y="191.5" width="343" height="69"/>
+                                            <rect key="frame" x="16" y="169" width="343" height="53.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Contractors:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOq-U7-BMh">
-                                                    <rect key="frame" x="8" y="8" width="327" height="28"/>
+                                                    <rect key="frame" x="8" y="8" width="327" height="20"/>
                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                     <color key="textColor" name="PrimaryPlaceHolder"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have additional contractors ?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTf-9H-fxw">
-                                                    <rect key="frame" x="8" y="36" width="327" height="25"/>
+                                                    <rect key="frame" x="8" y="28" width="327" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                     <color key="textColor" name="PrimaryPlaceHolder"/>
                                                     <nil key="highlightedColor"/>
@@ -159,13 +159,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If yes , please enter contractor details or click next" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmr-Om-ctY">
-                                            <rect key="frame" x="16" y="276.5" width="343" height="21.5"/>
+                                            <rect key="frame" x="16" y="238.5" width="343" height="15.5"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                             <color key="textColor" name="PrimaryText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgJ-bc-DOz">
-                                            <rect key="frame" x="16" y="314" width="343" height="50"/>
+                                            <rect key="frame" x="16" y="270" width="343" height="50"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UHU-mr-Bdj">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -272,27 +272,27 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2r-Xa-apn">
-                                            <rect key="frame" x="16" y="380" width="343" height="2"/>
+                                            <rect key="frame" x="16" y="336" width="343" height="2"/>
                                             <color key="backgroundColor" name="PrimaryOrange"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="qRh-Wd-Tlp"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Additional workers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKR-p6-TNK">
-                                            <rect key="frame" x="16" y="390" width="343" height="25"/>
+                                            <rect key="frame" x="16" y="346" width="343" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
                                             <color key="textColor" name="PrimaryText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wA1-sa-uW8">
-                                            <rect key="frame" x="16" y="423" width="343" height="2"/>
+                                            <rect key="frame" x="16" y="371.5" width="343" height="2"/>
                                             <color key="backgroundColor" name="PrimaryOrange"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="Zms-Vc-Qq6"/>
                                             </constraints>
                                         </view>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HM7-pO-N2i">
-                                            <rect key="frame" x="16" y="441" width="343" height="100"/>
+                                            <rect key="frame" x="16" y="389.5" width="343" height="100"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="fJX-YD-QLY"/>

@@ -126,10 +126,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVL-KF-Xby">
-                                                    <rect key="frame" x="0.0" y="60" width="374" height="50"/>
+                                                    <rect key="frame" x="0.0" y="60" width="374" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Induction Briefing &amp; Site Tour DIG1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jto-PP-dAS">
-                                                            <rect key="frame" x="7.5" y="0.0" width="359" height="50"/>
+                                                            <rect key="frame" x="7.5" y="0.0" width="359" height="70"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condition of Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsZ-qS-6Vh">
-                                                    <rect key="frame" x="5" y="120" width="369" height="50"/>
+                                                    <rect key="frame" x="5" y="140" width="369" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="rsW-Mf-3J7"/>
                                                     </constraints>
@@ -159,7 +159,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rtp-8L-zek">
-                                                    <rect key="frame" x="5" y="180" width="369" height="190"/>
+                                                    <rect key="frame" x="5" y="200" width="369" height="190"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You must comply with site security requirements at all times." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzT-dN-Zhp">
                                                             <rect key="frame" x="0.0" y="0.0" width="369" height="56.5"/>
@@ -185,7 +185,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJ0-QD-xwR">
-                                                    <rect key="frame" x="0.0" y="390" width="374" height="260"/>
+                                                    <rect key="frame" x="0.0" y="410" width="374" height="260"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1H-I9-qx1">
                                                             <rect key="frame" x="7.5" y="0.0" width="359" height="260"/>
@@ -210,9 +210,9 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Arrival" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcI-88-3q4">
-                                                    <rect key="frame" x="5" y="660" width="369" height="50"/>
+                                                    <rect key="frame" x="5" y="680" width="369" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="mik-j1-8vo"/>
+                                                        <constraint firstAttribute="height" constant="40" id="mik-j1-8vo"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
                                                     <color key="textColor" name="PrimaryText"/>
@@ -241,7 +241,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="ecT-51-9T3" secondAttribute="trailing" id="93y-mU-jlj"/>
                                                 <constraint firstItem="HsZ-qS-6Vh" firstAttribute="trailing" secondItem="ecT-51-9T3" secondAttribute="trailing" id="Dc7-oU-qBh"/>
                                                 <constraint firstItem="rtp-8L-zek" firstAttribute="trailing" secondItem="HsZ-qS-6Vh" secondAttribute="trailing" id="Dtf-FT-pTX"/>
-                                                <constraint firstItem="it7-TX-lUH" firstAttribute="top" secondItem="LcI-88-3q4" secondAttribute="bottom" constant="10" id="HNw-by-r1a"/>
+                                                <constraint firstItem="it7-TX-lUH" firstAttribute="top" secondItem="LcI-88-3q4" secondAttribute="bottom" id="HNw-by-r1a"/>
                                                 <constraint firstItem="SVL-KF-Xby" firstAttribute="trailing" secondItem="ecT-51-9T3" secondAttribute="trailing" id="ILJ-H6-quo"/>
                                                 <constraint firstItem="SVL-KF-Xby" firstAttribute="top" secondItem="ecT-51-9T3" secondAttribute="bottom" constant="10" id="L9v-y6-xHj"/>
                                                 <constraint firstItem="ecT-51-9T3" firstAttribute="top" secondItem="8Oh-24-Sd4" secondAttribute="top" id="PaM-l7-mtU"/>
@@ -300,7 +300,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEY-O9-GW4">
                                                             <rect key="frame" x="0.0" y="242" width="369" height="130.5"/>
-                                                            <string key="text">In the event of a fire evacuation you must go to the fire assembly point for the site. Do not stop collects personal belongings. A roll call will be completed at this point. Do NOT leave the site until told by the site management you can do so. DO NOT re-enter the site until told by management it is safe to do so.</string>
+                                                            <string key="text">In the event of a fire evacuation you must go to the fire assembly point for the site. Do not stop to collect personal belongings. A roll call will be completed at this point. Do NOT leave the site until told by the site management you can do so. DO NOT re-enter the site until told by management it is safe to do so.</string>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>

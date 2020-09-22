@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotWorksFormVC" customModule="AmazonConstruction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotWorksFormVC" customModule="Amazon_Construction" customModuleProvider="target">
             <connections>
                 <outlet property="chkAsbestosRequiredNo" destination="TgY-T9-LQa" id="ZI6-vF-18j"/>
                 <outlet property="chkAsbestosRequiredYes" destination="HH2-1o-02U" id="h0X-oL-0na"/>
@@ -370,9 +370,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tt-mw-c4z">
                                                     <rect key="frame" x="0.0" y="128" width="382" height="128"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have checked your equipment over prior to use 8, it is safe to operate? " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR5-S6-jBd">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have checked your equipment over prior to use &amp;, it is safe to operate? " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR5-S6-jBd">
                                                             <rect key="frame" x="8" y="8" width="328" height="112"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                                             <color key="textColor" name="PrimaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
