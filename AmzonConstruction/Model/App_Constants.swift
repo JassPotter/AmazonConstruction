@@ -408,7 +408,6 @@ func getUDID() -> String {
 
 //MARK: - GET UDID
 func getAccessToken() -> String {
-    
     var accessToken = ""
     if GetSetModel.iskeyAlreadyExist(key: UD_KEY_ACCESSTOKEN){
         accessToken = GetSetModel.getStringValueFromUserDefaults(UD_KEY_ACCESSTOKEN)

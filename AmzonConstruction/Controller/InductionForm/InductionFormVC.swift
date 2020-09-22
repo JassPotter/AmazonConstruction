@@ -84,7 +84,8 @@ class InductionFormVC: UIViewController {
             
             switch (dictPageInfo["work_permit"] as! typeAliasDictionary)["status"]as! String {
             case "1":
-                self.txtStage2Name.text = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)"
+//                self.txtStage2Name.text = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)"
+                self.txtStage2Name.text = ""
                 self.txtStage2Postion.text = "Site Manager"
                 self.viewStatge2NoteBG.isHidden = true
                 self.viewStage2BG.isUserInteractionEnabled = true
@@ -184,7 +185,8 @@ class InductionFormVC: UIViewController {
                 self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
                 self.imageViewStage4Sign.sd_setImage(with: URL.init(string: dict["afterwork_signature"]as! String), completed: nil)
                 
-                self.txtStage5Name.text = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)"
+//                self.txtStage5Name.text = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)"
+                self.txtStage5Name.text = ""
                 self.txtStage5Position.text = "Site Manager"
                 
                 self.viewStage5BG.isUserInteractionEnabled = true
@@ -781,6 +783,10 @@ extension InductionFormVC {
             }
             else {
                 if forStage == 23 {
+                    if self.txtStage2Name.text!.trim() == "" {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                        return
+                    }
                     if self.imageViewStage2Sign.image == UIImage() || self.imageViewStage2Sign.image == nil {
                         showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
                         return
@@ -792,7 +798,7 @@ extension InductionFormVC {
                         }
                     }
                     
-                    param["prework_amazon_nameprint"] = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)" as AnyObject
+                    param["prework_amazon_nameprint"] = "\(self.txtStage2Name.text!)" as AnyObject
                     param["prework_amazon_position"] = "Site Manager" as AnyObject
                     param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
                     param["status"] = "\(self.btnStatge2Approve.isSelected ? "3" : "2")" as AnyObject
@@ -802,11 +808,14 @@ extension InductionFormVC {
                     imgSIgnBG = self.imageViewStage2Sign.image!
                 }
                 else if forStage == 5 {
+                    if self.txtStage5Name.text!.trim() == "" {
+                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                    }
                     if self.imageViewStage5Sign.image == UIImage() || self.imageViewStage5Sign.image == nil {
                         showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
                         return
                     }
-                    param["afterwork_amazon_nameprint"] = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)" as AnyObject
+                    param["afterwork_amazon_nameprint"] = "\(self.txtStage5Name.text!)" as AnyObject
                     param["afterwork_amazon_position"] = "Site Manager" as AnyObject
                     param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
                     param["status"] = "5" as AnyObject

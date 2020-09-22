@@ -117,7 +117,7 @@
 		CD45C35B24EBA400002AF21C /* AdditionalContractorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalContractorCell.xib; sourceTree = "<group>"; };
 		CD45C35C24EBA400002AF21C /* AdditionalContractorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalContractorCell.swift; sourceTree = "<group>"; };
 		CD4E098A24F3F811001BC25A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CD80463B24E576BD0060B40B /* AmazonConstruction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazonConstruction.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD80463B24E576BD0060B40B /* Amazon Construction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amazon Construction.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD80464724E576C20060B40B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD80464A24E576C20060B40B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD80465324E577650060B40B /* App_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App_Constants.swift; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 		CD80463C24E576BD0060B40B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD80463B24E576BD0060B40B /* AmazonConstruction.app */,
+				CD80463B24E576BD0060B40B /* Amazon Construction.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -561,7 +561,7 @@
 			);
 			name = AmzonConstruction;
 			productName = AmzonConstruction;
-			productReference = CD80463B24E576BD0060B40B /* AmazonConstruction.app */;
+			productReference = CD80463B24E576BD0060B40B /* Amazon Construction.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -878,7 +878,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDC.AmzonConstruction;
-				PRODUCT_NAME = AmazonConstruction;
+				PRODUCT_NAME = "Amazon Construction";
 				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -903,7 +903,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDC.AmzonConstruction;
-				PRODUCT_NAME = AmazonConstruction;
+				PRODUCT_NAME = "Amazon Construction";
 				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
