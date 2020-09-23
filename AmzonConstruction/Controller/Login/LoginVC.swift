@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LoginVC: UIViewController {
 
@@ -15,7 +16,12 @@ class LoginVC: UIViewController {
     @IBOutlet weak var viewLogoBG: UIView!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var imgViewLogo: UIImageView!
+    @IBOutlet weak var viewScannerBG: UIView!
     
+    //MARK: VARIABLES
+    var captureSession:AVCaptureSession?
+    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
+    var qrCodeFrameView:UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +37,9 @@ class LoginVC: UIViewController {
         viewLogoBG.cornerRadius = 24
         viewLogoBG.round(corners: [.topLeft,.topRight,.bottomRight], radius: 24)
         self.view.isHidden = false
-        
+        setQRView()
     }
-    
+
     //MARK: NAVIGATION BAR
     func setNavigationBar() {
         UIApplication.shared.isStatusBarHidden = false
@@ -101,8 +107,8 @@ extension LoginVC {
     
     func callLoginAPI(email:String,password:String) {
         var params = typeAliasDictionary()
-        params["email_id"] = email as AnyObject
-        params["password"] = password as AnyObject
+        params["user_id"] = email as AnyObject
+//        params["password"] = password as AnyObject
         params["user_type"] = "2" as AnyObject
 //        params["token"] = "fBf6GCyV9kxqqFMt7QzI9I:APA91bHmRD3diM2F-d_WizXkBj59AJ0mWoraxGL1v2eSlLgrd72CY4AB2HLPWj9LUGuB6UxqfRurYhXJBsmueLiVOpArAl0tFo1Yyn7Vflte1f3EBbUmcE2_NSjDGeV3uMvOhYJgcR8I" as AnyObject
         params["token"] = getAccessToken() as AnyObject
@@ -148,15 +154,80 @@ extension LoginVC {
                     }
                     else {
                         showAlertWithTitleWithMessage(message: "Invalid Email Or Password.")
+                        self.captureSession?.startRunning()
                     }
                 }
                 else {
                     showAlertWithTitleWithMessage(message: SOMETHING_WRONG)
+                    self.captureSession?.startRunning()
                 }
             })
         } else {
             showNoInternetAlert()
         }
 
+    }
+}
+extension LoginVC : AVCaptureMetadataOutputObjectsDelegate {
+    func setQRView () {
+        guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {return}
+        
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+            captureSession = AVCaptureSession()
+            captureSession?.addInput(input)
+            let captureMetadataOutput = AVCaptureMetadataOutput()
+            captureSession?.addOutput(captureMetadataOutput)
+            
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+            
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            videoPreviewLayer?.frame = viewScannerBG.layer.bounds
+            viewScannerBG.layer.addSublayer(videoPreviewLayer!)
+            
+            captureSession?.startRunning()
+            
+            qrCodeFrameView = UIView()
+            
+            if let qrCodeFrameView = qrCodeFrameView {
+                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                qrCodeFrameView.layer.borderWidth = 2
+                self.viewScannerBG.addSubview(qrCodeFrameView)
+                self.view.bringSubviewToFront(viewScannerBG)
+            }
+            
+            //                    captureSession?.startRunning()
+            
+        } catch {
+            // If any error occurs, simply print it out and don't continue any more.
+            print(error)
+            return
+        }
+    }
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        if metadataObjects.count == 0 {
+            qrCodeFrameView?.frame = CGRect.zero
+            //messageLabel.text = "No QR/barcode is detected"
+            print("No QR/barcode is detected")
+            return
+        }
+        
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if [AVMetadataObject.ObjectType.qr].contains(metadataObj.type) {
+            
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = barCodeObject!.bounds
+            
+            if metadataObj.stringValue != nil {
+                
+                captureSession?.stopRunning()
+                print(metadataObj.stringValue as Any)
+                self.callLoginAPI(email: "\(metadataObj.stringValue!)", password: "")
+            }
+        }
     }
 }

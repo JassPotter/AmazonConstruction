@@ -320,7 +320,6 @@ class InductionFormVC: UIViewController {
                     self.lblStage2NotePH.text = ""
                     self.btnStatge2Approve.isSelected = false
                     self.btnStatge2Reject.isSelected = true
-                    
                     self.btnSubmitFormBG.setTitle("ReSubmit", for: .normal)
                     self.viewStage1BG.isHidden = false
                     self.viewStage2BG.isHidden = false
@@ -333,6 +332,7 @@ class InductionFormVC: UIViewController {
                     self.constraintViewStageAsbestosBGHeight.constant = 0
                     self.constraintViewStage4BGHeight.constant = 0
                     self.constraintViewStage5BGHeight.constant = 0
+                    self.btnSubmitFormAction(UIButton())
                     break
                 case "3":
                     //approve
@@ -492,7 +492,7 @@ class InductionFormVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         APP_SCENE_DELEGATE.navigationController.setCustomTitleWithImage(#imageLiteral(resourceName: "image_Amazon"))
         APP_SCENE_DELEGATE.navigationController.navigationDelegate = self
-        APP_SCENE_DELEGATE.navigationController.setRightTitleMenu("Logout")
+//        APP_SCENE_DELEGATE.navigationController.setRightTitleMenu("Logout")
         APP_SCENE_DELEGATE.navigationController.setBack()
         
     }

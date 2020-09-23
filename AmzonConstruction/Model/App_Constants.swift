@@ -23,7 +23,8 @@ public let APP_SHARE_LINK                       = "https://itunes.apple.com/us/a
 public let APP_STOREID: String                  = "1511733245"
 
 //MARK: BASE_URL
-let BASE_URL = "https://advertico.co.uk/Amazon/Webservice/RestController.php?action="
+//let BASE_URL = "https://advertico.co.uk/Amazon/Webservice/RestController.php?action="
+let BASE_URL = "https://cmplus.co.uk/Amazon/Webservice/RestController.php?action="
 
 let SELECTION_SUPER_VIEW_TAG                    = 10001
 let SCROLLVIEW_FIX_HEIGHT                       = 550

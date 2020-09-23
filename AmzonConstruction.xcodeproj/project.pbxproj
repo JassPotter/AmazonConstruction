@@ -866,7 +866,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AmzonConstruction/AmazonConstruction.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = A9CTC5J9GL;
@@ -879,7 +879,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDC.AmzonConstruction;
 				PRODUCT_NAME = "Amazon Construction";
-				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Development";
+				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -891,7 +891,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AmzonConstruction/AmazonConstruction.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = A9CTC5J9GL;
@@ -904,7 +904,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDC.AmzonConstruction;
 				PRODUCT_NAME = "Amazon Construction";
-				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Development";
+				PROVISIONING_PROFILE_SPECIFIER = "AmazonConstruction Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
