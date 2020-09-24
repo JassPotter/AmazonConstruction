@@ -251,11 +251,12 @@ class HotWorksFormVC: UIViewController {
     }
     
     func getRegulations() -> String {
-        var arrRegulations = [Int]()
-        for i in 0..<5 {
-            arrRegulations.append(i+1)
+        var arrRegulations = [String]()
+        for i in 0..<6 {
+            arrRegulations.append("\(i+1)")
         }
-        return convertToJSONString(value: arrRegulations as AnyObject) ?? ""
+        return arrRegulations.joined(separator: ",")
+//        return convertToJSONString(value: arrRegulations as AnyObject) ?? ""
     }
     
     func getYesNoParams(params:typeAliasStringDictionary) -> typeAliasStringDictionary {

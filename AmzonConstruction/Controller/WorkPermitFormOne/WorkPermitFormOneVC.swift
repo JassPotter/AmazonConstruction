@@ -233,6 +233,7 @@ class WorkPermitFormOneVC: UIViewController {
             params["electricity_equipment_required"] = getYesNoCheckBoxValue(btnYes: chkElectricityEquipmentRequiredYes, btnNo: chkElectricityEquipmentRequiredNO)
             params["coshh_produced"] = getYesNoCheckBoxValue(btnYes: chkCoshhProducedYes, btnNo: chkCoshhProducedNO)
             params["evacuation_required"] = getYesNoCheckBoxValue(btnYes: chkEvacuationRequiredYes, btnNo: chkEvacuationRequiredNo)
+            params["overhead_obstructions"] = getYesNoCheckBoxValue(btnYes: chkOverheadObstructionsYes, btnNo: chkOverheadObstructionsNO)
             params["traffic_operating_area"] = getYesNoCheckBoxValue(btnYes: chkTrafficOperatingAreaYes, btnNo: chkTrafficOperatingAreaNo)
             params["fragile_roof_coverings"] = getYesNoCheckBoxValue(btnYes: chkFragileRoofCoveringsYes, btnNo: chkFragileRoofCoveringsNo)
             params["work_at_height"] = getYesNoCheckBoxValue(btnYes: chkWorkAtHeightYes, btnNo: chkWorkAtHeightNo)
@@ -345,11 +346,13 @@ class WorkPermitFormOneVC: UIViewController {
     }
     
     func getRegulations() -> String {
-        var arrRegulations = [Int]()
+        var arrRegulations = [String]()
         for i in 0..<8 {
-            arrRegulations.append(i+1)
+            arrRegulations.append("\(i+1)")
         }
-        return convertToJSONString(value: arrRegulations as AnyObject) ?? ""
+        return arrRegulations.joined(separator: ",")
+
+//        return convertToJSONString(value: arrRegulations as AnyObject) ?? ""
     }
     
     func redirectToNextForm(work_Permit_id:String) {

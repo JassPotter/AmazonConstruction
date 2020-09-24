@@ -25,6 +25,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.callLoginAPI(email: "2@2", password: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
