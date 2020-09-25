@@ -728,10 +728,10 @@ extension InductionFormVC {
                         showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
                         return
                     }
-                    if self.txtViewAsbestosComment.text.trim() == "" {
-                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
-                        return
-                    }
+//                    if self.txtViewAsbestosComment.text.trim() == "" {
+//                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+//                        return
+//                    }
                 }
                 if self.imageViewStage4Sign.image == UIImage() || self.imageViewStage4Sign.image == nil {
                     showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)

@@ -213,9 +213,9 @@ class WorkPermitFormOneVC: UIViewController {
         }   else if viewIsAsbestosRequired.isHidden == false &&  (!chkAsbestosRequiredYes.isSelected && !chkAsbestosRequiredNo.isSelected) {
             showFormValidationMessage();
         }
-        else if txtViewOtherSafetyChecks.text == "" {
-            showFormValidationMessage();
-        }
+//        else if txtViewOtherSafetyChecks.text == "" {
+//            showFormValidationMessage();
+//        }
         else {
             // CALL API
             var params = typeAliasStringDictionary()

@@ -58,7 +58,7 @@
                                         <constraint firstAttribute="trailing" secondItem="4rX-7z-8Yb" secondAttribute="trailing" id="qdi-Ld-yKj"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[ Scan QRCode To Login ]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOt-nb-T1g">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Scan QR Code to Log in]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOt-nb-T1g">
                                     <rect key="frame" x="0.0" y="169.66666666666666" width="375" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Q3e-EI-t9p"/>
@@ -189,8 +189,8 @@
                                 <constraint firstItem="WZS-RX-W90" firstAttribute="centerY" secondItem="IED-02-Kyi" secondAttribute="centerY" id="zrw-pE-hFw"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMPro Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNR-Ou-wJW">
-                            <rect key="frame" x="112.33333333333333" y="713" width="150.66666666666669" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMplus Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNR-Ou-wJW">
+                            <rect key="frame" x="109.33333333333333" y="713" width="156.66666666666669" height="21"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                             <color key="textColor" name="gray"/>
                             <nil key="highlightedColor"/>
