@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkPermitFormOneVC" customModule="Amazon_Construction" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkPermitFormOneVC" customModule="Amazon_Contractor" customModuleProvider="target">
             <connections>
                 <outlet property="chikVechicleEquipUsed" destination="yNv-P4-rEy" id="fLk-89-XfZ"/>
                 <outlet property="chkAccidentIncidentSafety" destination="BmM-P8-STt" id="5ny-XR-OiO"/>

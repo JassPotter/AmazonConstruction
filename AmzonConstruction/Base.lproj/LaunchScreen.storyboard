@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EmB-Jy-zIn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_Amazon" translatesAutoresizingMaskIntoConstraints="NO" id="Vac-DO-D0T">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_logoBg" translatesAutoresizingMaskIntoConstraints="NO" id="Vac-DO-D0T">
                                         <rect key="frame" x="83" y="324" width="248" height="248"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Vac-DO-D0T" secondAttribute="height" id="DjP-XS-hIe"/>
@@ -49,6 +49,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image_Amazon" width="316" height="95.5"/>
+        <image name="image_logoBg" width="512" height="512"/>
     </resources>
 </document>

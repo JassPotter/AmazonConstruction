@@ -104,7 +104,7 @@ class WorkPermitFormOneVC: UIViewController {
         UIApplication.shared.isStatusBarHidden = false
         APP_SCENE_DELEGATE.navigationController.navigationDelegate = self
         APP_SCENE_DELEGATE.navigationController.setBack()
-//        APP_SCENE_DELEGATE.navigationController.setRightButton(title: "Logout")
+        APP_SCENE_DELEGATE.navigationController.setRightButton(title: "Logout")
         APP_SCENE_DELEGATE.navigationController.setCustomTitleWithImage(UIImage.init(named: "image_Amazon(s)")!)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }

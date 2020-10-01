@@ -112,7 +112,7 @@ struct WebServicePrefix {
         var serviceURl: String?
         switch serviceType {
         case .GetLogin:
-            serviceURl = "qrcodeLogin"
+            serviceURl = "userLogin"
         case .GetHomeCategoryList:
             serviceURl = "getCategoydetails"
         case .GetCityList:

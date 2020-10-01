@@ -45,7 +45,7 @@ class ALReligionManagerVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         APP_SCENE_DELEGATE.navigationController.setCustomTitleWithImage(#imageLiteral(resourceName: "image_Amazon(s)"))
         APP_SCENE_DELEGATE.navigationController.navigationDelegate = self
-//        APP_SCENE_DELEGATE.navigationController.setRightTitleMenu("Logout")
+        APP_SCENE_DELEGATE.navigationController.setRightTitleMenu("Logout")
         if !isDirect { APP_SCENE_DELEGATE.navigationController.setBack() }
         else { APP_SCENE_DELEGATE.navigationController.setLeftBack() }
     }

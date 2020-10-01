@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CD80463A24E576BD0060B40B"
-               BuildableName = "Amazon Construction.app"
+               BuildableName = "Phosters Contractor.app"
                BlueprintName = "AmzonConstruction"
                ReferencedContainer = "container:AmzonConstruction.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD80463A24E576BD0060B40B"
-            BuildableName = "Amazon Construction.app"
+            BuildableName = "Phosters Contractor.app"
             BlueprintName = "AmzonConstruction"
             ReferencedContainer = "container:AmzonConstruction.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD80463A24E576BD0060B40B"
-            BuildableName = "Amazon Construction.app"
+            BuildableName = "Phosters Contractor.app"
             BlueprintName = "AmzonConstruction"
             ReferencedContainer = "container:AmzonConstruction.xcodeproj">
          </BuildableReference>

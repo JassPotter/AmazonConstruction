@@ -15,7 +15,7 @@ class InductionFormVC: UIViewController {
     //MARK: PROPERTIES
     //stage 1
     @IBOutlet weak var viewStage1BG: UIView!
-    @IBOutlet weak var constraintViewStage1BGHeight: NSLayoutConstraint!//515
+//    @IBOutlet weak var constraintViewStage1BGHeight: NSLayoutConstraint!//515
     @IBOutlet weak var txtStage1Name: UITextField!
     @IBOutlet weak var txtStage1Company: UITextField!
     @IBOutlet weak var imageViewStage1Sign: UIImageView!
@@ -35,6 +35,10 @@ class InductionFormVC: UIViewController {
     //stage asbestos
     @IBOutlet weak var viewStageAsbestosBG: UIView!
     @IBOutlet weak var constraintViewStageAsbestosBGHeight: NSLayoutConstraint!//1545
+    @IBOutlet weak var viewAsbestosInnerView1TopText: UIView!
+    @IBOutlet weak var viewAsbestosInnerView1StackBG: UIStackView!
+    @IBOutlet weak var constraintviewAsbestosInnerView1TopTextHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintviewAsbestosInnerView1StackBGHeight: NSLayoutConstraint!
     @IBOutlet var btnViewAsbestosTopCollection: [UIButton]!
     @IBOutlet weak var txtViewAsbestosComment: UITextView!
     @IBOutlet weak var lblAsbestosCommentPH: UILabel!
@@ -44,7 +48,7 @@ class InductionFormVC: UIViewController {
     @IBOutlet var btnViewAsbestosQ4Collection: [UIButton]!
     //Stage 4
     @IBOutlet weak var viewStage4BG: UIView!
-    @IBOutlet weak var constraintViewStage4BGHeight: NSLayoutConstraint!//565
+    @IBOutlet weak var constraintViewStage4BGHeight: NSLayoutConstraint!//590
     @IBOutlet weak var txtStage4Name: UITextField!
     @IBOutlet weak var txtStage4Company: UITextField!
     @IBOutlet weak var imageViewStage4Sign: UIImageView!
@@ -94,7 +98,7 @@ class InductionFormVC: UIViewController {
                 self.viewStageAsbestosBG.isHidden = true
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 515
+                // self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
@@ -118,7 +122,7 @@ class InductionFormVC: UIViewController {
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
                 self.viewStatge2NoteBG.isHidden = false
-                self.constraintViewStage1BGHeight.constant = 515
+                // self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 635
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
@@ -141,7 +145,7 @@ class InductionFormVC: UIViewController {
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
                 self.viewStatge2NoteBG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 515
+                // self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
@@ -165,21 +169,21 @@ class InductionFormVC: UIViewController {
                         else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
                         else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
                     }
-                    for btn in self.btnViewAsbestosQ1Collection {
-                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
-                    }
-                    for btn in self.btnViewAsbestosQ2Collection {
-                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
-                    }
-                    for btn in self.btnViewAsbestosQ3Collection {
-                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
-                    }
-                    for btn in self.btnViewAsbestosQ4Collection {
-                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
-                    }
-                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
-                    self.lblAsbestosCommentPH.text = ""
                 }
+                for btn in self.btnViewAsbestosQ1Collection {
+                    btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                }
+                for btn in self.btnViewAsbestosQ2Collection {
+                    btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                }
+                for btn in self.btnViewAsbestosQ3Collection {
+                    btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                }
+                for btn in self.btnViewAsbestosQ4Collection {
+                    btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                }
+                self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                self.lblAsbestosCommentPH.text = ""
                 
                 self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
                 self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
@@ -192,14 +196,19 @@ class InductionFormVC: UIViewController {
                 self.viewStage5BG.isUserInteractionEnabled = true
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
-                self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                self.viewStageAsbestosBG.isHidden = false
+                self.viewAsbestosInnerView1StackBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                self.viewAsbestosInnerView1TopText.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                 self.viewStage4BG.isHidden = false
                 self.viewStage5BG.isHidden = false
                 self.viewStatge2NoteBG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 515
+                // self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
-                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
-                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 1045)
+                self.constraintviewAsbestosInnerView1StackBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 260 : 0)
+                self.constraintviewAsbestosInnerView1TopTextHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 230 : 0)
+
+                self.constraintViewStage4BGHeight.constant = 590
                 self.constraintViewStage5BGHeight.constant = 480
                 break
             case "5":
@@ -220,21 +229,21 @@ class InductionFormVC: UIViewController {
                         else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
                         else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
                     }
-                    for btn in self.btnViewAsbestosQ1Collection {
-                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
-                    }
-                    for btn in self.btnViewAsbestosQ2Collection {
-                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
-                    }
-                    for btn in self.btnViewAsbestosQ3Collection {
-                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
-                    }
-                    for btn in self.btnViewAsbestosQ4Collection {
-                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
-                    }
-                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
-                    self.lblAsbestosCommentPH.text = ""
                 }
+                for btn in self.btnViewAsbestosQ1Collection {
+                    btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                }
+                for btn in self.btnViewAsbestosQ2Collection {
+                    btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                }
+                for btn in self.btnViewAsbestosQ3Collection {
+                    btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                }
+                for btn in self.btnViewAsbestosQ4Collection {
+                    btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                }
+                self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                self.lblAsbestosCommentPH.text = ""
                 
                 self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
                 self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
@@ -246,14 +255,19 @@ class InductionFormVC: UIViewController {
                 
                 self.viewStage1BG.isHidden = false
                 self.viewStage2BG.isHidden = false
-                self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                self.viewStageAsbestosBG.isHidden = false
+                self.viewAsbestosInnerView1StackBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                self.viewAsbestosInnerView1TopText.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                 self.viewStage4BG.isHidden = false
                 self.viewStage5BG.isHidden = false
                 self.viewStatge2NoteBG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 515
+                // self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 545
-                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
-                self.constraintViewStage4BGHeight.constant = 565
+                self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 1045)
+                self.constraintviewAsbestosInnerView1StackBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 260 : 0)
+                self.constraintviewAsbestosInnerView1TopTextHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 230 : 0)
+
+                self.constraintViewStage4BGHeight.constant = 590
                 self.constraintViewStage5BGHeight.constant = 480
                 break
             default:
@@ -273,7 +287,7 @@ class InductionFormVC: UIViewController {
                 self.viewStage4BG.isHidden = true
                 self.viewStage5BG.isHidden = true
                 self.viewStatge2NoteBG.isHidden = true
-                self.constraintViewStage1BGHeight.constant = 515
+                // self.constraintViewStage1BGHeight.constant = 515
                 self.constraintViewStage2BGHeight.constant = 0
                 self.constraintViewStageAsbestosBGHeight.constant = 0
                 self.constraintViewStage4BGHeight.constant = 0
@@ -304,7 +318,7 @@ class InductionFormVC: UIViewController {
                     self.viewStage4BG.isHidden = true
                     self.viewStage5BG.isHidden = true
                     self.viewStatge2NoteBG.isHidden = true
-                    self.constraintViewStage1BGHeight.constant = 515
+                    // self.constraintViewStage1BGHeight.constant = 515
                     self.constraintViewStage2BGHeight.constant = 0
                     self.constraintViewStageAsbestosBGHeight.constant = 0
                     self.constraintViewStage4BGHeight.constant = 0
@@ -327,7 +341,7 @@ class InductionFormVC: UIViewController {
                     self.viewStage4BG.isHidden = true
                     self.viewStage5BG.isHidden = true
                     self.viewStatge2NoteBG.isHidden = false
-                    self.constraintViewStage1BGHeight.constant = 515
+                    // self.constraintViewStage1BGHeight.constant = 515
                     self.constraintViewStage2BGHeight.constant = 635
                     self.constraintViewStageAsbestosBGHeight.constant = 0
                     self.constraintViewStage4BGHeight.constant = 0
@@ -347,18 +361,22 @@ class InductionFormVC: UIViewController {
                     self.txtStage4Name.text = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)"
                     self.txtStage4Company.text = "\(APP_SCENE_DELEGATE.dictUserInfo["contractor_company"]!)"
                     
-                    self.viewStageAsbestosBG.isUserInteractionEnabled = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "")
+                    self.viewStageAsbestosBG.isUserInteractionEnabled = true
                     self.viewStage4BG.isUserInteractionEnabled = true
                     self.viewStage1BG.isHidden = false
                     self.viewStage2BG.isHidden = false
-                    self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String == "")
+                    self.viewStageAsbestosBG.isHidden = false
+                    self.viewAsbestosInnerView1StackBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                    self.viewAsbestosInnerView1TopText.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                     self.viewStage4BG.isHidden = false
                     self.viewStage5BG.isHidden = true
                     self.viewStatge2NoteBG.isHidden = true
-                    self.constraintViewStage1BGHeight.constant = 515
+                    // self.constraintViewStage1BGHeight.constant = 515
                     self.constraintViewStage2BGHeight.constant = 545
-                    self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
-                    self.constraintViewStage4BGHeight.constant = 565
+                    self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 1045)
+                    self.constraintviewAsbestosInnerView1StackBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 260 : 0)
+                    self.constraintviewAsbestosInnerView1TopTextHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 230 : 0)
+                    self.constraintViewStage4BGHeight.constant = 590
                     self.constraintViewStage5BGHeight.constant = 0
                     break
                 case "4":
@@ -379,21 +397,21 @@ class InductionFormVC: UIViewController {
                             else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
                             else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
                         }
-                        for btn in self.btnViewAsbestosQ1Collection {
-                            btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
-                        }
-                        for btn in self.btnViewAsbestosQ2Collection {
-                            btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
-                        }
-                        for btn in self.btnViewAsbestosQ3Collection {
-                            btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
-                        }
-                        for btn in self.btnViewAsbestosQ4Collection {
-                            btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
-                        }
-                        self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
-                        self.lblAsbestosCommentPH.text = ""
                     }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                    }
+                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                    self.lblAsbestosCommentPH.text = ""
                     
                     self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
                     self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
@@ -401,14 +419,18 @@ class InductionFormVC: UIViewController {
                     
                     self.viewStage1BG.isHidden = false
                     self.viewStage2BG.isHidden = false
-                    self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                    self.viewStageAsbestosBG.isHidden = false
+                    self.viewAsbestosInnerView1StackBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                    self.viewAsbestosInnerView1TopText.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                     self.viewStage4BG.isHidden = false
                     self.viewStage5BG.isHidden = true
                     self.viewStatge2NoteBG.isHidden = true
-                    self.constraintViewStage1BGHeight.constant = 515
+                    // self.constraintViewStage1BGHeight.constant = 515
                     self.constraintViewStage2BGHeight.constant = 545
-                    self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
-                    self.constraintViewStage4BGHeight.constant = 565
+                    self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 1045)
+                    self.constraintviewAsbestosInnerView1StackBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 260 : 0)
+                    self.constraintviewAsbestosInnerView1TopTextHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 230 : 0)
+                    self.constraintViewStage4BGHeight.constant = 590
                     self.constraintViewStage5BGHeight.constant = 0
                     break
                 case "5":
@@ -421,28 +443,29 @@ class InductionFormVC: UIViewController {
                     self.lblStage2NotePH.text = ""
                     self.btnStatge2Approve.isSelected = true
                     self.btnStatge2Reject.isSelected = false
-                    
+                    self.viewStatge2NoteBG.isHidden = true
+
                     if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
                         for btn in self.btnViewAsbestosTopCollection {
                             if btn.tag == 1{ btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("1") }
                             else if btn.tag == 2 { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("2") }
                             else { btn.isSelected = "\(dict["asbestos_risks"]!)".isContainString("3") }
                         }
-                        for btn in self.btnViewAsbestosQ1Collection {
-                            btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
-                        }
-                        for btn in self.btnViewAsbestosQ2Collection {
-                            btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
-                        }
-                        for btn in self.btnViewAsbestosQ3Collection {
-                            btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
-                        }
-                        for btn in self.btnViewAsbestosQ4Collection {
-                            btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
-                        }
-                        self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
-                        self.lblAsbestosCommentPH.text = ""
                     }
+                    for btn in self.btnViewAsbestosQ1Collection {
+                        btn.isSelected = "\(dict["prework_work_area"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ2Collection {
+                        btn.isSelected = "\(dict["prework_waste_produced"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ3Collection {
+                        btn.isSelected = "\(dict["prework_equipment_repaired"]!)".isContainString("\(btn.tag)")
+                    }
+                    for btn in self.btnViewAsbestosQ4Collection {
+                        btn.isSelected = "\(dict["prework_document_report"]!)".isContainString("\(btn.tag)")
+                    }
+                    self.txtViewAsbestosComment.text = "\(dict["prework_further_comments"]!)"
+                    self.lblAsbestosCommentPH.text = ""
                     
                     self.txtStage4Name.text = "\(dict["afterwork_nameprint"]!)"
                     self.txtStage4Company.text = "\(dict["afterwork_company"]!)"
@@ -454,14 +477,17 @@ class InductionFormVC: UIViewController {
                     
                     self.viewStage1BG.isHidden = false
                     self.viewStage2BG.isHidden = false
-                    self.viewStageAsbestosBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                    self.viewStageAsbestosBG.isHidden = false
+                    self.viewAsbestosInnerView1StackBG.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
+                    self.viewAsbestosInnerView1TopText.isHidden = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? false : true)
                     self.viewStage4BG.isHidden = false
                     self.viewStage5BG.isHidden = false
-                    self.viewStatge2NoteBG.isHidden = false
-                    self.constraintViewStage1BGHeight.constant = 515
+                    // self.constraintViewStage1BGHeight.constant = 515
                     self.constraintViewStage2BGHeight.constant = 545
-                    self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 0)
-                    self.constraintViewStage4BGHeight.constant = 565
+                    self.constraintViewStageAsbestosBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 1545 : 1045)
+                    self.constraintviewAsbestosInnerView1StackBGHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 260 : 0)
+                    self.constraintviewAsbestosInnerView1TopTextHeight.constant = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "" ? 230 : 0)
+                    self.constraintViewStage4BGHeight.constant = 590
                     self.constraintViewStage5BGHeight.constant = 480
                     break
                 default:
@@ -492,7 +518,7 @@ class InductionFormVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         APP_SCENE_DELEGATE.navigationController.setCustomTitleWithImage(#imageLiteral(resourceName: "image_Amazon"))
         APP_SCENE_DELEGATE.navigationController.navigationDelegate = self
-//        APP_SCENE_DELEGATE.navigationController.setRightTitleMenu("Logout")
+        APP_SCENE_DELEGATE.navigationController.setRightTitleMenu("Logout")
         APP_SCENE_DELEGATE.navigationController.setBack()
         
     }
@@ -687,8 +713,8 @@ extension InductionFormVC {
             var imgTagName : String = ""
             var imgSIgnBG : UIImage = UIImage()
             if isContractor {
+                var isFilled : Bool = true
                 if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
-                    var isFilled : Bool = true
                     for btn in self.btnViewAsbestosTopCollection {
                         if !btn.isSelected { isFilled = false ; break }
                     }
@@ -696,43 +722,43 @@ extension InductionFormVC {
                         showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
                         return
                     }
-                    isFilled = false
-                    for btn in self.btnViewAsbestosQ1Collection {
-                        if btn.isSelected { isFilled = true ; break }
-                    }
-                    if !isFilled {
-                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
-                        return
-                    }
-                    isFilled = false
-                    for btn in self.btnViewAsbestosQ2Collection {
-                        if btn.isSelected { isFilled = true ; break }
-                    }
-                    if !isFilled {
-                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
-                        return
-                    }
-                    isFilled = false
-                    for btn in self.btnViewAsbestosQ3Collection {
-                        if btn.isSelected { isFilled = true ; break }
-                    }
-                    if !isFilled {
-                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
-                        return
-                    }
-                    isFilled = false
-                    for btn in self.btnViewAsbestosQ4Collection {
-                        if btn.isSelected { isFilled = true ; break }
-                    }
-                    if !isFilled {
-                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
-                        return
-                    }
-//                    if self.txtViewAsbestosComment.text.trim() == "" {
-//                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
-//                        return
-//                    }
                 }
+                isFilled = false
+                for btn in self.btnViewAsbestosQ1Collection {
+                    if btn.isSelected { isFilled = true ; break }
+                }
+                if !isFilled {
+                    showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                    return
+                }
+                isFilled = false
+                for btn in self.btnViewAsbestosQ2Collection {
+                    if btn.isSelected { isFilled = true ; break }
+                }
+                if !isFilled {
+                    showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                    return
+                }
+                isFilled = false
+                for btn in self.btnViewAsbestosQ3Collection {
+                    if btn.isSelected { isFilled = true ; break }
+                }
+                if !isFilled {
+                    showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                    return
+                }
+                isFilled = false
+                for btn in self.btnViewAsbestosQ4Collection {
+                    if btn.isSelected { isFilled = true ; break }
+                }
+                if !isFilled {
+                    showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                    return
+                }
+                //                    if self.txtViewAsbestosComment.text.trim() == "" {
+                //                        showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
+                //                        return
+                //                    }
                 if self.imageViewStage4Sign.image == UIImage() || self.imageViewStage4Sign.image == nil {
                     showAlertWithTitleWithMessage(message: MSG_TXT_FILL_ALL)
                     return
@@ -740,40 +766,28 @@ extension InductionFormVC {
                 param["work_permit_id"] = "\((dictPageInfo["work_permit"] as! typeAliasDictionary)["work_permit_id"]!)" as AnyObject
                 param["status"] = "4" as AnyObject
                 param["user_id"] = APP_SCENE_DELEGATE.dictUserInfo["user_id"] as AnyObject
-                if ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") {
-                    
-                    param["asbestos_risks"] = "1,2,3" as AnyObject
-                    //                    param["asbestos_comments"] = "" as AnyObject
-                    param["prework_further_comments"] = self.txtViewAsbestosComment.text.trim() as AnyObject
-                    for btn in self.btnViewAsbestosQ1Collection {
-                        if btn.tag == 1 {
-                            param["prework_work_area"] = (btn.isSelected ? "1" : "2") as AnyObject
-                        }
-                    }
-                    for btn in self.btnViewAsbestosQ2Collection {
-                        if btn.tag == 1 {
-                            param["prework_waste_produced"] = (btn.isSelected ? "1" : "2") as AnyObject
-                        }
-                    }
-                    for btn in self.btnViewAsbestosQ3Collection {
-                        if btn.tag == 1 {
-                            param["prework_equipment_repaired"] = (btn.isSelected ? "1" : "2") as AnyObject
-                        }
-                    }
-                    for btn in self.btnViewAsbestosQ4Collection {
-                        if btn.tag == 1 {
-                            param["prework_document_report"] = (btn.isSelected ? "1" : "2") as AnyObject
-                        }
+                
+                param["asbestos_risks"] = ((dictPageInfo["asbestos_permit"] as! typeAliasDictionary)["permit_valid_date"]as! String != "") ? "1,2,3" as AnyObject : "" as AnyObject
+                param["prework_further_comments"] = self.txtViewAsbestosComment.text.trim() as AnyObject
+                for btn in self.btnViewAsbestosQ1Collection {
+                    if btn.tag == 1 {
+                        param["prework_work_area"] = (btn.isSelected ? "1" : "2") as AnyObject
                     }
                 }
-                else {
-                    param["asbestos_risks"] = "" as AnyObject
-                    //                    param["asbestos_comments"] = "" as AnyObject
-                    param["prework_further_comments"] = "" as AnyObject
-                    param["prework_work_area"] = "" as AnyObject
-                    param["prework_waste_produced"] = "" as AnyObject
-                    param["prework_equipment_repaired"] = "" as AnyObject
-                    param["prework_document_report"] = "" as AnyObject
+                for btn in self.btnViewAsbestosQ2Collection {
+                    if btn.tag == 1 {
+                        param["prework_waste_produced"] = (btn.isSelected ? "1" : "2") as AnyObject
+                    }
+                }
+                for btn in self.btnViewAsbestosQ3Collection {
+                    if btn.tag == 1 {
+                        param["prework_equipment_repaired"] = (btn.isSelected ? "1" : "2") as AnyObject
+                    }
+                }
+                for btn in self.btnViewAsbestosQ4Collection {
+                    if btn.tag == 1 {
+                        param["prework_document_report"] = (btn.isSelected ? "1" : "2") as AnyObject
+                    }
                 }
                 
                 param["afterwork_nameprint"] = "\(APP_SCENE_DELEGATE.dictUserInfo["user_name"]!)" as AnyObject

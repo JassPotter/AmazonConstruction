@@ -23,7 +23,6 @@
                 <outlet property="txtPassword" destination="T37-mD-Lat" id="mle-z9-Zl0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewLogoBG" destination="vQ5-ZK-PVe" id="1rK-bI-jAa"/>
-                <outlet property="viewScannerBG" destination="vpi-7H-Jj8" id="WjU-Af-Ulf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -58,28 +57,7 @@
                                         <constraint firstAttribute="trailing" secondItem="4rX-7z-8Yb" secondAttribute="trailing" id="qdi-Ld-yKj"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Scan QR Code to Log in]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOt-nb-T1g">
-                                    <rect key="frame" x="0.0" y="169.66666666666666" width="375" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="Q3e-EI-t9p"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="22"/>
-                                    <color key="textColor" name="PrimaryOrange"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpi-7H-Jj8">
-                                    <rect key="frame" x="28" y="259.66666666666669" width="319" height="312.00000000000006"/>
-                                    <color key="backgroundColor" red="0.91799998279999995" green="0.91799998279999995" blue="0.91799998279999995" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.59648818110000001" green="0.92283672090000002" blue="0.39387484509999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="0.5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WZS-RX-W90">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WZS-RX-W90">
                                     <rect key="frame" x="16" y="239" width="343" height="256"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpJ-u4-6Go">
@@ -174,15 +152,8 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstItem="vQ5-ZK-PVe" firstAttribute="top" secondItem="IED-02-Kyi" secondAttribute="top" constant="24" id="3Rg-09-ZEm"/>
-                                <constraint firstItem="wOt-nb-T1g" firstAttribute="leading" secondItem="IED-02-Kyi" secondAttribute="leading" id="6tH-d3-AZf"/>
-                                <constraint firstItem="vpi-7H-Jj8" firstAttribute="top" secondItem="wOt-nb-T1g" secondAttribute="bottom" constant="50" id="Cvl-sS-UeJ"/>
                                 <constraint firstItem="WZS-RX-W90" firstAttribute="centerX" secondItem="IED-02-Kyi" secondAttribute="centerX" id="QdE-kE-rAj"/>
-                                <constraint firstItem="vpi-7H-Jj8" firstAttribute="height" secondItem="IED-02-Kyi" secondAttribute="height" multiplier="0.425:1" id="Rjp-mN-Pfd"/>
                                 <constraint firstItem="vQ5-ZK-PVe" firstAttribute="width" secondItem="IED-02-Kyi" secondAttribute="width" multiplier="0.5" id="biS-DL-ILZ"/>
-                                <constraint firstAttribute="trailing" secondItem="wOt-nb-T1g" secondAttribute="trailing" id="c2U-Lo-rNY"/>
-                                <constraint firstItem="wOt-nb-T1g" firstAttribute="top" secondItem="vQ5-ZK-PVe" secondAttribute="bottom" constant="50" id="gZu-lZ-BFT"/>
-                                <constraint firstItem="vpi-7H-Jj8" firstAttribute="centerX" secondItem="IED-02-Kyi" secondAttribute="centerX" id="jwS-7I-bRX"/>
-                                <constraint firstItem="vpi-7H-Jj8" firstAttribute="width" secondItem="IED-02-Kyi" secondAttribute="width" multiplier="0.85:1" id="pws-QP-s0j"/>
                                 <constraint firstItem="vQ5-ZK-PVe" firstAttribute="centerX" secondItem="IED-02-Kyi" secondAttribute="centerX" id="sMC-PH-RCV"/>
                                 <constraint firstItem="WZS-RX-W90" firstAttribute="leading" secondItem="IED-02-Kyi" secondAttribute="leading" constant="16" id="wEo-uz-JBX"/>
                                 <constraint firstAttribute="trailing" secondItem="WZS-RX-W90" secondAttribute="trailing" constant="16" id="wuI-Fy-WEw"/>
