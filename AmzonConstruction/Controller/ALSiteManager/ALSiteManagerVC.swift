@@ -12,6 +12,7 @@ import FCAlertView
 class ALSiteManagerVC: UIViewController {
     
     //MARK: PROPERTIES
+    @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var constraintViewTopHeight: NSLayoutConstraint!
     @IBOutlet weak var viewTopTitleBG: UIView!
     //    @IBOutlet var lblTopTitleCollection: [UILabel]!
@@ -201,7 +202,7 @@ extension ALSiteManagerVC : UITableViewDelegate,UITableViewDataSource {
         default: break
         }
         cell.lblStatus.text = strV
-        cell.viewBG.backgroundColor = strV == "Approved" ? Color_Theme_PendingYellow : (strV == "Signed Off & Complete" ? Color_Them_ApproveGreen : .white)
+        cell.viewBG.backgroundColor = strV == "Approved" ? Color_Theme_PendingYellow : (strV == "Signed Off & Complete" ? Color_Them_ApproveGreen : (strV == "Rejected" ? Color_Theme_RejectedRed : .white))
         cell.selectionStyle = .none
         return cell
     }
